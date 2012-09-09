@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Project Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\qw">
+      <UniqueIdentifier>{b6c9af68-cf9a-46e2-b2bc-f39def92aa28}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\qwind.pro">
+      <Filter>Project Files</Filter>
+    </None>
+    <None Include="..\src\qw\MainWindow.ui">
+      <Filter>Source Files\qw</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\qwind.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\qw\MainWindow.cpp">
+      <Filter>Source Files\qw</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\qw\config.h">
+      <Filter>Source Files\qw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\qw\GraphicsObject.h">
+      <Filter>Source Files\qw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\qw\MainWindow.h">
+      <Filter>Source Files\qw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\qw\InterpolatedAnimation.h">
+      <Filter>Source Files\qw</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

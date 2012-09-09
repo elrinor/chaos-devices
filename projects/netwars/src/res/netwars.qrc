@@ -1,0 +1,28 @@
+<RCC>
+  <qresource prefix="/" lang="eng" >
+    <file>pic_unit_elric_no_pc.png</file>
+    <file>pic_unit_internet.png</file>
+    <file>pic_unit_pc.png</file>
+    <file>pic_unit_server.png</file>
+    <file>pic_unit_switch.png</file>
+    <file>pic_tool_case_1.png</file>
+    <file>pic_tool_case_2.png</file>
+    <file>pic_tool_case_3.png</file>
+    <file>pic_tool_cpu.png</file>
+    <file>pic_tool_psu_1.png</file>
+    <file>pic_tool_psu_2.png</file>
+    <file>pic_tool_psu_3.png</file>
+    <file>pic_tool_ram.png</file>
+    <file>pic_tool_nic.png</file>
+    <file>pic_tool_nic_2.png</file>
+    <file>pic_tool_os_xp.png</file>
+    <file>pic_tool_os_98.png</file>
+    <file>pic_tool_os_dos.png</file>
+    <file>pic_tool_av_avp.png</file>
+    <file>pic_tool_av_nod32.png</file>
+    <file>pic_tool_av_mcaff.png</file>
+    <file>pic_tool_frw_outp.png</file>
+    <file>pic_gold.png</file>
+    <file>pic_logo.png</file>
+  </qresource>
+</RCC>

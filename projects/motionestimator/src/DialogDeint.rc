@@ -1,0 +1,134 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDDIALOG DIALOGEX 0, 0, 206, 222
+STYLE DS_SYSMODAL | DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Deinterlacer configuration"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "OK",IDOK,37,201,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,108,201,50,14
+    GROUPBOX        "Output",IDC_STATIC,7,3,192,64
+    GROUPBOX        "Algorithm",IDC_STATIC,7,72,192,127,WS_GROUP
+    LTEXT           "More details  <==Treshold==>   Less artifacts",
+                    IDQUALITYCAP,17,107,170,8,NOT WS_GROUP
+    CONTROL         "",IDQUALITYSLIDER,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | WS_TABSTOP,11,115,139,19
+    EDITTEXT        IDQUALITY,151,119,36,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDQUALITYSPIN,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_HOTTRACK,175,121,11,10
+    CONTROL         "Show interpolation mask",IDC_SHOWIMASK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,27,93,10
+    CONTROL         "Disable interpolation (MC only)",IDC_DISABLE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,40,112,10
+    CONTROL         "Show motion vectors",IDC_SHOWMV,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,53,82,10
+    CONTROL         "Even-numbered frames(0-based) contain top fields",
+                    IDC_EVENTOP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,171,
+                    179,10
+    CONTROL         "Raise sharpness",IDC_SHARPNESS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,12,14,68,10
+    CONTROL         "Do not convert to YUV",IDC_WORKRGB,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,184,87,10
+    LTEXT           "Less weight  <==MV Error==>   Much weight",
+                    IDQUALITYCAP2,15,137,155,8,NOT WS_GROUP
+    CONTROL         "",IDMVERRORSLIDER,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | WS_TABSTOP,11,145,139,19
+    EDITTEXT        IDMVERROR,151,149,36,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDMVERRORSPIN,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_HOTTRACK,174,151,11,10
+    CONTROL         "Switch between two outputs",IDC_SWITCH,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,12,84,107,10
+    CONTROL         "Fade between two outputs",IDC_FADE,"Button",
+                    BS_AUTORADIOBUTTON,12,96,103,10
+    LTEXT           "Keep previous  <=Weights=>   Interpolate",
+                    IDFADEWEIGHTSCAP,17,107,170,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 199
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 215
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

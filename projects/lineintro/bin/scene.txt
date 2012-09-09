@@ -1,0 +1,438 @@
+begin mainline
+  barrierbase
+	
+	setpos -320 0 0
+	setmovedir 1 0 0
+	setspeed 1000
+	setaccel 20
+	setwidth 0.1
+	setcolor 1 0 0
+	setturnspeed 0.5
+	setturnaccel 0.5
+
+	segmentation 10.0
+	
+	pos -22 0 0
+	timebarrier 4
+	
+	segmentation 0.1
+	setspeed 5
+	relpos 100 0 0
+	timebarrier 8.6
+	
+	# heartbeat
+	barrierbase
+	setturnspeed 1000
+	setspeed 50
+
+	relpos 30 -100 0
+	timebarrier 0.03
+	barrierbase
+	
+	relpos 15 100 0
+	timebarrier 0.13
+	barrierbase
+	
+	relpos 15 -100 0
+	timebarrier 0.15
+	barrierbase
+
+	relpos 20 100 0
+	timebarrier 0.06
+	barrierbase
+
+	relpos 300 -100 0
+	timebarrier 0.033
+	barrierbase
+	
+	relpos 100 0 0
+	timebarrier 0.1
+	barrierbase
+	
+	# restore barrierbase and go on
+	relpos 100 0 0
+	setspeed 5
+	setturnspeed 0.5
+	pos 20 0 -10
+
+	relpos 0 0 -20
+	timebarrier 13
+
+	speed 60
+	segmentation 0.3
+	touch 0.6
+	setturnspeed 35.55
+	setbbase 0
+	
+	#pos 21 -0.5 -15
+	#pos 19 0.5 -20
+	#pos 21 0.5 -25
+	#pos 19 -0.5 -30
+	#pos 20 0 -100
+	
+nextstream
+	barrierbase
+	timebarrier 8.6
+	
+	setwidth 0.5
+	widthspeed 1
+	width 0.1
+	
+	barrierbase
+	timebarrier 0.5
+	setwidth 0.4
+	width 0.1
+
+	widthspeed 0.5
+	
+	barrierbase
+	timebarrier 0.5
+	setwidth 0.3
+	width 0.1
+	
+	barrierbase
+	timebarrier 0.5
+	setwidth 0.2
+	width 0.1
+	
+	timebarrier 10000
+end
+
+
+begin line
+  barrierbase
+  timebarrier 10.1
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	setpos 0 30 0
+	pos 50 -10 -10
+	timebarrier 10000
+end
+
+begin line
+  barrierbase
+  timebarrier 9.9
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	setpos -10 -50 -5
+	pos 20 50 0
+	timebarrier 10000
+end
+
+begin line
+  barrierbase
+  timebarrier 10.3
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	setpos -10 0 0
+	pos 350 0 -100
+	timebarrier 10000
+end
+
+begin line
+  barrierbase
+  timebarrier 10.1
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	setpos 10 -60 -10
+	pos 40 40 -10
+	timebarrier 10000
+end
+
+
+
+
+
+
+
+
+
+
+begin line
+  barrierbase
+  timebarrier 12.8
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	setpos 15 -40 -10
+	pos 35 40 -10
+	timebarrier 10000
+end
+
+begin line
+  barrierbase
+  timebarrier 13.2
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	setpos 15 40 -10
+	pos 10 -40 -10
+	timebarrier 10000
+end
+
+begin line
+  barrierbase
+  timebarrier 13.5
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	setpos  -15 10 -17
+	pos 80 15 -17
+	timebarrier 10000
+end
+
+begin line
+  barrierbase
+  timebarrier 13.7
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	setpos  -15 -10 -17
+	pos 80 5 -20
+	timebarrier 10000
+end
+
+begin line
+  barrierbase
+  timebarrier 14.4
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	setpos  -10 10 -15
+	pos 80 0 -15
+	timebarrier 10000
+end
+
+begin line
+  barrierbase
+  timebarrier 14.8
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	setpos  -10 0 -15
+	pos 80 15 -15
+	timebarrier 10000
+end
+
+begin line
+  barrierbase
+  timebarrier 15.0
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	setpos  -10 -40 -15
+	pos 60 40 -20
+	timebarrier 10000
+end
+
+begin line
+    barrierbase
+    timebarrier 15.3
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	setpos 10 -40 -15
+	pos 33 40 -20
+	timebarrier 10000
+end
+
+begin line
+  barrierbase
+  timebarrier 15.3
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	#setpos 0 0 -20
+	#pos 50 20 -20
+	timebarrier 10000
+end
+
+
+begin line
+  barrierbase
+  timebarrier 15.9
+	
+	setmovedir 0 -1 0
+	setspeed 100
+	setaccel 1
+	setwidth 0.1
+	setcolor 0.6 0 0
+	setturnspeed 100
+	setturnaccel 100
+
+	segmentation 10.0
+	
+	setpos 10 20 -20
+	pos 20 -20 -20
+	timebarrier 10000
+end
+
+
+begin camera
+	setpos 0 0 10
+	setspeed 5
+	setaccel 3
+	setturnspeed 1.5
+	setturnaccel 0
+	segmentation 0.5
+	setmovedir 1 0 0
+	
+	touch 2
+	
+	setdirspeed 0.25
+	setdiraccel 0
+	
+	setlookdir 0 0 -1
+	
+	setup 0 1 0
+	dontmove 9
+	
+	# now move
+	
+	pos 20 2 5
+	
+	pos 20 7 -20
+	
+	speed 13
+	
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

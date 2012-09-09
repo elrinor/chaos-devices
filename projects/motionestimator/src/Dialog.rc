@@ -1,0 +1,136 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDDIALOG DIALOGEX 0, 0, 199, 257
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Motion Estimator Properties"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Output",IDC_STATIC,7,3,185,94
+    CONTROL         "Show source",IDC_SHOWSOURCE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,22,11,57,10
+    CONTROL         "Show residual after motion compensating",
+                    IDC_SHOWRESAFTER,"Button",BS_AUTORADIOBUTTON,22,22,147,
+                    10
+    CONTROL         "Show residual before motion compensating",
+                    IDC_SHOWRESBEFORE,"Button",BS_AUTORADIOBUTTON,22,33,153,
+                    10
+    CONTROL         "Show compensated frame",IDC_SHOWMC,"Button",
+                    BS_AUTORADIOBUTTON,22,44,99,10
+    CONTROL         "Show motion vectors",IDC_SHOWMV,"Button",
+                    BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,12,55,83,10
+    CONTROL         "Calculate residual and compensated frame in RGB",
+                    IDC_RGB,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,67,174,
+                    10
+    CONTROL         "Draw nothing (for speed test)",IDC_DRAWNOTHING,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,79,111,10
+    GROUPBOX        "Algorithm",IDC_STATIC,7,100,185,61
+    LTEXT           "Perfomance                                           Quality",
+                    IDQUALITYCAP,10,110,173,8
+    CONTROL         "",IDC_QUALITYSLIDER,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP,11,118,139,19
+    EDITTEXT        IDC_QUALITY,152,122,36,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDC_QUALITYSPIN,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_HOTTRACK,175,124,11,10
+    GROUPBOX        "Logging",IDC_STATIC,7,166,185,63
+    CONTROL         "Write log file:",IDC_LOGNEED,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,12,177,55,10
+    EDITTEXT        IDC_LOGFILENAME,76,175,112,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "OK",IDOK,37,236,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,108,236,50,14
+    CONTROL         "Half pixel accuracy",IDC_HALFPIXEL,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,144,76,10
+    CONTROL         "M. vectors file",IDC_LOG_VECTORS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,195,60,10
+    EDITTEXT        IDC_LOG_VECTORS_FILE,76,192,112,14,ES_AUTOHSCROLL
+    CONTROL         "Read vectors from file (write to it, if unchecked)",
+                    IDC_LOG_READ,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,
+                    211,168,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 192
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 250
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

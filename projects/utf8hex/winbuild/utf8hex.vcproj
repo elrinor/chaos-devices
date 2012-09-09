@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="9,00"
+	Name="utf8hex"
+	ProjectGUID="{665DDB32-AE72-47E7-829F-435DB44FF883}"
+	Keyword="MakeFileProj"
+	TargetFrameworkVersion="196613"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="../bin/$(ConfigurationName)"
+			IntermediateDirectory="../bin/$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake debug -f $(ProjectName).mak"
+				ReBuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake debug-clean -f $(ProjectName).mak&#x0D;&#x0A;nmake debug -f $(ProjectName).mak"
+				CleanCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake debug-clean -f $(ProjectName).mak"
+				Output="../bin/debug/utf8hex.exe"
+				PreprocessorDefinitions="WIN32;_DEBUG"
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="../bin/$(ConfigurationName)"
+			IntermediateDirectory="../bin/$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake release -f $(ProjectName).mak"
+				ReBuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake release-clean -f $(ProjectName).mak&#x0D;&#x0A;nmake release -f $(ProjectName).mak"
+				CleanCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake release-clean -f $(ProjectName).mak"
+				Output="../bin/release/utf8hex.exe"
+				PreprocessorDefinitions="WIN32;NDEBUG"
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<File
+			RelativePath="..\src\utf8hex\MainWidget.h"
+			>
+		</File>
+		<File
+			RelativePath="..\src\utf8hex.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\utf8hex.pro"
+			>
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
