@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="9.00"
+	Name="palviewer"
+	ProjectGUID="{4FCD7ECC-514F-4201-AB1C-1910AF40A3FD}"
+	RootNamespace="palviewer"
+	Keyword="Win32Proj"
+	TargetFrameworkVersion="196613"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="../bin/$(ConfigurationName)"
+			IntermediateDirectory="../bin/$(ConfigurationName)"
+			ConfigurationType="0"
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName) -f $(ProjectName).mak"
+				ReBuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName)-clean -f $(ProjectName).mak&#x0D;&#x0A;nmake $(ConfigurationName) -f $(ProjectName).mak"
+				CleanCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName)-clean -f $(ProjectName).mak"
+				Output="../bin/$(ConfigurationName)/$(ProjectName).exe"
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="../bin/$(ConfigurationName)"
+			IntermediateDirectory="../bin/$(ConfigurationName)"
+			ConfigurationType="0"
+			CharacterSet="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName) -f $(ProjectName).mak"
+				ReBuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName)-clean -f $(ProjectName).mak&#x0D;&#x0A;nmake $(ConfigurationName) -f $(ProjectName).mak"
+				CleanCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName)-clean -f $(ProjectName).mak"
+				Output="../bin/$(ConfigurationName)/$(ProjectName).exe"
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<File
+			RelativePath="..\src\palviewer.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\palviewer.pro"
+			>
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

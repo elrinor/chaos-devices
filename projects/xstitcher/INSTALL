@@ -1,0 +1,29 @@
+Installing xstitcher.
+
+DEPENDENCIES
+To build xstitcher you will need the following libraries:
+- boost (http://www.boost.org)
+- Qt (http://qt.nokia.com)
+- Vigra (http://hci.iwr.uni-heidelberg.de/vigra)
+- arxlib (http://code.google.com/p/arxlib)
+- ImageMagick (http://www.imagemagick.org)
+- Eigen (http://eigen.tuxfamily.org)
+- Glut (http://www.opengl.org/resources/libraries/glut)
+
+The former two are required in order to build palette viewer.
+You don't need to build Vigra since xstitcher uses header-only subset of this library.
+
+
+BUILDING UNDER WINDOWS
+Visual studio solution file is located in winbuild folder. Just open it and run "Build Solution".
+
+Trying to link xstitcher applications statically with all the used libraries (including C runtime) may be non-trivial.
+1. When configuring boost, pass --build-type=complete to bjam in order to build all possible configurations (including static ones).
+2. For building static version of Qt, see http://www.qtcentre.org/wiki/index.php?title=Building_static_Qt_on_Windows.
+3. To build static version of ImageMagick, be sure to select "Static Multi-threaded runtimes" when configuring VisualMagick.
+
+
+BUILDING UNDER UNIX/LINUX
+To build any of the applications in this package, you can simply type:
+> qmake -f <app-name>.pro
+> make

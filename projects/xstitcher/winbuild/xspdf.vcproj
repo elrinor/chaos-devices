@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="9.00"
+	Name="xspdf"
+	ProjectGUID="{270DFF1E-F14C-4DAB-959F-08E26BA19EE4}"
+	Keyword="MakeFileProj"
+	TargetFrameworkVersion="196613"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="../bin/$(ConfigurationName)"
+			IntermediateDirectory="../bin/$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName) -f $(ProjectName).mak"
+				ReBuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName)-clean -f $(ProjectName).mak&#x0D;&#x0A;nmake $(ConfigurationName) -f $(ProjectName).mak"
+				CleanCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName)-clean -f $(ProjectName).mak"
+				Output="../bin/$(ConfigurationName)/$(ProjectName).exe"
+				PreprocessorDefinitions="WIN32;_DEBUG"
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="../bin/$(ConfigurationName)"
+			IntermediateDirectory="../bin/$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName) -f $(ProjectName).mak"
+				ReBuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName)-clean -f $(ProjectName).mak&#x0D;&#x0A;nmake $(ConfigurationName) -f $(ProjectName).mak"
+				CleanCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName)-clean -f $(ProjectName).mak"
+				Output="../bin/$(ConfigurationName)/$(ProjectName).exe"
+				PreprocessorDefinitions="WIN32;NDEBUG"
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="xs"
+			>
+			<File
+				RelativePath="..\src\xs\Color.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\xs\ColorPageGenerator.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\xs\FrontPageGenerator.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\xs\PageGeneratorBase.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\xs\Palette.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\xs\Palette.h"
+				>
+			</File>
+		</Filter>
+		<File
+			RelativePath="..\src\config.h"
+			>
+		</File>
+		<File
+			RelativePath="..\src\xspdf.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\xspdf.pro"
+			>
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

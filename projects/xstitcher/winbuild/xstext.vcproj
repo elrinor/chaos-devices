@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="9.00"
+	Name="xstext"
+	ProjectGUID="{7904F08C-604A-478D-9059-B2B1FA5ED3B7}"
+	Keyword="MakeFileProj"
+	TargetFrameworkVersion="196613"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="../bin/$(ConfigurationName)"
+			IntermediateDirectory="../bin/$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName) -f $(ProjectName).mak"
+				ReBuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName)-clean -f $(ProjectName).mak&#x0D;&#x0A;nmake $(ConfigurationName) -f $(ProjectName).mak"
+				CleanCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName)-clean -f $(ProjectName).mak"
+				Output="../bin/$(ConfigurationName)/$(ProjectName).exe"
+				PreprocessorDefinitions="WIN32;_DEBUG"
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="../bin/$(ConfigurationName)"
+			IntermediateDirectory="../bin/$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName) -f $(ProjectName).mak"
+				ReBuildCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName)-clean -f $(ProjectName).mak&#x0D;&#x0A;nmake $(ConfigurationName) -f $(ProjectName).mak"
+				CleanCommandLine="cd ..&#x0D;&#x0A;qmake -o $(ProjectName).mak $(ProjectName).pro&#x0D;&#x0A;nmake $(ConfigurationName)-clean -f $(ProjectName).mak"
+				Output="../bin/$(ConfigurationName)/$(ProjectName).exe"
+				PreprocessorDefinitions="WIN32;NDEBUG"
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<File
+			RelativePath="..\src\config.h"
+			>
+		</File>
+		<File
+			RelativePath="..\src\xstext.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\xstext.pro"
+			>
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
