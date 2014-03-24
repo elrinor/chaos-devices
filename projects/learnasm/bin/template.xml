@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<learnasm>
+	<test name="Тест по системам счисления" showMistakes="0" criteria="(0, 0, 40, 60, 80)">
+		<quest id="00" count="3"/>
+		<quest id="01" count="3"/>
+	</test>
+	<test name="Тест по флагам" showMistakes="0" criteria="(0, 0, 40, 60, 80)">
+		<quest id="20" count="3"/>
+		<quest id="21" count="3"/>
+	</test>
+	<test name="Тест по инструкциям" showMistakes="0" criteria="(0, 0, 40, 60, 80)">
+		<quest id="30" count="2"/>
+		<quest id="31" count="2"/>
+		<quest id="32" count="2"/>
+		<quest id="33" count="2"/>
+	</test>
+	<template id="00" name="Преобразование из десятичной системы в шестнадцатеричную">
+		<init>
+			<eval value="$task = 'Для указанной директивы выписать эквивалентную ей директиву, \nгде начальное значение переменной записано в 16-ричном виде'"/>
+		</init>
+		<testui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<eval value="$size = randomSelect(2, 4)"/>
+			<eval value="$numb = if(eq($size, 2), random(-128, 127), random(-32768, 32767))"/>
+			<eval value="$dwdb = if(eq($size, 2), 'DB', 'DW')"/>
+			<elem type="Label" value="(cat('A ', $dwdb, ' ', $numb))"/>
+			<split/>
+			
+			<elem type="Label" value="('')"/>
+			<split/>
+			
+			<elem type="Label" value="(cat('A ', $dwdb, ' '))"/>
+			<elem name="ans" type="LineEdit" value="('')"/>
+			<split/>
+		</testui>
+		<testcheck>
+			<eval value="$result = eq(toLower($ans), toLower(toHex($numb, $size)))"/>
+		</testcheck>
+		<askui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<elem type="Label" value="('A ')"/>
+			<elem name="dwdb" type="ComboBox" value="('DB', 'DW')"/>
+			<elem name="numb" type="SpinBox" value="(-32768, 32767)"/>
+			<split/>
+		</askui>
+		<askgen>
+			<eval value="$size = if(eq($dwdb, 'DB'), 2, 4)"/>
+			<eval value="$answer = cat('A ', $dwdb, ' ', toHex($numb, $size))"/>
+		</askgen>
+	</template>
+	
+	
+	
+	<template id="01" name="Преобразование из шестнадцатеричной системы в десятичную">
+		<init>
+			<eval value="$task = 'Для указанной директивы выписать две эквивалентные ей директивы, \nв первой из которых начальное значение переменной записано в виде десятичного числа со знаком, а во второй - без знака'"/>
+		</init>
+		<testui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<eval value="$size = randomSelect(2, 4)"/>
+			<eval value="$numb = if(eq($size, 2), random(-128, 127), random(-32768, 32767))"/>
+			<eval value="$dwdb = if(eq($size, 2), 'DB', 'DW')"/>
+			<eval value="$hex = toHex($numb, $size)"/>
+			<elem type="Label" value="(cat('A ', $dwdb, ' ', $hex))"/>
+			<split/>
+			
+			<elem type="Label" value="('')"/>
+			<split/>
+			
+			<elem type="Label" value="(cat('A ', $dwdb, ' '))"/>
+			<elem name="ans1" type="LineEdit" value="('')"/>
+			<split/>
+			
+			<elem type="Label" value="(cat('A ', $dwdb, ' '))"/>
+			<elem name="ans2" type="LineEdit" value="('')"/>
+			<split/>
+		</testui>
+		<testcheck>
+			<eval value="$result = and(eq($ans1, fromHex($hex, $size)), eq($ans2, fromHex($hex, 8)))"/>
+		</testcheck>
+		<askui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<elem type="Label" value="('A ')"/>
+			<elem name="dwdb" type="ComboBox" value="('DB', 'DW')"/>
+			<elem name="hex" type="LineEdit" value="('00h')"/>
+			<split/>
+		</askui>
+		<askgen>
+			<eval value="$size = if(eq($dwdb, 'DB'), 2, 4)"/>
+			<eval value="$answer = cat('A ', $dwdb, ' ', fromHex($hex, $size), '\nA ', $dwdb, ' ', fromHex($hex, 8))"/>
+		</askgen>
+	</template>
+	
+	
+	
+	<template id="10" name="Адресация отдельных байт">
+		<init>
+			<eval value="$task = 'Указать в 16-ричном виде значения байтов с адресами:'"/>
+		</init>
+		<testui>
+			<exec value="init"/>
+			<eval value="$size = randomSelect(4, 8)"/>
+			<eval value="$numb = if(eq($size, 4), random(-32768, 32767), random(-2147483648, 2147483647))"/>
+			<eval value="$dwdd = if(eq($size, 4), 'DW', 'DD')"/>
+			<eval value="$hex = toHex($numb, $size)"/>
+			
+			<elem type="Label" value="(cat('A ', $dwdd, ' ', $hex))"/>
+			<split/>
+
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<elem type="Label" value="('')"/>
+			<split/>
+			
+			<elem type="Label" value="('A+0:')"/>
+			<elem name="r0" type="LineEdit" value="('00h')"/>
+			<split/>
+			
+			<elem type="Label" value="('A+1:')"/>
+			<elem name="r1" type="LineEdit" value="('00h')"/>
+			<split/>
+			
+			<cond value="eq($size, 8)">
+				<elem type="Label" value="('A+2:')"/>
+				<elem name="r2" type="LineEdit" value="('00h')"/>
+				<split/>
+				
+				<elem type="Label" value="('A+3:')"/>
+				<elem name="r3" type="LineEdit" value="('00h')"/>
+				<split/>
+			</cond>
+		</testui>
+		<askui>
+			<exec value="init"/>
+			
+			<elem type="Label" value="('A ')"/>
+			<elem name="dwdd" type="ComboBox" value="('DW', 'DD')"/>
+			<elem name="hex" type="LineEdit" value="('0000h')"/>
+			<split/>
+			
+			<elem type="Label" value="($task)"/>
+			<split/>
+		</askui>
+		<gen>
+			<eval value="$size = if(eq($dwdd, 'DW'), 4, 8)"/>
+			<eval value="$hex = toHex(fromHex($hex, $size), $size)"/>
+			<eval value="$rr0 = fromHex(cat(substr($hex, sub(length($hex), 3), 2), 'h'), 2)"/>
+			<eval value="$rr1 = fromHex(cat(substr($hex, sub(length($hex), 5), 2), 'h'), 2)"/>
+			<cond value="eq($size, 8)">
+				<eval value="$rr2 = fromHex(cat(substr($hex, sub(length($hex), 7), 2), 'h'), 2)"/>
+				<eval value="$rr3 = fromHex(cat(substr($hex, sub(length($hex), 9), 2), 'h'), 2)"/>
+			</cond>
+		</gen>
+		<askgen>
+			<exec value="gen"/>
+			<eval value="$answer = cat('A+0: ', toHex($rr0, 2), '\nA+1: ', toHex($rr1, 2))"/>
+			<cond value="eq($size, 8)">
+				<eval value="$answer = cat($answer, '\nA+2: ', toHex($rr2, 2), '\nA+3: ', toHex($rr3, 2))"/>
+			</cond>
+		</askgen>
+		<testcheck>
+			<exec value="gen"/>
+			<eval value="$result = and(eq(fromHex($r0, 2), $rr0), eq(fromHex($r1, 2), $rr1))"/>
+			<cond value="eq($size, 8)">
+				<eval value="$result = and($result, eq(fromHex($r2, 2), $rr2), eq(fromHex($r3, 2), $rr3))"/>
+			</cond>
+		</testcheck>
+	</template>
+	
+	
+	
+	<template id="20" name="Флаги CF и ZF">
+		<init>
+			<eval value="$task = 'Указать значения регистра AL (в виде десятичного числа без знака) \nи флагов CF и ZF после выполнения следующей пары команд:'"/>
+		</init>
+		<testui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<eval value="$movArg = random(0, 255)"/>
+			<eval value="$op = randomSelect('ADD', 'SUB')"/>
+			<eval value="$opArg = random(0, 255)"/>
+			
+			<elem type="Label" value="(cat('MOV AL, ', $movArg, '\n', $op, ' AL, ', $opArg))"/>
+			<split/>
+			
+			<elem type="Label" value="('')"/>
+			<split/>
+			
+			<elem type="Label" value="('AL = ')"/>
+			<elem name="AL" type="SpinBox" value="(0, 255)"/>
+			<split/>
+			
+			<elem type="Label" value="('CF = ')"/>
+			<elem name="CF" type="SpinBox" value="(0, 1)"/>
+			<split/>
+			
+			<elem type="Label" value="('ZF = ')"/>
+			<elem name="ZF" type="SpinBox" value="(0, 1)"/>
+			<split/>
+		</testui>
+		<askui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<elem type="Label" value="('MOV AL, ')"/>
+			<elem name="movArg" type="SpinBox" value="(0, 255)"/>
+			<split/>
+			
+			<elem name="op" type="ComboBox" value="('ADD', 'SUB')"/>
+			<elem type="Label" value="(' AL, ')"/>
+			<elem name="opArg" type="SpinBox" value="(0, 255)"/>
+		</askui>
+		<gen>
+			<eval value="$sum = if(eq($op, 'ADD'), add($movArg, $opArg), sub($movArg, $opArg))"/>
+			<eval value="$CFr = if(or(lt($sum, 0), gt($sum, 255)), 1, 0)"/>
+			<eval value="$ZFr = if(or(eq($sum, 0), eq($sum, 256)), 1, 0)"/>
+			<eval value="$ALr = mod(add($sum, 256), 256)"/>
+		</gen>
+		<askgen>
+			<exec value="gen"/>
+			<eval value="$answer = cat('AL = ', $ALr, '\nCF = ', $CFr, '\nZF = ', $ZFr)"/>
+		</askgen>
+		<testcheck>
+			<exec value="gen"/>
+			<eval value="$result = and(eq($AL, $ALr), eq($CF, $CFr), eq($ZF, $ZFr))"/>
+		</testcheck>
+	</template>
+
+
+
+	<template id="21" name="Флаги OF и SF">
+		<init>
+			<eval value="$task = 'Указать значения регистра BH (в виде десятичного числа со знаком) \nи флагов OF и SF после выполнения следующей пары команд:'"/>
+		</init>
+		<testui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<eval value="$movArg = random(-128, 127)"/>
+			<eval value="$op = randomSelect('ADD', 'SUB')"/>
+			<eval value="$opArg = random(-128, 127)"/>
+			
+			<elem type="Label" value="(cat('MOV BH, ', $movArg, '\n', $op, ' BH, ', $opArg))"/>
+			<split/>
+			
+			<elem type="Label" value="('')"/>
+			<split/>
+			
+			<elem type="Label" value="('BH = ')"/>
+			<elem name="BH" type="SpinBox" value="(-128, 127)"/>
+			<split/>
+			
+			<elem type="Label" value="('OF = ')"/>
+			<elem name="OF" type="SpinBox" value="(0, 1)"/>
+			<split/>
+			
+			<elem type="Label" value="('SF = ')"/>
+			<elem name="SF" type="SpinBox" value="(0, 1)"/>
+			<split/>
+		</testui>
+		<askui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<elem type="Label" value="('MOV BH, ')"/>
+			<elem name="movArg" type="SpinBox" value="(-128, 127)"/>
+			<split/>
+			
+			<elem name="op" type="ComboBox" value="('ADD', 'SUB')"/>
+			<elem type="Label" value="(' BH, ')"/>
+			<elem name="opArg" type="SpinBox" value="(-128, 127)"/>
+		</askui>
+		<gen>
+			<eval value="$sum = if(eq($op, 'ADD'), add($movArg, $opArg), sub($movArg, $opArg))"/>
+			<eval value="$OFr = if(or(lt($sum, -128), gt($sum, 127)), 1, 0)"/>
+			<eval value="$BHr = if(lt($sum, -128), add($sum, 256), if(gt($sum, 127), sub($sum, 256), $sum))"/>
+			<eval value="$SFr = if(lt($BHr, 0), 1, 0)"/>
+		</gen>
+		<askgen>
+			<exec value="gen"/>
+			<eval value="$answer = cat('BH = ', $BHr, '\nOF = ', $OFr, '\nSF = ', $SFr)"/>
+		</askgen>
+		<testcheck>
+			<exec value="gen"/>
+			<eval value="$result = and(eq($BH, $BHr), eq($OF, $OFr), eq($SF, $SFr))"/>
+		</testcheck>
+	</template>
+	
+
+
+	<template id="30" name="Регистры AL и AH">
+		<init>
+			<eval value="$task = 'Указать в 16-ричном виде значение переменной B после выполнения следующих команд:\nMOV AX, A\nMOV BYTE PTR B, AH\nMOV BYTE PTR B+1, AL'"/>
+		</init>
+		<testui>
+			<exec value="init"/>
+			<eval value="$A = random(-32768, 32767)"/>
+			
+			<elem type="Label" value="(cat('A DW ', $A, '\nB DW ?'))"/>
+			<split/>
+			
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<elem type="Label" value="('')"/>
+			<split/>
+			
+			<elem type="Label" value="('B = ')"/>
+			<elem name="B" type="LineEdit" value="('0000h')"/>
+		</testui>
+		<askui>
+			<exec value="init"/>
+			
+			<elem type="Label" value="('A DW ')"/>
+			<elem name="A" type="SpinBox" value="(-32768, 32767)"/>
+			<split/>
+			<elem type="Label" value="('B DW ?')"/>
+			<split/>
+			<elem type="Label" value="($task)"/>
+		</askui>
+		<gen>
+			<eval value="$Au = mod(add($A, 65536), 65536)"/>
+			<eval value="$Br = toHex(add(mul(mod($Au, 256), 256), div($Au, 256)), 4)"/>
+		</gen>
+		<askgen>
+			<exec value="gen"/>
+			<eval value="$answer = cat('B = ', $Br)"/>
+		</askgen>
+		<testcheck>
+			<exec value="gen"/>
+			<eval value="$result = eq(fromHex($B, 4), fromHex($Br, 4))"/>
+		</testcheck>
+	</template>
+	
+	
+	
+	<template id="31" name="Инструкция CBW">
+		<init>
+			<eval value="$task = 'Указать (в 16-ричном виде) значение регистра AX \nпосле выполнения следующих команд:'"/>
+		</init>
+		<testui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<eval value="$AL = toHex(random(-128, 127), 2)"/>
+			
+			<elem type="Label" value="(cat('MOV AL, ', $AL, '\nCBW'))"/>
+			<split/>
+			
+			<elem type="Label" value="('')"/>
+			<split/>
+			
+			<elem type="Label" value="('AX = ')"/>
+			<elem name="AX" type="LineEdit" value="('0000h')"/>
+		</testui>
+		<askui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<elem type="Label" value="('MOV AL, ')"/>
+			<elem name="AL" type="LineEdit" value="('00h')"/>
+			<split/>
+			
+			<elem type="Label" value="('CBW')"/>
+		</askui>
+		<gen>
+			<eval value="$AXr = toHex(fromHex($AL, 2), 4)"/>
+		</gen>
+		<askgen>
+			<exec value="gen"/>
+			<eval value="$answer = cat('AX = ', $AXr)"/>
+		</askgen>
+		<testcheck>
+			<exec value="gen"/>
+			<eval value="$result = eq(fromHex($AX, 4), fromHex($AXr, 4))"/>
+		</testcheck>
+	</template>
+	
+	
+	
+	<template id="32" name="Инструкции ADD, ADC">
+		<init>
+			<eval value="$task = 'Указать значения регистров AH и AL (в виде десятичных чисел без знака) \nи флагов CF и ZF после выполнения следующих команд:'"/>
+		</init>
+		<testui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<eval value="$movAHArg = random(0, 255)"/>
+			<eval value="$movALArg = random(0, 255)"/>
+			<eval value="$addArg = random(0, 255)"/>
+			<eval value="$adcArg = random(0, 255)"/>
+			
+			<elem type="Label" value="(cat('MOV AH, ', $movAHArg, '\nMOV AL, ', $movALArg, '\nADD AL, ', $addArg, '\nADC AH, ', $adcArg))"/>
+			<split/>
+			
+			<elem type="Label" value="('')"/>
+			<split/>
+			
+			<elem type="Label" value="('AL = ')"/>
+			<elem name="AL" type="SpinBox" value="(0, 255)"/>
+			<split/>
+			
+			<elem type="Label" value="('AH = ')"/>
+			<elem name="AH" type="SpinBox" value="(0, 255)"/>
+			<split/>
+			
+			<elem type="Label" value="('CF = ')"/>
+			<elem name="CF" type="SpinBox" value="(0, 1)"/>
+			<split/>
+			
+			<elem type="Label" value="('ZF = ')"/>
+			<elem name="ZF" type="SpinBox" value="(0, 1)"/>
+			<split/>
+		</testui>
+		<askui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<elem type="Label" value="('MOV AH, ')"/>
+			<elem name="movAHArg" type="SpinBox" value="(0, 255)"/>
+			<split/>
+			
+			<elem type="Label" value="('MOV AL, ')"/>
+			<elem name="movALArg" type="SpinBox" value="(0, 255)"/>
+			<split/>
+			
+			<elem type="Label" value="('ADD AL, ')"/>
+			<elem name="addArg" type="SpinBox" value="(0, 255)"/>
+			<split/>
+			
+			<elem type="Label" value="('ADC AH, ')"/>
+			<elem name="adcArg" type="SpinBox" value="(0, 255)"/>
+			<split/>
+		</askui>
+		<gen>
+			<eval value="($ALr = add($movALArg, $addArg), $CFr = div($ALr, 256), $ALr = mod($ALr, 256))"/>
+			<eval value="($AHr = add($movAHArg, $adcArg, $CFr), $CFr = div($AHr, 256), $AHr = mod($AHr, 256), $ZFr = if(eq($AHr, 0), 1, 0))"/>
+		</gen>
+		<askgen>
+			<exec value="gen"/>
+			<eval value="$answer = cat('AL = ', $ALr, '\nAH = ', $AHr, '\nCF = ', $CFr, '\nZF = ', $ZFr)"/>
+		</askgen>
+		<testcheck>
+			<exec value="gen"/>
+			<eval value="$result = and(eq($AL, $ALr), eq($AH, $AHr), eq($CF, $CFr), eq($ZF, $ZFr))"/>
+		</testcheck>
+	</template>
+	
+	
+	
+	<template id="33" name="Инструкции MUL и IMUL">
+		<init>
+			<eval value="$task = 'Указать (в 16-ричном виде) значение регистра AX \nпосле выполнения следующих команд:'"/>
+		</init>
+		<testui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<eval value="$AL = toHex(random(0, 255), 2)"/>
+			<eval value="$BL = toHex(random(0, 255), 2)"/>
+			<eval value="$op = randomSelect('MUL', 'IMUL')"/>
+			
+			<elem type="Label" value="(cat('MOV AL, ', $AL, '\nMOV BL, ', $BL, '\n', $op, ' BL'))"/>
+			<split/>
+			
+			<elem type="Label" value="('')"/>
+			<split/>
+			
+			<elem type="Label" value="('AX = ')"/>
+			<elem name="AX" type="LineEdit" value="('0000h')"/>
+		</testui>
+		<askui>
+			<exec value="init"/>
+			<elem type="Label" value="($task)"/>
+			<split/>
+			
+			<elem type="Label" value="('MOV AL, ')"/>
+			<elem name="AL" type="LineEdit" value="('00h')"/>
+			<split/>
+			
+			<elem type="Label" value="('MOV BL, ')"/>
+			<elem name="BL" type="LineEdit" value="('00h')"/>
+			<split/>
+			
+			<elem name="op" type="ComboBox" value="('MUL', 'IMUL')"/>
+			<elem type="Label" value="(' BL')"/>
+		</askui>
+		<gen>
+			<eval value="$size = if(eq($op, 'IMUL'), 2, 4)"/>
+			<eval value="$AXr = toHex(mul(fromHex($AL, $size), fromHex($BL, $size)), 4)"/>
+		</gen>
+		<askgen>
+			<exec value="gen"/>
+			<eval value="$answer = cat('AX = ', $AXr)"/>
+		</askgen>
+		<testcheck>
+			<exec value="gen"/>
+			<eval value="$result = eq(fromHex($AX, 4), fromHex($AXr, 4))"/>
+		</testcheck>
+	</template>
+	
+	<template id="math" name="Математика">
+		<testui>
+			<eval value="$n = random(2, 10)"/>
+			<eval value="$k = random(2, 10)"/>
+			<elem type="Label" value="(cat('В пекарне пекут рожки, булочки, и рогалики.\n Вчера в пекарне булочек испекли в 2 раза больше, чем рожков, но в ', $n, ' ', if(le($n, 4), 'раза', 'раз'), ' меньше, чем рогаликов. \n Сколько было испечено рогаликов, если известно, что булочек испекли на ', $k, ' ', if(le($k, 4), 'штуки', 'штук'), ' больше, чем рожков?'))"/>
+			<split/>
+			
+			<elem type="Label" value="('Ответ: ')"/>
+			<elem name="ans" type="SpinBox" value="(0, 100)"/>
+		</testui>
+		<askui>
+			<elem type="Label" value="('В пекарне пекут рожки, булочки, и рогалики.')"/>
+			<split/>
+			
+			<elem type="Label" value="('Вчера в пекарне булочек испекли в 2 раза больше, чем рожков, но в ')"/>
+			<elem name="n"  type="SpinBox" value="(2, 10)"/>
+			<elem type="Label" value="(' раз(а) меньше, чем рогаликов.')"/>
+			<split/>
+			
+			<elem type="Label" value="('Сколько было испечено рогаликов, если известно, что булочек испекли на')"/>
+			<elem name="k" type="SpinBox" value="(2, 10)"/>
+			<elem type="Label" value="(' штук(и) больше, чем рожков?')"/>
+		</askui>
+		<gen>
+			<eval value="$ansr = mul($n, $k)"/>
+		</gen>
+		<askgen>
+			<exec value="gen"/>
+			<eval value="$answer = $ansr"/>
+		</askgen>
+		<testcheck>
+			<exec value="gen"/>
+			<eval value="$result = eq($ans, $ansr)"/>
+		</testcheck>
+	</template>
+	
+	<template id="physics" name="Физика">
+		<testui>
+			<eval value="$c = random(-30, 150)"/>
+			<elem type="Label" value="(cat('Переведите температуру ', $c, '°C из цельсиев в фаренгейты'))"/>
+			<split/>
+			
+			<elem type="Label" value="('F = ')"/>
+			<elem name="f" type="SpinBox" value="(-1000, 1000)"/>
+		</testui>
+		<askui>
+			<elem type="Label" value="(cat('Переведите температуру '))"/>
+			<elem name="c" type="SpinBox" value="(-30, 150)"/>
+			<elem type="Label" value="(cat('°C из цельсиев в фаренгейты'))"/>
+		</askui>
+		<gen>
+			<eval value="$fr = add(div(mul($c, 9), 5), 32)"/>
+		</gen>
+		<askgen>
+			<exec value="gen"/>
+			<eval value="$answer = $fr"/>
+		</askgen>
+		<testcheck>
+			<exec value="gen"/>
+			<eval value="$result = eq($f, $fr)"/>
+		</testcheck>
+	</template>
+</learnasm>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
