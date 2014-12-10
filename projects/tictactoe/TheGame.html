@@ -1,0 +1,346 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <META http-equiv=Content-Type content="text/html; charset=windows-1251">
+<script>
+function message(str)
+{
+window.alert(str);
+}
+</script>  
+<script language="JavaScript1.2">
+var i,cnt;
+var game=0;
+var step=0;
+var hodn=0;
+var komphoditpervim=0;
+fld=new Array();
+for(i=1;i<=9;++i)
+  {
+  fld[i]=0;
+  }
+
+//=======================================\\	
+// ставим крестик
+//=======================================\\	
+function putcross(a)
+{
+fld[a]=2;
+document.all["f"+a].src="cross.gif";
+step=1;
+hodn++;
+}
+
+//=======================================\\	
+// сколько обьектов типа t среди данных?
+//=======================================\\	
+function count(a1,a2,a3,t)
+{
+cnt=0;
+if (fld[a1]==t){cnt++}
+if (fld[a2]==t){cnt++}
+if (fld[a3]==t){cnt++}
+}
+
+//=======================================\\	
+// победа/поражение
+//=======================================\\	
+function win()
+{
+game=0;
+step=1;
+message("You win!");
+for(i=1;i<=9;++i)
+  {
+  fld[i]=0;
+  document.all["f"+i].src="empty.gif";
+  }
+}
+
+function lose()
+{
+game=0;
+message("You lose!");
+for(i=1;i<=9;++i)
+  {
+  fld[i]=0;
+  document.all["f"+i].src="empty.gif";
+  }
+start()
+}
+
+function nichia()
+{
+game=0;
+message("No winners today...");
+for(i=1;i<=9;++i)
+  {
+  fld[i]=0;
+  document.all["f"+i].src="empty.gif";
+  }
+start()
+}
+
+//=======================================\\	
+// кто-то выиграл?
+//=======================================\\	
+function checkwin()
+{
+count(1,2,3,1);
+if (cnt==3){win()}
+count(4,5,6,1);
+if (cnt==3){win()}
+count(7,8,9,1);
+if (cnt==3){win()}
+count(1,4,7,1);
+if (cnt==3){win()}
+count(2,5,8,1);
+if (cnt==3){win()}
+count(3,6,9,1);
+if (cnt==3){win()}
+count(1,5,9,1);
+if (cnt==3){win()}
+count(3,5,7,1);
+if (cnt==3){win()}
+}
+
+//=======================================\\	
+// можно ли запереть?
+//=======================================\\	
+function zaperenna(a1,a2,a3)
+{
+count(a1,a2,a3,1);
+if (cnt==2)
+  {
+  count(a1,a2,a3,0);
+  if (cnt==1)
+    {
+	if (fld[a1]==0){putcross(a1)}
+	if (fld[a2]==0){putcross(a2)}
+	if (fld[a3]==0){putcross(a3)}
+	}
+  }
+}
+
+function checkzaperet()
+{
+             zaperenna(1,2,3);
+if (step==0){zaperenna(4,5,6);}
+if (step==0){zaperenna(7,8,9);}
+if (step==0){zaperenna(1,4,7);}
+if (step==0){zaperenna(2,5,8);}
+if (step==0){zaperenna(3,6,9);}
+if (step==0){zaperenna(1,5,9);}
+if (step==0){zaperenna(3,5,7);}
+}
+
+//=======================================\\	
+// выигрываем?
+//=======================================\\	
+function winna(a1,a2,a3)
+{
+count(a1,a2,a3,2);
+if (cnt==2)
+  {
+  count(a1,a2,a3,0);
+  if (cnt==1)
+    {
+	if ((fld[a1]==0)&&(step==0)){putcross(a1);lose()}
+	if ((fld[a2]==0)&&(step==0)){putcross(a2);lose()}
+	if ((fld[a3]==0)&&(step==0)){putcross(a3);lose()}		
+	}
+  }
+}
+
+function checkwinable()
+{
+             winna(1,2,3);
+if (step==0){winna(4,5,6)}
+if (step==0){winna(7,8,9)}
+if (step==0){winna(1,4,7)}
+if (step==0){winna(2,5,8)}
+if (step==0){winna(3,6,9)}
+if (step==0){winna(1,5,9)}
+if (step==0){winna(3,5,7)}
+}
+
+//=======================================\\	
+// расширяемся
+//=======================================\\	
+function builda(a1,a2,a3)
+{
+count(a1,a2,a3,0);
+if (cnt==2)
+  {
+  count(a1,a2,a3,2);
+  if (cnt==1)
+    {
+	if ((Math.random()*10)>5)
+	  {
+	  if ((step==0)&&(fld[a1]==0)){putcross(a1)}
+	  if ((step==0)&&(fld[a2]==0)){putcross(a2)}
+	  if ((step==0)&&(fld[a3]==0)){putcross(a3)}	  
+	  }
+	else
+	  {
+	  if ((step==0)&&(fld[a3]==0)){putcross(a3)}
+	  if ((step==0)&&(fld[a2]==0)){putcross(a2)}
+	  if ((step==0)&&(fld[a1]==0)){putcross(a1)}	  
+	  }
+	}
+  }
+}
+
+function buildnew()
+{
+if (komphoditpervim==1)
+{
+             builda(1,5,9);
+if (step==0){builda(3,5,7)}
+if (step==0){builda(2,5,8)}
+if (step==0){builda(4,5,6)}             
+if (step==0){builda(1,2,3)}
+if (step==0){builda(7,8,9)}
+if (step==0){builda(1,4,7)}
+if (step==0){builda(3,6,9)}
+}
+else
+{
+             builda(2,5,8)
+if (step==0){builda(4,5,6)}             
+if (step==0){builda(1,5,9)}
+if (step==0){builda(3,5,7)}
+if (step==0){builda(1,2,3)}
+if (step==0){builda(7,8,9)}
+if (step==0){builda(1,4,7)}
+if (step==0){builda(3,6,9)}
+}
+}
+
+//=======================================\\	
+// сделать ход
+//=======================================\\	
+function hod(n)
+{
+if ((game==1)&&(fld[n]==0))
+{
+document.all["f"+n].src="null.gif";
+fld[n]=1;
+hodn++;
+step=0;
+
+checkwin();
+checkwinable();
+if (step==0){checkzaperet();}
+if ((step==0)&&(fld[5]==0)){putcross(5)}
+if ((step==0)&&(fld[5]==1))
+  {
+  if ((fld[1]==1)&&(fld[2]==0)&&(fld[3]==0)&&(step==0)){putcross(3)}
+  if ((fld[1]==1)&&(fld[4]==0)&&(fld[7]==0)&&(step==0)){putcross(7)}
+  if ((fld[3]==1)&&(fld[1]==0)&&(fld[2]==0)&&(step==0)){putcross(1)}
+  if ((fld[3]==1)&&(fld[6]==0)&&(fld[9]==0)&&(step==0)){putcross(9)}
+  if ((fld[7]==1)&&(fld[1]==0)&&(fld[4]==0)&&(step==0)){putcross(1)}  
+  if ((fld[7]==1)&&(fld[8]==0)&&(fld[9]==0)&&(step==0)){putcross(9)}
+  if ((fld[9]==1)&&(fld[7]==0)&&(fld[8]==0)&&(step==0)){putcross(7)}
+  if ((fld[9]==1)&&(fld[3]==0)&&(fld[6]==0)&&(step==0)){putcross(3)}  
+  }
+if (step==0){buildnew();}
+if (step==0)
+  {
+  if (fld[5]==0){putcross(5)}
+  if (step==0)
+    {
+    for(i=1;i<=9;++i)
+      {
+      if ((step==0)&&(fld[i]==0)){putcross(i)}
+      }
+	}
+  }
+}
+if ((hodn==9)&&(game==1)){nichia()}
+}
+
+//=======================================\\	
+// начать игру
+//=======================================\\	
+function start()
+{
+for(i=1;i<=9;++i)
+  {
+  fld[i]=0;
+  document.all["f"+i].src="empty.gif";
+  }
+game=1;
+if (Math.random()*10<5)
+{
+komphoditpervim=1;
+if (Math.random()*10<7)
+  {
+  fld[5]=2;
+  document.all["f5"].src="cross.gif";
+  }
+else
+  {
+  i=Math.random()*9;
+  i=Math.round(i);
+  if (i==0){i=5}
+  fld[i]=2;
+  document.all["f"+i].src="cross.gif";
+  }
+hodn=1;
+}
+else
+{
+komphoditpervim=0;
+hodn=0;
+}
+}
+</script>
+</head>
+<body>
+
+<div align="center">
+<table cellspacing="1" cellpadding="1" border="0" bgcolor="000000">
+<tr>
+    <td height="20" width="20" bgcolor="F1F1F1">
+	  <img src="empty.gif" id="f1" alt="" width="20" height="20" border="0" onclick="hod('1')">
+	 </td>
+    <td height="20" width="20" bgcolor="F1F1F1">
+	  <img src="empty.gif" id="f2" alt="" width="20" height="20" border="0" onclick="hod('2')">
+	</td>
+    <td height="20" width="20" bgcolor="F1F1F1">
+	  <img src="empty.gif" id="f3" alt="" width="20" height="20" border="0" onclick="hod('3')">
+	</td>
+</tr>
+<tr>
+    <td height="20" width="20" bgcolor="F1F1F1">
+	  <img src="empty.gif" id="f4" alt="" width="20" height="20" border="0" onclick="hod('4')">
+	</td>
+    <td height="20" width="20" bgcolor="F1F1F1">
+	  <img src="empty.gif" id="f5" alt="" width="20" height="20" border="0" onclick="hod('5')">
+	</td>
+    <td height="20" width="20" bgcolor="F1F1F1">
+	  <img src="empty.gif" id="f6" alt="" width="20" height="20" border="0" onclick="hod('6')">
+	</td>
+</tr>
+<tr>
+    <td height="20" width="20" bgcolor="F1F1F1">
+	  <img src="empty.gif" id="f7" alt="" width="20" height="20" border="0" onclick="hod('7')">
+	</td>
+    <td height="20" width="20" bgcolor="F1F1F1">
+	  <img src="empty.gif" id="f8" alt="" width="20" height="20" border="0" onclick="hod('8')">
+	</td>
+    <td height="20" width="20" bgcolor="F1F1F1">
+	  <img src="empty.gif" id="f9" alt="" width="20" height="20" border="0" onclick="hod('9')">
+	</td>
+</tr>
+</table>
+<br>
+<button onclick="start()">New Game</button><br>
+(c) Fokin Alexandr, 2004
+</div>
+
+</body>
+</html>
+
