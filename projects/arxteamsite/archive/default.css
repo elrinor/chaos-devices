@@ -1,0 +1,42 @@
+	FONT {
+	FONT-SIZE: 9.5pt;
+}
+	FONT.DEF {
+	FONT-SIZE: 9.5pt;
+	FONT-FAMILY: Verdana, "Arial", sans-serif;
+}
+	FONT.MENU {
+	FONT-SIZE: 9.5pt;
+	FONT-FAMILY: Verdana, "Arial", sans-serif;
+}
+	FONT.ARTICLE {
+	FONT-SIZE: 9.5pt;
+	FONT-FAMILY: "Courier New", Courier, monospace;
+}
+	BODY {
+	SCROLLBAR-BASE-COLOR: #000000;
+	SCROLLBAR-ARROW-COLOR: #cccccc;
+	background-color : 000000;
+}
+	SELECT {
+		FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif;
+		FONT-SIZE: 11px;
+		COLOR: #cccccc;
+		BACKGROUND-COLOR: #000000
+}
+	A:link, A:visited, A:active {
+		COLOR: #FFBA42;
+}
+	A:hover {
+		COLOR: #FF4400;
+}
+	TABLE {
+	table-layout: auto;
+}	
+	UL.MENU {
+	list-style-image : url(diamond.gif);
+	list-style-position : outside;
+	text-align : left;
+	margin : 0 0 0 16;
+}
+	

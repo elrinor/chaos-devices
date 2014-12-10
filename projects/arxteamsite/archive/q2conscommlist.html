@@ -1,0 +1,3541 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <link href="default.css" rel="stylesheet" type="text/css">
+	<META http-equiv=Content-Type content="text/html; charset=windows-1251">
+</head>
+<body bgcolor="000000">
+	
+<font color="BBBBBB" class="def">	
+<H1>Quake 2 Console Commands</H1>
+Брр... Из-за неизвестного науке глюка мастдая этот документ отказывается просматриваться в рамке и с менюшкой. Из-за этого
+менюшку пришлось убрать. Извините за неудобства.
+
+<H2>Abstract</H2>
+<P><I>Author:</I> JakFrost<BR><I>Email:</I> <TT><A href="mailto:jakfrost@planetquake.com">jakfrost@planetquake.com</A></TT><BR><I>Web 
+Site:</I> <TT><A href="http://www.planetquake.com/console/">http://www.planetquake.com/console/</A></TT><BR><I>Created:</I> 
+December 26, 1997<BR><I>Last Modified:</I> December 3, 1998<BR><I>Based On:</I> 
+Quake 2 v3.20<BR><I>Source:</I> <TT><A href="http://www.planetquake.com/console/commands/quake_2.html">http://www.planetquake.com/console/commands/quake_2.html</A></TT><BR></P>
+<P>Copyright 1997, 1998 JakFrost; All Rights Reserved</P>
+<P>This is the complete list of console commands, console variables, and command 
+line parameters for Quake 2. All console commands and variables are identified, 
+documented, tagged, and classified. This document has been designed to help out 
+all those people who want to customize the game to their liking.</P>
+
+<H2>1. Introduction</H2>
+<P>I decided to write this document because a lot of people were curious about 
+all of those console commands. Now this document has become the ultimate 
+reference to console commands with each command and variable having an 
+explanation. I hope that this document will benefit a lot of people in the use 
+of the Quake 2 console.</P>
+<H3>1.1. Questions</H3>
+<P>If you have any questions regarding console commands or console variables 
+please do not contact me because I don't have the time to answer them. If you 
+want to find out more about what a certain console command does or what it could 
+be used for the go ahead and experiment with that console command on your own 
+until you can answer your own questions. I don't have the time nor the patience 
+to answer any technical support questions. If you have a problem then please 
+don't ask me how to fix it because I won't help you. Basically, if you have a 
+problem with something then solve the problem on your own and do the necessary 
+work to answer your own questions do not send me any emails because I will not 
+read them.</P>
+<H3>1.2. Corrections</H3>
+<P>If you are reading this document and you find any errors, please contact me 
+and tell me exactly where you found the error. I appreciate any corrections sent 
+in because I want to make this document as accurate as possible. Any person who 
+sends me corrections about console commands or variables will be 
+acknowledged.</P>
+<HR>
+
+<H2>2. The Key</H2>
+<P>Below there are explanations to all of the different fields which are used to 
+describe each command. It is good to know what the information in each field 
+contains and refers to. The fields that I have used to describe each command and 
+variable are a way of standardizing information among each command and to make 
+sure that all of the information is given in an orderly fashion.</P>
+<P>I have also taken upon myself to classify all of those console commands and 
+console variables. These classifications are in no way related to how the game 
+feels about the various types of commands and variables. The game only 
+distinguishes between <EM>commands</EM> and <EM>variables</EM>. The names of 
+each class are only meant to identify the different type of a command or 
+variable, and give some insight into it's syntax and what type of parameters it 
+accepts. Basically if a user knows that a given variable is classified as a 
+toggle, he won't try to use negative numbers or fractions as input, or if a 
+command is classified as an operation he will know not to use any parameters. 
+These classifications are just here to help you with the syntax recognition and 
+to remove unnecessary syntax fields.</P>
+<H3>2.1. Fields</H3>
+<DL>
+  <DT><I>Type:</I> 
+  <DD>This field appears for all commands and variables. The information in this 
+  field classifies the command or variable based on it's syntax. The inclusion 
+  of this field also allows for the shortening of this document by specifying 
+  one syntax for a whole class of commands or variables and not having to 
+  display the identical syntax for each command or variable. Further explanation 
+  about all of the different types of commands and variables that have been 
+  classified is included in the section below. 
+  <DT><I>Syntax:</I> 
+  <DD>This field only appears for the class of function commands since each of 
+  those commands has it's own syntax. It displays the parameters that the 
+  command accepts and any other special characters. The convention of using 
+  words in parenthesis, i.e. <VAR>(filename)</VAR>, designates that a single 
+  value should be specified which is described by the phrase inside the 
+  parenthesis, i.e. <CODE>base1.bsp</CODE>. 
+  <DT><I>Default:</I> 
+  <DD>This field only appears for the variables. It displays the default value 
+  that is used by the game when it is started for the first time. The 
+  information in this field displays the default value for any given variable 
+  which can be referenced when it is necessary to restore that variable to it's 
+  original setting. 
+  <DT><I>Description:</I> 
+  <DD>This field appears for all commands and variables. It displays a short 
+  description of the command or variable. This is just a reference field for a 
+  quick glance at what the command or variable does. I decided to write the 
+  sentences in this field as if grouped with an invisible prefix which should be 
+  appended to the sentence while reading this field. For commands the prefix 
+  would be <EM>"This command will..."</EM>, for variables the prefix would be 
+  <EM>"This variable holds information about..."</EM>, or <EM>"This variable 
+  will..."</EM> for toggle variables. It is better to omit this prefix in the 
+  actual description to save space and to avoid repeating the same part of the 
+  sentence over and over. 
+  <DT><I>Notes:</I> 
+  <DD>This field appears for some commands and variables. It displays a long, 
+  detailed description of the command or variable. Usually a lot of background 
+  information is displayed in this field if the command or variable has some 
+  special functions or special syntax is necessary. This is to be considered a 
+  supplement to the <I>Description:</I> field where longer explanations should 
+  be provided. 
+  <DT><I>Values:</I> 
+  <DD>This field only appears for the class of toggle variables. It displays all 
+  of the possible settings for a variable if there are more than the usual 
+  <CODE>0</CODE> and <CODE>1</CODE>. This is an important field because it 
+  identifies all settings for that toggle variable. 
+  <DT><I>Example:</I> 
+  <DD>This field only appears for the class of function commands since each of 
+  those commands has it's own syntax. It displays some examples of how the 
+  syntax should be used. For some commands this field is very necessary because 
+  some function commands have a very weird syntax. </DD></DL>
+<H3>2.2. Commands</H3>
+<DL>
+  <DT><I>Action:</I> 
+  <DD>An action command performs an action when the <CODE>+action</CODE> part of 
+  the command is executed and terminates that action when the 
+  <CODE>-action</CODE> part of the command is executed. When an action command 
+  is bound to a key, the <CODE>+action</CODE> is executed when the key is 
+  pressed, and the <CODE>-action</CODE> is executed when the key is released. 
+  The default syntax for an action is '<CODE>+command</CODE>' or 
+  '<CODE>-command</CODE>'. The syntax field is skipped for all action commands. 
+  <DT><I>Function:</I> 
+  <DD>A function command performs a single function based on the parameters 
+  included for that operation. A function usually has extra parameters and they 
+  are usually necessary for proper execution. The default syntax for a function 
+  is '<CODE>command</CODE> <VAR>(parameter)</VAR>'. The syntax field is present 
+  for all function commands since each one has it's own unique syntax. 
+  <DT><I>Operation:</I> 
+  <DD>An operation command performs a single function in the game every time the 
+  command is executed. It does not use any parameters. The default syntax for an 
+  operation is '<CODE>command</CODE>'. The syntax field is skipped for all 
+  operation commands. </DD></DL>
+<H3>2.3. Variables</H3>
+<DL>
+  <DT><I>Bitmap:</I> 
+  <DD>A bitmap variable is able to toggle more than one feature by using a 
+  single value. The way that a bitmap variable works is that a value is assigned 
+  to each bit. Each bit is like a toggle, only being able to be set to an 
+  <EM>on</EM> and <EM>off</EM> state. To turn <EM>on</EM> the desired features 
+  all the values representing individual bits are added together. So if you want 
+  to turn on the features which have values of 4, 8, 32, 256, you would set the 
+  variable to the sum of these values which is 300. The default syntax for a 
+  bitmap variable is '<CODE>variable</CODE> <VAR>(value)</VAR>'. Allowable 
+  values for a bitmap variable include integers only. 
+  <DT><I>Command Line Parameter:</I> 
+  <DD>A command line parameter is a variable which is set from a command line. 
+  The reason for setting a variable from the command line, is that some 
+  variables are write protected once the game starts and cannot but changed. 
+  Command line parameters are usually used to enable or disable a handful of 
+  features before loading up the game. The default syntax is '<CODE>quake2.exe 
+  +set variable</CODE> <VAR>(value)</VAR>'. 
+  <DT><I>Register:</I> 
+  <DD>A register variable is able to store any type of numeric information. 
+  Register variables are used for numeric data which does not have clearly 
+  defined boundaries. The default syntax for a register variable is 
+  '<CODE>variable</CODE> <VAR>(value)</VAR>'. Allowable values for a register 
+  variable include integers, fractions, and negative values. 
+  <DT><I>String:</I> 
+  <DD>A string variable is able to store any type of text information. The 
+  default syntax for a string variable is '<CODE>variable</CODE> 
+  <VAR>"(text)"</VAR>'. Allowable values for a string variable include all 
+  numbers and all text characters. 
+  <DT><I>Toggle:</I> 
+  <DD>A toggle variable is able to turn a feature on, off, or set it to an 
+  alternative setting. The values for a toggle are usually only <CODE>0</CODE> 
+  and <CODE>1</CODE>. Sometimes there are alternative settings for a toggle, in 
+  which case subsequent numbers are used such as 2, 3, 4, and so on. The default 
+  syntax is '<CODE>variable</CODE> <VAR>(value)</VAR>'. Allowable values for a 
+  toggle variable include integers only in increments of 1. </DD></DL>
+<HR>
+
+<H2>3. Console Commands List</H2>
+<DL>
+  <DT><B><A name=c-+attack>+attack</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the player is firing the current 
+weapon.</P>
+  <DT><B><A name=c-+back>+back</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the player is moving backwards.</P>
+  <DT><B><A name=c-+forward>+forward</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the player is moving forwards.</P>
+  <DT><B><A name=c-+klook>+klook</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the keyboard keys bound to 
+  <CODE>+forward</CODE> and <CODE>+back</CODE> serve as <CODE>+lookup</CODE> and 
+  <CODE>+lookdown</CODE>.</P>
+  <DT><B><A name=c-+left>+left</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the player is turning left.</P>
+  <DT><B><A name=c-+lookdown>+lookdown</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the player is looking down.</P>
+  <DT><B><A name=c-+lookup>+lookup</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the player is looking up.</P>
+  <DT><B><A name=c-+mlook>+mlook</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the mouse movement forward serves as 
+  <CODE>+lookup</CODE> and mouse movement backward as 
+<CODE>+lookdown</CODE>.</P>
+  <P><I>Note:</I> The function of the forward and backward movement of the mouse 
+  can be reversed with a negative value in the <CODE>m_pitch</CODE> 
+variable.</P>
+  <DT><B><A name=c-+movedown>+movedown</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the player is moving downward in liquids, 
+  on a ladder, or is crouching on ground.</P>
+  <DT><B><A name=c-+moveleft>+moveleft</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the player is strafe moving, side stepping 
+  to the left.</P>
+  <DT><B><A name=c-+moveright>+moveright</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the player is strafe moving, side stepping 
+  to the right.</P>
+  <DT><B><A name=c-+moveup>+moveup</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the player is moving up in liquids, on a 
+  ladder, or jumping.</P>
+  <DT><B><A name=c-+right>+right</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the player is turning right.</P>
+  <DT><B><A name=c-+speed>+speed</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the player is running.</P>
+  <DT><B><A name=c-+strafe>+strafe</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> When active the <CODE>+left</CODE> and 
+  <CODE>+right</CODE> functions are changed to <CODE>+moveleft</CODE> and 
+  <CODE>+moveright</CODE>.</P>
+  <DT><B><A name=c-+use>+use</A></B> 
+  <DD>
+  <P><I>Type:</I> Action</P>
+  <P><I>Description:</I> Unused.</P>
+  <P><I>Note:</I> This command has been left intact but still unused to allow 
+  future additions to the game engine where a key press will be needed to active 
+  objects in the world, instead of just walking or pushing them. Similar to 
+  other games where you have to press a key to open a door or activate a 
+  switch.</P>
+  <DT><B><A name=c-adr0>adr0</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> The server address for the entry in the address 
+  book.</P>
+  <DT><B><A name=c-adr1>adr1</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> The server address for the entry in the address 
+  book.</P>
+  <DT><B><A name=c-adr2>adr2</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> The server address for the entry in the address 
+  book.</P>
+  <DT><B><A name=c-adr3>adr3</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> The server address for the entry in the address 
+  book.</P>
+  <DT><B><A name=c-adr4>adr4</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> The server address for the entry in the address 
+  book.</P>
+  <DT><B><A name=c-adr5>adr5</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> The server address for the entry in the address 
+  book.</P>
+  <DT><B><A name=c-adr6>adr6</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> The server address for the entry in the address 
+  book.</P>
+  <DT><B><A name=c-adr7>adr7</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> The server address for the entry in the address 
+  book.</P>
+  <DT><B><A name=c-adr8>adr8</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> The server address for the entry in the address 
+  book.</P>
+  <DT><B><A name=c-alias>alias</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I><BR><CODE>alias</CODE><BR><CODE>alias</CODE> 
+  <VAR>(name)</VAR> <VAR>"(commands)"</VAR><BR></P>
+  <P><I>Description:</I> Used to create a reference to a command or list of 
+  commands.</P>
+  <P><I>Note:</I> When used without parameters, it will display all current 
+  aliases. To create an alias which executes multiple commands, it is necessary 
+  to surround the commands with double-quotes and separate each command with a 
+  semicolon. An alias works like a command function since it cannot accept any 
+  parameters. Also, aliases are executed as if they were commands.</P>
+  <P><I>Example:</I><BR><CODE>alias sayhi "say Hi foo!"</CODE><BR><CODE>alias 
+  jumpshot "+moveup;+attack;wait;-attack;-moveup"</CODE><BR></P>
+  <DT><B><A name=c-allow_download>allow_download</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the automatic downloading of game files.</P>
+  <P><I>Note:</I> This command can be used by both, the client and the server 
+  individually to prevent the automatic downloading of game files.</P>
+  <DT><B><A name=c-allow_download_maps>allow_download_maps</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the automatic downloading of map files to the 
+  client from the server.</P>
+  <P><I>Note:</I> This command can be used by both, the client and the server 
+  individually to prevent the automatic downloading of game files. Maps which 
+  are contained in <CODE>.pak</CODE> files will not be available for download 
+  because of copyright issues associated with the distribution of commercial 
+  addons.</P>
+  <DT><B><A name=c-allow_download_models>allow_download_models</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the automatic downloading of model files.</P>
+  <P><I>Note:</I> This command can be used by both, the client and the server 
+  individually to prevent the automatic downloading of game files.</P>
+  <DT><B><A name=c-allow_download_players>allow_download_players</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the automatic downloading of player skin 
+  files.</P>
+  <P><I>Note:</I> This command can be used by both, the client and the server 
+  individually to prevent the automatic downloading of game files.</P>
+  <DT><B><A name=c-allow_download_sounds>allow_download_sounds</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the automatic downloading of sound files.</P>
+  <P><I>Note:</I> This command can be used by both, the client and the server 
+  individually to prevent the automatic downloading of game files.</P>
+  <DT><B><A name=c-basedir>basedir</A></B> 
+  <DD>
+  <P><I>Type:</I> Command Line Parameter</P>
+  <P><I>Default:</I> <CODE>.</CODE></P>
+  <P><I>Description:</I> The location of the directory where 
+  <CODE>baseq2/</CODE> directory resides.</P>
+  <P><I>Note:</I> This variable might be used if the data files for Quake 2 are 
+  stored in a totally different directory, for example on a read-only mounted 
+  drive.</P>
+  <DT><B><A name=c-bind>bind</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I><BR><CODE>bind</CODE> <VAR>(key)</VAR><BR><CODE>bind</CODE> 
+  <VAR>(key)</VAR> <VAR>"(commands)"</VAR><BR></P>
+  <P><I>Description:</I> Assign a command or a set of commands to a key.</P>
+  <P><I>Note:</I> When the command is used with just the key name and without 
+  assigning any commands to it, it will display the command which is currently 
+  assigned to that key. To bind multiple commands to a key, enclose the commands 
+  in double-quotes and separate them with semi-colons. To bind to non-printable 
+  keys, use the key name. The <CODE>escape</CODE>, and <CODE>~</CODE> (tilde) 
+  keys can only be bound from an external configuration file.</P>
+  <P><I>Key Name List:</I> <CODE>ESCAPE</CODE>, <KBD>F1-F12</KBD>, 
+  <KBD>PAUSE</KBD>, <KBD>BACKSPACE</KBD>, <KBD>TAB</KBD>, <KBD>SEMICOLON</KBD>, 
+  <KBD>ENTER</KBD>, <KBD>SHIFT</KBD>, <KBD>CTRL</KBD>, <KBD>ALT</KBD>, 
+  <KBD>SPACE</KBD>, <KBD>INS</KBD>, <KBD>HOME</KBD>, <KBD>PGUP</KBD>, 
+  <KBD>DEL</KBD>, <KBD>END</KBD>, <KBD>PGDN</KBD>, <KBD>UPARROW</KBD>, 
+  <KBD>DOWNARROW</KBD>, <KBD>LEFTARROW</KBD>, <KBD>RIGHTARROW</KBD>, 
+  <KBD>KP_SLASH</KBD>, <KBD>KP_MINUS</KBD>, <KBD>KP_PLUS</KBD>, 
+  <KBD>KP_ENTER</KBD>, <KBD>KP_5</KBD>, <KBD>KP_UPARROW</KBD>, 
+  <KBD>KP_LEFTARROW</KBD>, <KBD>KP_RIGHTARROW</KBD>, <KBD>KP_DOWNARROW</KBD>, 
+  <KBD>KP_HOME</KBD>, <KBD>KP_END</KBD>, <KBD>KP_PGUP</KBD>, <KBD>KP_PGDN</KBD>, 
+  <KBD>KP_INS</KBD>, <KBD>KP_DEL</KBD>, <KBD>MOUSE1-MOUSE3</KBD>, 
+  <KBD>AUX1-AUX32</KBD>, <KBD>JOY1-JOY4</KBD>, <KBD>MWHEELUP</KBD>, 
+  <KBD>MWHEELDOWN</KBD>.</P>
+  <P><I>Example:</I><BR><CODE>bind h "say Hi Foo!"</CODE><BR><CODE>bind mouse1 
+  "+attack;+moveup;wait;-moveup;-attack;echo Foo!"</CODE><BR></P>
+  <DT><B><A name=c-bindlist>bindlist</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Displays all key and button bindings.</P>
+  <DT><B><A name=c-bob_pitch>bob_pitch</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.002</CODE></P>
+  <P><I>Description:</I> The amount of movment that the player's screen moves up 
+  and down while in motion.</P>
+  <DT><B><A name=c-bob_roll>bob_roll</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.002</CODE></P>
+  <P><I>Description:</I> The amount of movment that the player's screen moves 
+  left and right while in motion.</P>
+  <DT><B><A name=c-bob_up>bob_up</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.005</CODE></P>
+  <P><I>Description:</I> The amount of time before the player's screen starts 
+  moving.</P>
+  <DT><B><A name=c-cd>cd</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I><BR><CODE>cd</CODE> <VAR>(command)</VAR><BR><CODE>cd</CODE> 
+  <VAR>(command)</VAR> <VAR>(parameter)</VAR><BR></P>
+  <P><I>Description:</I> Control the functions of playing CD music.</P>
+  <P><I>List:</I><BR><CODE>close</CODE> - Close the CD-ROM drive 
+  door.<BR><CODE>eject</CODE> - Eject the CD from the 
+  drive.<BR><CODE>info</CODE> - Display the number of music tracks on the CD and 
+  the current status.<BR><CODE>loop</CODE> <VAR>(track)</VAR> - Play the same 
+  track over and over.<BR><CODE>off</CODE> - Disable CD 
+  music.<BR><CODE>on</CODE> - Enable CD music.<BR><CODE>pause</CODE> - Pause the 
+  current playback.<BR><CODE>play</CODE> <VAR>(track)</VAR> - Play the 
+  track.<BR><CODE>remap</CODE> - Display the remapped order of 
+  tracks.<BR><CODE>remap</CODE> <VAR>(track)</VAR> <VAR>(track)</VAR> ... 
+  <VAR>(track)</VAR> - Change the playback order of 
+  tracks.<BR><CODE>reset</CODE> - Reset the CD functions.<BR><CODE>resume</CODE> 
+  - Resume play after a <CODE>pause</CODE>.<BR><CODE>stop</CODE> - Stop the 
+  current playback.<BR></P>
+  <P><I>Note:</I> For the command to be available the CD-ROM drive has to be 
+  idle at the time that Quake 2 starts, or else this command will be 
+  disabled.</P>
+  <P><I>Example:</I><BR><CODE>cd info</CODE><BR><CODE>cd play 
+  3</CODE><BR><CODE>cd remap 4 5 1 2 7 8</CODE><BR><CODE>cd remap</CODE><BR></P>
+  <DT><B><A name=c-cd_loopcount>cd_loopcount</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>4</CODE></P>
+  <P><I>Description:</I> The number of times that the looping track will 
+  play.</P>
+  <DT><B><A name=c-cd_looptrack>cd_looptrack</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>11</CODE></P>
+  <P><I>Description:</I> The number of the music track designated to loop.</P>
+  <DT><B><A name=c-cd_nocd>cd_nocd</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of CD music.</P>
+  <DT><B><A name=c-cddir>cddir</A></B> 
+  <DD>
+  <P><I>Type:</I> Command Line Parameter</P>
+  <P><I>Default:</I> <CODE>z:\install\data</CODE></P>
+  <P><I>Description:</I> The location of the game files on the CD-ROM.</P>
+  <P><I>Note:</I> The game will detect the CD-ROM drive letter automatically and 
+  will append the appropriate path by itself. If it happens that the computer 
+  has more than one CD-ROM drive and the game detects the wrong drive this 
+  variable might be set to direct the game to the right CD-ROM drive and 
+  path.</P>
+  <DT><B><A name=c-centerview>centerview</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Center the player's view.</P>
+  <DT><B><A name=c-changing>changing</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Informs the client of an upcoming map change.</P>
+  <P><I>Note:</I> This is an internal command used between the client and 
+  server.</P>
+  <DT><B><A name=c-cheats>cheats</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of cheat codes.</P>
+  <DT><B><A name=c-cl_anglespeedkey>cl_anglespeedkey</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1.5</CODE></P>
+  <P><I>Description:</I> The multiplier value for the yaw and roll axes.</P>
+  <P><I>Note:</I> While the <CODE>+speed</CODE> command is enabled or the 
+  <CODE>cl_run</CODE> toggle is enabled the values of 
+  <CODE>cl_forwardspeed</CODE>, <CODE>cl_sidespeed</CODE>, and 
+  <CODE>cl_upspeed</CODE> are multiplied by this value.</P>
+  <DT><B><A name=c-cl_autoskins>cl_autoskins</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> * Disabled.</P>
+  <DT><B><A name=c-cl_blend>cl_blend</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of palette blending effects.</P>
+  <P><I>Note:</I> The palette blending effect is used while being injured, using 
+  a powerup, or under water. It might be beneficial to disable this effect to 
+  see clearly in water, but then if the player is being injured he won't know 
+  it.</P>
+  <DT><B><A name=c-cl_entities>cl_entities</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the display of entities.</P>
+  <DT><B><A name=c-cl_footsteps>cl_footsteps</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the footstep sounds.</P>
+  <DT><B><A name=c-cl_forwardspeed>cl_forwardspeed</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>200</CODE></P>
+  <P><I>Description:</I> The maximum forward and backward movement speed.</P>
+  <DT><B><A name=c-cl_gun>cl_gun</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the display of the gun.</P>
+  <DT><B><A name=c-cl_lights>cl_lights</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the display of dynamic lighting.</P>
+  <DT><B><A name=c-cl_maxfps>cl_maxfps</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>90</CODE></P>
+  <P><I>Description:</I> The maximum number of packets-per-second the server 
+  should send to the client to cap the frames-per-second rate.</P>
+  <DT><B><A name=c-cl_nodelta>cl_nodelta</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of delta network packet compression.</P>
+  <DT><B><A name=c-cl_noskins>cl_noskins</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of custom skins on other 
+players.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - Enable the use of 
+  skins.<BR><CODE>1</CODE> - Disable the use of skins.<BR><CODE>2</CODE> - 
+  Enable the use of skins but do not download new skins from the server.<BR></P>
+  <DT><B><A name=c-cl_particles>cl_particles</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the display of partices.</P>
+  <DT><B><A name=c-cl_pitchspeed>cl_pitchspeed</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>150</CODE></P>
+  <P><I>Description:</I> The constant movement speed for the up and down 
+  axis.</P>
+  <P><I>Note:</I> This variable determines the speed at which the player's 
+  screen moves up and down while using the keyboard keys. The reason for this is 
+  that the keyboard does not have sensetivity states only an <I>off</I> and 
+  <I>on</I> state.</P>
+  <DT><B><A name=c-cl_predict>cl_predict</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle prediction of entities between network 
+  packets.</P>
+  <DT><B><A name=c-cl_run>cl_run</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle automatic running.</P>
+  <DT><B><A name=c-cl_showmiss>cl_showmiss</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of missed predictions.</P>
+  <DT><B><A name=c-cl_shownet>cl_shownet</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of latency information for network 
+  packets.</P>
+  <DT><B><A name=c-cl_sidespeed>cl_sidespeed</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>200</CODE></P>
+  <P><I>Description:</I> The maximum left and right movement speed.</P>
+  <DT><B><A name=c-cl_stats>cl_stats</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of information for map 
+  statistics.</P>
+  <DT><B><A name=c-cl_stereo>cl_stereo</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of stereoscopic display mode.</P>
+  <DT><B><A name=c-cl_stereo_separation>cl_stereo_separation</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.4</CODE></P>
+  <P><I>Description:</I> The seperation value between the left and right images 
+  in stereoscoptic mode.</P>
+  <DT><B><A name=c-cl_testblend>cl_testblend</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of test for pallet blending.</P>
+  <DT><B><A name=c-cl_testentities>cl_testentities</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of a test for entities.</P>
+  <DT><B><A name=c-cl_testlights>cl_testlights</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of a test for dynamic lighting.</P>
+  <DT><B><A name=c-cl_testparticles>cl_testparticles</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of a test for particles.</P>
+  <DT><B><A name=c-cl_timeout>cl_timeout</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>120</CODE></P>
+  <P><I>Description:</I> The maximum time in seconds that the client will wait 
+  for a network packet before disconnecting.</P>
+  <DT><B><A name=c-cl_upspeed>cl_upspeed</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>200</CODE></P>
+  <P><I>Description:</I> The maximum speed for up and down movment.</P>
+  <DT><B><A name=c-cl_vwep>cl_vwep</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of Visual Weapons on players.</P>
+  <DT><B><A name=c-cl_yawspeed>cl_yawspeed</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>140</CODE></P>
+  <P><I>Description:</I> The speed at which the player will turn while using a 
+  keyboard.</P>
+  <P><I>Note:</I> This variable determines the speed at which the player's 
+  screen moves left and right while using the keyboard keys. The reason for this 
+  is that the keyboard does not have sensetivity states only an <I>off</I> and 
+  <I>on</I> state.</P>
+  <DT><B><A name=c-clear>clear</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Clear the console of all text.</P>
+  <DT><B><A name=c-clientport>clientport</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>27901</CODE></P>
+  <P><I>Description:</I> The port that the client uses for receiving message 
+  from the server.</P>
+  <DT><B><A name=c-cmd>cmd</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I><BR><CODE>cmd</CODE> <VAR>(command)</VAR><BR><CODE>cmd</CODE> 
+  <VAR>(command)</VAR> <VAR>(parameters)</VAR><BR></P>
+  <P><I>Description:</I> Send the command and/or parameters to the server.</P>
+  <P><I>List:</I><BR><CODE>baselines</CODE> <VAR>(random number)</VAR> 
+  <VAR>(value)</VAR> - Set up the initial values for spawning the player on the 
+  map.<BR><CODE>begin</CODE> <VAR>(random number)</VAR> - Spawn the player on 
+  the map.<BR><CODE>configstrings</CODE> <VAR>(random number)</VAR> 
+  <VAR>(value)</VAR> - Set up the initial configuration for connecting the 
+  client to the server.<BR><CODE>disconnect</CODE> - Disconnect the client from 
+  the server.<BR><CODE>download</CODE> <VAR>(filename)</VAR> - *Disabled. 
+  Download a file from the server.<BR><CODE>drop</CODE> <VAR>(item)</VAR> - Drop 
+  an item from the inventory.<BR><CODE>fov</CODE> <VAR>(value)</VAR>- Set the 
+  field-of-vision.<BR><CODE>gameversion</CODE> - Display the date version of the 
+  game.<BR><CODE>give</CODE> <VAR>(item)</VAR>- Give an item to the 
+  player.<BR><CODE>god</CODE> - Toggle God mode.<BR><CODE>help</CODE> - Display 
+  the score screen.<BR><CODE>info</CODE> - Display server 
+  information.<BR><CODE>invdrop</CODE> - Drop the currently selected item in the 
+  inventory.<BR><CODE>inven</CODE> - Display the inventory 
+  screen.<BR><CODE>invnext</CODE> - Select the next item in the 
+  inventory.<BR><CODE>invprev</CODE> - Select the previous item in the 
+  inventory.<BR><CODE>invuse</CODE> - Use the currently selected item from the 
+  inventory.<BR><CODE>kill</CODE> - Make the player commit 
+  suicide.<BR><CODE>nextdl</CODE> - *Unknown.<BR><CODE>noclip</CODE> - Toggle 
+  the ability of the player to walk though walls and 
+  objects.<BR><CODE>notarget</CODE> - Toggle the ability of the monsters to 
+  detect the player.<BR><CODE>putaway</CODE> - Putaway any menu screen or 
+  inventory window.<BR><CODE>say</CODE> <VAR>(message)</VAR> - Send a message to 
+  all the players on the server.<BR><CODE>say_team</CODE> <VAR>(message)</VAR> - 
+  Send a message to all the players on the server who are on your 
+  team.<BR><CODE>use</CODE> - Use an item which is in the player's 
+  inventory.<BR><CODE>wave</CODE> <VAR>(type)</VAR>- Make the player character 
+  display a hand gesture to other players on the 
+  server.<BR><CODE>weapnext</CODE> - Switch to the next weapon in the player's 
+  inventory.<BR><CODE>weapprev</CODE> - Switch to the previous weapon in the 
+  player's inventory.<BR></P>
+  <P><I>Note:</I> Some commands that the client uses do not need to be prefixed 
+  with <CODE>cmd</CODE> before sending them to the server. The function on this 
+  command is to allow the client to perform actions which require information 
+  from the server. This command is basically an interface between the client and 
+  the server, where the client asks the server if it can perform an action, and 
+  the server performs the action or rejects the request. This command is 
+  automatically used by the client internally, so it is never necessary to call 
+  this command unless performing some type of debugging.</P>
+  <P><I>Example:</I><BR><CODE>cmd god</CODE><BR><CODE>cmd give 
+all</CODE><BR></P>
+  <DT><B><A name=c-cmdlist>cmdlist</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display a list of all available commands.</P>
+  <DT><B><A name=c-con_notifytime>con_notifytime</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>3</CODE></P>
+  <P><I>Description:</I> The delay before console messages disappear from the 
+  screen.</P>
+  <DT><B><A name=c-condump>condump</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>condump</CODE> <VAR>(filename)</VAR></P>
+  <P><I>Description:</I> Dump the console text to a text file.</P>
+  <P><I>Note:</I> It is not necessary to specify an extension to the 
+  <VAR>(filename)</VAR> since a <CODE>.txt</CODE> extension as appended 
+  automatically.</P>
+  <P><I>Example:</I> <CODE>condump context</CODE></P>
+  <DT><B><A name=c-connect>connect</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I><BR><CODE>connect</CODE> <VAR>(IP 
+  address)</VAR><BR><CODE>connect</CODE> <VAR>(IP address):(port)</VAR><BR></P>
+  <P><I>Description:</I> Connect the client to a server.</P>
+  <P><I>Note:</I> It is usually not necessary to specify a <VAR>(port)</VAR> 
+  unless the server is running on a different port than <CODE>29710</CODE>, 
+  which is the default port.</P>
+  <P><I>Example:</I><BR><CODE>connect 123.123.123.123</CODE><BR><CODE>connect 
+  123.123.123.123:27911</CODE><BR></P>
+  <DT><B><A name=c-coop>coop</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle cooperative play.</P>
+  <P><I>Note:</I> In cooperative mode, the <CODE>dmflags</CODE> variable is 
+  disabled. Weapons will remain for all players to retrieve whereas other items 
+  will disappear when picked up.</P>
+  <DT><B><A name=c-crosshair>crosshair</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of the crosshair.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - Crosshair disabled.<BR><CODE>1</CODE> - 
+  X crosshair enabled.<BR><CODE>2</CODE> - Dot crosshair 
+  enabled.<BR><CODE>3</CODE> - Angle crosshair enabled.<BR></P>
+  <DT><B><A name=c-cvarlist>cvarlist</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display a list of all variables, their flags, and their 
+  values.</P>
+  <P><I>Note:</I> Each varaiable has a value and a state flag. If a variable has 
+  the value of <CODE>""</CODE>, then that variable is empty.</P>
+  <P><I>List:</I><BR><CODE>*</CODE> - Saved setting, will save changes to this 
+  variable between games by writing it in the <CODE>config.cfg</CODE> 
+  file.<BR><CODE>U</CODE> - User variable, will show up in the output from the 
+  <CODE>userinfo</CODE> command or <CODE>dumpuser</CODE> 
+  command..<BR><CODE>S</CODE> - Server variable, will show up in the output from 
+  the <CODE>serverinfo</CODE> command.<BR><CODE>L</CODE> - Delayed function, 
+  will take action after a map change.<BR><CODE>-</CODE> - Write protected, only 
+  changable upon launching of the game with a command line parameter.<BR></P>
+  <DT><B><A name=c-deathmatch>deathmatch</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the deathmatch game mode.</P>
+  <DT><B><A name=c-debuggraph>debuggraph</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of the debug graph.</P>
+  <DT><B><A name=c-dedicated>dedicated</A></B> 
+  <DD>
+  <P><I>Type:</I> Command Line Parameter</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Set the game into dedicated server mode.</P>
+  <P><I>Note:</I> This variable will determine if the game will load with a 
+  graphical interface used for single-player game or for the client mode use for 
+  gaming. When the variable is set to 1 the game will load with a text-only 
+  interface with server functions only. This is beneficial because a dedicated 
+  server is more efficient than a listen server.</P>
+  <DT><B><A name=c-demomap>demomap</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>demomap</CODE> <VAR>(filename)</VAR></P>
+  <P><I>Description:</I> Plays back a demo.</P>
+  <P><I>Note:</I> The extension <CODE>.bsp</CODE> is appended to any 
+  <VAR>(filename)</VAR> which does not contain an extension. The default 
+  extension of a demo is <CODE>.dm2</CODE>. If any key is pressed during the 
+  playback of a demo the main menu is displayed.</P>
+  <P><I>Example:</I> <CODE>demomap demo1.dm2</CODE></P>
+  <DT><B><A name=c-developer>developer</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of developer information.</P>
+  <P><I>Note:</I> There are a lot of game message which are not displayed, this 
+  variable will allow for a game developer to read all of the internal messages 
+  that the game displays. A lot of this information is necessary for debugging 
+  the game or just watching the internal processes that the game goes 
+  through.</P>
+  <DT><B><A name=c-dir>dir</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I><BR><CODE>dir</CODE><BR><CODE>dir</CODE> <VAR>(relative 
+  path)</VAR>/<VAR>(filename mask)</VAR><BR></P>
+  <P><I>Description:</I> Display a directory listing.</P>
+  <P><I>Note:</I> This command will display the files and directories of any 
+  directory on the hard disk. It is necessary to specify the location of the 
+  directory to be displayed using a relative path format. In a relative path the 
+  character <CODE>.</CODE> means current path, <CODE>..</CODE> means parent 
+  path, and <CODE>/</CODE> or <CODE>\</CODE> separates directories. It is also 
+  necessary to specify a filename mask which will determine what files are 
+  displayed. In a filemask the character <CODE>?</CODE> substitutes for any 
+  single character, <CODE>*</CODE> substitutes for any number of characters. If 
+  the command is executed without parameters it will display the contents of the 
+  <CODE>quake2/baseq2/</CODE> directory.</P>
+  <P><I>Example:</I><BR><CODE>dir</CODE><BR><CODE>dir *.cfg</CODE><BR><CODE>dir 
+  ../*.*</CODE><BR><CODE>dir ..\*.*</CODE><BR></P>
+  <DT><B><A name=c-disconnect>disconnect</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Disconnects the client from the server.</P>
+  <DT><B><A name=c-dmflags>dmflags</A></B> 
+  <DD>
+  <P><I>Type:</I> Bitmap</P>
+  <P><I>Default:</I> <CODE>16</CODE></P>
+  <P><I>Description:</I> The options which determine deathmatch game 
+  settings.</P>
+  <P><I>Values:</I><BR><CODE>1</CODE> - No Health.<BR><CODE>2</CODE> - No 
+  Powerups.<BR><CODE>4</CODE> - Weapons Stay.<BR><CODE>8</CODE> - No Falling 
+  Damage.<BR><CODE>16</CODE> - Instant Powerups.<BR><CODE>32</CODE> - Same 
+  Map.<BR><CODE>64</CODE> - Teams by Skin.<BR><CODE>128</CODE> - Teams by 
+  Model.<BR><CODE>256</CODE> - No Friendly Fire.<BR><CODE>512</CODE> - Spawn 
+  Farthest.<BR><CODE>1024</CODE> - Force Respawn.<BR><CODE>2048</CODE> - No 
+  Armor.<BR><CODE>4096</CODE> - Allow Exit.<BR><CODE>8192</CODE> - Infinite 
+  Ammo.<BR><CODE>16384</CODE> - Quad Drop.<BR><CODE>32768</CODE> - Fixed 
+  FOV.<BR></P>
+  <DT><B><A name=c-download>download</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>download</CODE> <VAR>(filename)</VAR></P>
+  <P><I>Description:</I> This command will download any specified filename from 
+  the server.</P>
+  <P><I>Example:</I> <CODE>download players/male/grunt.pcx</CODE></P>
+  <DT><B><A name=c-drop>drop</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>drop</CODE> <VAR>(item)</VAR></P>
+  <P><I>Description:</I> Drop an item from the inventory.</P>
+  <P><I>List:</I><BR><CODE>adrenaline</CODE> - Adrenaline.<BR><CODE>airstrike 
+  marker</CODE> - Airstrike Marker.<BR><CODE>ammo pack</CODE> - Ammo 
+  Pack.<BR><CODE>ancient head</CODE> - Ancient Head.<BR><CODE>bandolier</CODE> - 
+  Bandoleer.<BR><CODE>bfg10k</CODE> - BFG10K.<BR><CODE>blue key</CODE> - Blue 
+  Key.<BR><CODE>bullets</CODE> - 50 Bullets.<BR><CODE>chaingun</CODE> - 
+  Chaingun.<BR><CODE>cells</CODE> - 50 cells.<BR><CODE>commander's head</CODE> - 
+  Commander's Head.<BR><CODE>data cd</CODE> - Data CD.<BR><CODE>data 
+  spinner</CODE> - Data Spinner.<BR><CODE>environment suit</CODE> - Environment 
+  Suit.<BR><CODE>grenade launcher</CODE> - Grenade 
+  Launcher.<BR><CODE>grenades</CODE> - 5 Grenades.<BR><CODE>hyperblaster</CODE> 
+  - HyperBlaster.<BR><CODE>invulnerability</CODE> - 
+  Invulnerability.<BR><CODE>machinegun</CODE> - Machinegun.<BR><CODE>power 
+  cube</CODE> - Power Cube.<BR><CODE>power screen</CODE> - Power 
+  Screen.<BR><CODE>power shield</CODE> - Power Shield.<BR><CODE>pyramid 
+  key</CODE> - Pyramid Key.<BR><CODE>quad damage</CODE> - Quad 
+  Damage.<BR><CODE>railgun</CODE> - Railgun.<BR><CODE>rebreather</CODE> - 
+  Rebreather.<BR><CODE>red key</CODE> - Red Key.<BR><CODE>rocket launcher</CODE> 
+  - Rocket Launcher.<BR><CODE>rockets</CODE> - 5 Rockets.<BR><CODE>security 
+  pass</CODE> - Security Pass.<BR><CODE>shells</CODE> - 10 
+  Shells.<BR><CODE>shotgun</CODE> - Shotgun.<BR><CODE>silencer</CODE> - 
+  Silencer.<BR><CODE>slugs</CODE> - 10 Slugs.<BR><CODE>super shotgun</CODE> - 
+  Super Shotgun.<BR></P>
+  <P><I>Note:</I> This only works in multiplayer games where instant powerups 
+  are disabled. Also, dropped items only stay on the map for 30-seconds, after 
+  that time they just disappear.</P>
+  <P><I>Example:</I><BR><CODE>drop shotgun</CODE><BR><CODE>drop quad 
+  damage</CODE><BR></P>
+  <DT><B><A name=c-dumpuser>dumpuser</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>dumpuser</CODE> <VAR>(userid)</VAR></P>
+  <P><I>Description:</I> Display user information.</P>
+  <P><I>Note:</I> This command will display all variables flagged with the 
+  <CODE>U</CODE> (user) flag, and their values.</P>
+  <P><I>Example:</I> <CODE>dumpuser 0</CODE></P>
+  <DT><B><A name=c-echo>echo</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>echo</CODE> <VAR>(text)</VAR></P>
+  <P><I>Description:</I> Display text to the console.</P>
+  <P><I>Example:</I> <CODE>echo Hey Foo!</CODE></P>
+  <DT><B><A name=c-error>error</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>error</CODE> <VAR>"(text)"</VAR></P>
+  <P><I>Description:</I> Quit the game with an error message.</P>
+  <P><I>Example:</I> <CODE>error "The Foo Overflowed"</CODE></P>
+  <DT><B><A name=c-exec>exec</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>exec</CODE> <VAR>(filename)</VAR></P>
+  <P><I>Description:</I> Execute a console script file.</P>
+  <P><I>Note:</I> This is a very helpful command because it allows for the 
+  execution of multiple commands which are stored in text files and are used to 
+  setup the client or a server. The default extension for a console script is 
+  <CODE>.cfg</CODE>, but an extension of <CODE>.rc</CODE> is also in common use 
+  especially for player configuration scripts. The <CODE>.rc</CODE> extension 
+  was derived from Unix shell scripts which also share the same extension.</P>
+  <P><I>Example:</I> <CODE>exec foo.rc</CODE></P>
+  <DT><B><A name=c-filterban>filterban</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the usage of the banlist.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - Allow only the addresses in the banlist 
+  to join the server.<BR><CODE>1</CODE> - Ban the addresses in the banlist from 
+  joining the server.<BR></P>
+  <DT><B><A name=c-fixedtime>fixedtime</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle display of all game frames.</P>
+  <P><I>Note:</I> If this variable is enabled the game will display all game 
+  frames thus slowing down the game in order to allow for the display of every 
+  frame. Normally the game will skip frames to keep the speed of the game 
+  constant.</P>
+  <DT><B><A name=c-flood_msgs>flood_msgs</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>4</CODE></P>
+  <P><I>Description:</I> The number of messages that a client has to send in 
+  order to be considered a flood.</P>
+  <DT><B><A name=c-flood_persecond>flood_persecond</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>4</CODE></P>
+  <P><I>Description:</I> The time in seconds in which the messages are send in 
+  order to be considered a flood.</P>
+  <DT><B><A name=c-flood_waitdelay>flood_waitdelay</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>10</CODE></P>
+  <P><I>Description:</I> The time in seconds that a client will not be able to 
+  send any more message to the server because of the flood.</P>
+  <DT><B><A name=c-flushmap>flushmap</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the flushing of map during map changes.</P>
+  <DT><B><A name=c-fov>fov</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>90</CODE></P>
+  <P><I>Description:</I> The size of the player's peripheral vision.</P>
+  <DT><B><A name=c-fraglimit>fraglimit</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> The score that is necessary for changing of maps.</P>
+  <DT><B><A name=c-freelook>freelook</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of the forward and down movements into 
+  look up and look down.</P>
+  <DT><B><A name=c-g_select_empty>g_select_empty</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the ability of players to select weapons without 
+  ammo.</P>
+  <DT><B><A name=c-game>game</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> The alternative location for the <CODE>baseq2/</CODE> 
+  directory.</P>
+  <P><I>Note:</I> This variable is used to inform Quake 2 to look for additional 
+  game information in the directory provided. This variable is used while 
+  playing different game modifications.</P>
+  <DT><B><A name=c-gamedate>gamedate</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>May 27 1998</CODE></P>
+  <P><I>Description:</I> The internal date of game <CODE>.dll</CODE> file.</P>
+  <DT><B><A name=c-gamedir>gamedir</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>none</CODE></P>
+  <P><I>Description:</I> The directory name where the game files are located 
+  when the server is running a custom game configuration.</P>
+  <DT><B><A name=c-gamemap>gamemap</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>gamemap</CODE> <VAR>(filename)</VAR></P>
+  <P><I>Description:</I> Start the server with a new map.</P>
+  <P><I>Note:</I> The extension <CODE>.bsp</CODE> is appended to the 
+  <VAR>(filename)</VAR> when it does not include an extension.</P>
+  <P><I>Example:</I> <CODE>gamemap base1</CODE></P>
+  <DT><B><A name=c-gamename>gamename</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>baseq2</CODE></P>
+  <P><I>Description:</I> The internal name of the game <CODE>.dll</CODE> 
+  file.</P>
+  <DT><B><A name=c-gameversion>gameversion</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> *Disabled.</P>
+  <P><I>Note:</I> This command used to display the date version of the game.</P>
+  <DT><B><A name=c-gender>gender</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>male</CODE></P>
+  <P><I>Description:</I> The gender of the player.</P>
+  <P><I>Note:</I> This variable is necessary in order to display the proper 
+  death messages which might be gender related.</P>
+  <P><I>Values:</I><BR><CODE>male</CODE> - Male death messages 
+  displayed.<BR><CODE>female</CODE> - Female death messages 
+  displayed.<BR><CODE>none</CODE> - Neutral death messages displayed.<BR></P>
+  <DT><B><A name=c-gender_auto>gender_auto</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of automatic gender detection based on 
+  the player's model.</P>
+  <DT><B><A name=c-give>give</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I><BR><CODE>give</CODE> <VAR>(item)</VAR><BR><CODE>give</CODE> 
+  <VAR>(item)</VAR> <VAR>(amount)</VAR><BR></P>
+  <P><I>Description:</I> Give an item to the player.</P>
+  <P><I>Note:</I> The amount parameter is only available when giving ammo and 
+  does not work for grenades. It is possible to take away items by giving a 
+  negative amount of an item.</P>
+  <P><I>List:</I><BR><CODE>all</CODE> - All items.<BR><CODE>ammo</CODE> - Full 
+  ammo.<BR><CODE>armor</CODE> - Full armor.<BR><CODE>health</CODE> - Full 
+  health.<BR><CODE>weapons</CODE> - All weapons.<BR><CODE>shells</CODE> - 10 
+  Shells.<BR><CODE>bullets</CODE> - 50 Bullets.<BR><CODE>grenades</CODE> - 5 
+  Grenades.<BR><CODE>rockets</CODE> - 5 Rockets.<BR><CODE>slugs</CODE> - 10 
+  Slugs.<BR><CODE>cells</CODE> - 50 Cells.<BR><CODE>combat armor</CODE> - 1 unit 
+  of Combat Armor.<BR><CODE>jacket armor</CODE> - 1 unit of Jacket 
+  Armor.<BR><CODE>armor shard</CODE> - Armor Shard.<BR><CODE>power screen</CODE> 
+  - Power Screen.<BR><CODE>power shield</CODE> - Power 
+  Shield.<BR><CODE>shotgun</CODE> - Shotgun.<BR><CODE>super shotgun</CODE> - 
+  Super Shotgun.<BR><CODE>machinegun</CODE> - 
+  Machinegun.<BR><CODE>chaingun</CODE> - Chaingun.<BR><CODE>grenade 
+  launcher</CODE> - Grenade Launcher.<BR><CODE>rocket launcher</CODE> - Rocket 
+  Launcher.<BR><CODE>hyperblaster</CODE> - HyperBlaster.<BR><CODE>railgun</CODE> 
+  - Railgun.<BR><CODE>bfg10k</CODE> - BFG10K.<BR><CODE>adrenaline</CODE> - 
+  Adrenaline.<BR><CODE>ammo pack</CODE> - Ammo Pack.<BR><CODE>bandolier</CODE> - 
+  Bandoleer.<BR><CODE>environment suit</CODE> - Environment 
+  Suit.<BR><CODE>invulnerability</CODE> - Invulnerability.<BR><CODE>quad 
+  damage</CODE> - Quad Damage.<BR><CODE>rebreather</CODE> - 
+  Rebreather.<BR><CODE>silencer</CODE> - Silencer.<BR><CODE>airstrike 
+  marker</CODE> - Airstrike Marker.<BR><CODE>ancient head</CODE> - Ancient 
+  Head.<BR><CODE>blue key</CODE> - Blue Key.<BR><CODE>commander's head</CODE> - 
+  Commander's Head.<BR><CODE>data cd</CODE> - Data CD.<BR><CODE>data 
+  spinner</CODE> - Data Spinner.<BR><CODE>power cube</CODE> - Power 
+  Cube.<BR><CODE>pyramid key</CODE> - Pyramid Key.<BR><CODE>red key</CODE> - Red 
+  Key.<BR><CODE>security pass</CODE> - Security Pass.<BR></P>
+  <P><I>Example:</I><BR><CODE>give all</CODE><BR><CODE>give rocket 
+  launcher</CODE><BR><CODE>give shells</CODE><BR><CODE>give rockets 
+  100</CODE><BR></P>
+  <DT><B><A name=c-gl_3dlabs_broken>gl_3dlabs_broken</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of alternative code for 3D Labs video 
+  drivers.</P>
+  <P><I>Note:</I> The drivers that 3D Labs release have some problems so this 
+  variable was developed to overcome those problems. Once the drivers are fixed 
+  this variable can be disabled.</P>
+  <DT><B><A name=c-gl_allow_software>gl_allow_software</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the emulation of missing OpenGL functions by the 
+  game software.</P>
+  <DT><B><A name=c-gl_bitdepth>gl_bitdepth</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of 16-bit textures.</P>
+  <DT><B><A name=c-gl_clear>gl_clear</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the clearing of the screen between frames.</P>
+  <P><I>Note:</I> This is only necessary when developing a map and it is 
+  necessary to clear extraneous screen information when floating outside of the 
+  map for example. This is also helpful when using the <CODE>gl_lockpvs</CODE> 
+  command.</P>
+  <DT><B><A name=c-gl_cull>gl_cull</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of OpenGL culling functions.</P>
+  <P><I>Note:</I> The culling functions are used to remove certain map 
+  information which would not be rendered because it is covered by another 
+  object.</P>
+  <DT><B><A name=c-gl_drawbuffer>gl_drawbuffer</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>GL_BACK</CODE></P>
+  <P><I>Description:</I> The name of the buffer that display information should 
+  be written to.</P>
+  <DT><B><A name=c-gl_driver>gl_driver</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>3dfxgl</CODE></P>
+  <P><I>Description:</I> The filename of the OpenGL <CODE>.dll</CODE> 
+driver.</P>
+  <DT><B><A name=c-gl_dynamic>gl_dynamic</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of dynamic lighting.</P>
+  <DT><B><A 
+  name=c-gl_ext_compiled_vertex_array>gl_ext_compiled_vertex_array</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of a compiled vertex array.</P>
+  <DT><B><A name=c-gl_ext_multitexture>gl_ext_multitexture</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of multiple texture processors.</P>
+  <DT><B><A name=c-gl_ext_palettedtexture>gl_ext_palettedtexture</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of textures with their own color 
+  pallets.</P>
+  <DT><B><A name=c-gl_ext_pointparameters>gl_ext_pointparameters</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of point parameter files.</P>
+  <DT><B><A name=c-gl_ext_swapinterval>gl_ext_swapinterval</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of the swap interval between frames.</P>
+  <DT><B><A name=c-gl_finish>gl_finish</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of <CODE>gl_finish()</CODE> function 
+  after each frame.</P>
+  <P><I>Note:</I> If this toggle is enabled the video card driver will send out 
+  a <CODE>gl_finish()</CODE> call at the end of each frame for proper 
+timing.</P>
+  <DT><B><A name=c-gl_flashblend>gl_flashblend</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the blending of lights onto the environment.</P>
+  <P><I>Note:</I> If this toggle is enabled the lights will blend into a 
+  translucent ball of light.</P>
+  <DT><B><A name=c-gl_lightmap>gl_lightmap</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of light map used for testing static 
+  lighting.</P>
+  <P><I>Note:</I> If this toggle is enabled all of the textures will be removed 
+  from the display and only the static lights will be shown.</P>
+  <DT><B><A name=c-gl_lockpvs>gl_lockpvs</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the locking of the current PVS table.</P>
+  <P><I>Note:</I> If this toggle is enabled the game will lock the PVS table in 
+  the memory for the current location that the player is in and it will not let 
+  it be updated by the player's movement. The PVS table determines what parts of 
+  the map can be seen by the player and if they should be rendered. This 
+  variable is used by map makers to lock the PVS from a certain location and 
+  then move around to see what parts the game will render from that location and 
+  then determine where hint brushes should be placed to limit the rendering. It 
+  is helpful to enable the <CODE>gl_clear</CODE> command to avoid the hall of 
+  mirrors effect on the unrendered parts of the level.</P>
+  <DT><B><A name=c-gl_log>gl_log</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the logging of all the OpenGL commands.</P>
+  <P><I>Note:</I> If this toggle is enabled a file called <CODE>gl.log</CODE> is 
+  produced with all of the OpenGL commands which were used by the game. Be 
+  careful about using this command since the size of the log file can grow quite 
+  large quick quickly.</P>
+  <DT><B><A name=c-gl_mode>gl_mode</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>3</CODE></P>
+  <P><I>Description:</I> Toggle the screen resolution mode.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - 320 x 200<BR><CODE>1</CODE> - 400 x 
+  300<BR><CODE>2</CODE> - 512 x 384<BR><CODE>3</CODE> - 640 x 
+  480<BR><CODE>4</CODE> - 800 x 600<BR><CODE>5</CODE> - 960 x 
+  720<BR><CODE>6</CODE> - 1024 x 768<BR><CODE>7</CODE> - 1152 x 
+  864<BR><CODE>8</CODE> - 1280 x 960<BR><CODE>9</CODE> - 1600 x 1200<BR></P>
+  <DT><B><A name=c-gl_modulate>gl_modulate</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> The brightness of a texture while it is being affected 
+  by dynamic lights.</P>
+  <P><I>Note:</I> If the value is less than <CODE>1</CODE> then the texture 
+  which on which the dynamic light is displayed will be darker than it's normal 
+  color. If the value is more than <CODE>1</CODE> then the texture will be 
+  brighter. This variable is mostly used to brighten up the lighting in the game 
+  without changing any gamma information.</P>
+  <DT><B><A name=c-gl_monolightmap>gl_monolightmap</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of a monochromic light map to test 
+  dynamic lighting.</P>
+  <P><I>Note:</I> If this toggle is enabled the wall textures will be removed 
+  from walls and replaced by a white texture. Also, all effects of dynamic 
+  lighting on different parts of the map will be displayed in a solid black 
+  color.</P>
+  <DT><B><A name=c-gl_nobind>gl_nobind</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the binding of textures to triangles.</P>
+  <DT><B><A name=c-gl_nosubimage>gl_nosubimage</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the usage of subimages for rendering.</P>
+  <DT><B><A name=c-gl_particle_att_a>gl_particle_att_a</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> The value for the intensity of the particle A 
+  attributes.</P>
+  <DT><B><A name=c-gl_particle_att_b>gl_particle_att_b</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> The value for the intensity of the particle B 
+  attributes.</P>
+  <DT><B><A name=c-gl_particle_att_c>gl_particle_att_c</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> The value for the intensity of the particle C 
+  attributes.</P>
+  <DT><B><A name=c-gl_particle_max_size>gl_particle_max_size</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>4</CODE></P>
+  <P><I>Description:</I> The maximum size for a rendered particle.</P>
+  <DT><B><A name=c-gl_particle_min_size>gl_particle_min_size</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> The minimum size for a rendered particle.</P>
+  <DT><B><A name=c-gl_particle_size>gl_particle_size</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>4</CODE></P>
+  <P><I>Description:</I> The default size for a rendered particle.</P>
+  <DT><B><A name=c-gl_picmip>gl_picmip</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> The dimensions of displayed textures.</P>
+  <P><I>Note:</I> The value of this variable will determine the dimensions of 
+  the textures which are displayed in the game. The displayed textures are 
+  shrunk by the formula <CODE>2^x</CODE> where <CODE>x</CODE> is the value of 
+  this register. Setting this to a value which is larger than zero might provide 
+  performance increases on slow systems.</P>
+  <DT><B><A name=c-gl_playermip>gl_playermip</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> The dimensions of displayed player skins.</P>
+  <P><I>Note:</I> The value of this variable will determine the dimensions of 
+  the player skins which are displayed in the game. The displayed skins are 
+  shrunk by the formula <CODE>2^x</CODE> where <CODE>x</CODE> is the value of 
+  this register. Setting this to a value which is larger than zero might provide 
+  performance increases on slow systems.</P>
+  <DT><B><A name=c-gl_polyblend>gl_polyblend</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle pallet blending.</P>
+  <P><I>Note:</I> The pallet blending effect is used while being injured, using 
+  a powerup, or under water. It might be beneficial to disable this effect to 
+  see clearly in water, but then if the player is being injured he won't know 
+  it.</P>
+  <DT><B><A name=c-gl_round_down>gl_round_down</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the rounding of texture sizes.</P>
+  <P><I>Note:</I> If this toggle is enabled textures which are not sized to the 
+  power of 2 will be enlarged to the next higher power of 2. Normally textures 
+  will be shrunk to the next lower power of 2. Enabling this toggle will make 
+  some textures sharper such as monster skins but will degrade performance. </P>
+  <DT><B><A name=c-gl_saturatelighting>gl_saturatelighting</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the saturation of all lights.</P>
+  <DT><B><A name=c-gl_shadows>gl_shadows</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle entity shadows.</P>
+  <P><I>Note:</I> This function is far from perfect. Shadows will all be cast in 
+  the same direction (angle 180 in reference to <CODE>viewpos</CODE>) from all 
+  entities, including ones that are emitting light.</P>
+  <DT><B><A name=c-gl_showtris>gl_showtris</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> This command toggles a map of the triangles that the 
+  engine is drawing for the current view. The edges of the triangles are shown 
+  in white and the faces are darkened.</P>
+  <P><I>Note:</I> This command is unable to be used on a 3Dfx card. You need to 
+  be using the default OpenGL driver.</P>
+  <DT><B><A name=c-gl_skymip>gl_skymip</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the usage of mipmap information for the sky 
+  graphics.</P>
+  <DT><B><A name=c-gl_swapinterval>gl_swapinterval</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> The delay between frame buffer swaps.</P>
+  <DT><B><A name=c-gl_texturealphamode>gl_texturealphamode</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>default</CODE></P>
+  <P><I>Description:</I> The color mode for alpha-blended textures.</P>
+  <P><I>Values:</I><BR><CODE>default</CODE> - The default 
+  mode.<BR><CODE>GL_RGBA</CODE> - Unknown.<BR><CODE>GL_RGBA2</CODE> - 
+  Unknown.<BR><CODE>GL_RGBA4</CODE> - Unknown.<BR><CODE>GL_RGBA8</CODE> - 
+  Unknown.<BR><CODE>GL_RGB5_A1</CODE> - Unknown.<BR></P>
+  <DT><B><A name=c-gl_texturemode>gl_texturemode</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>GL_LINEAR_MIPMAP_NEAREST</CODE></P>
+  <P><I>Description:</I> The texture drawing mode.</P>
+  <P><I>Values:</I><BR><CODE>GL_NEAREST</CODE> - This will enable nearest 
+  neighbor interpolation and will therefore appear similar to software Quake2 
+  except with the added colored lighting.<BR><CODE>GL_LINEAR</CODE> - This will 
+  enable linear interpolation and will appear to blend in objects that are 
+  closer than the resolution that the textures are set 
+  as.<BR><CODE>GL_NEAREST_MIPMAP_NEAREST</CODE> - Nearest neighbor interpolation 
+  with mipmapping for bilinear hardware. Mipmapping will blend objects that are 
+  farther away than the resolution that they are set as. 
+  <BR><CODE>GL_LINEAR_MIPMAP_NEAREST</CODE> - Linear interpolation with 
+  mipmapping for bilinear hardware.<BR><CODE>GL_NEAREST_MIPMAP_LINEAR</CODE> - 
+  Nearest neighbor interpolation with mipmapping for trilinear 
+  hardware.<BR><CODE>GL_LINEAR_MIPMAP_LINEAR</CODE> - Linear interpolation with 
+  mipmapping for trilinear hardware.<BR></P>
+  <DT><B><A name=c-gl_texturesolidmode>gl_texturesolidmode</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>default</CODE></P>
+  <P><I>Description:</I> The color mode for solid-blended textures.</P>
+  <P><I>Values:</I><BR><CODE>default</CODE> - The default 
+  mode.<BR><CODE>GL_RGB</CODE> - Unknown.<BR><CODE>GL_RGB2</CODE> - 
+  Unknown.<BR><CODE>GL_RGB4</CODE> - Unknown.<BR><CODE>GL_RGB5</CODE> - 
+  Unknown.<BR><CODE>GL_RGB8</CODE> - Unknown.<BR><CODE>GL_R3_G3_B2</CODE> - 
+  Unknown.<BR></P>
+  <DT><B><A name=c-gl_triplebuffer>gl_triplebuffer</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the usage of triple buffering for OpenGL 
+  cards.</P>
+  <P><I>Note:</I> If you are using a 3Dfx Voodoo2 card this toggle will 
+  automatically be set to <CODE>1</CODE> because these cards support triple 
+  buffering by default.</P>
+  <DT><B><A name=c-gl_vertex_arrays>gl_vertex_arrays</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of vertex arrays.</P>
+  <DT><B><A name=c-gl_ztrick>gl_ztrick</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the clearing of the z-buffer between frames.</P>
+  <P><I>Note:</I> If this toggle is enabled the game will not clear the z-buffer 
+  between frames. This will result in increased performance but might cause 
+  problems for some display hardware.</P>
+  <DT><B><A name=c-god>god</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Toggle god mode for the player.</P>
+  <P><I>Note:</I> When a player is in god mode he is indestructible, except for 
+  the teleportation death (telefrag), or if he issues the <CODE>kill</CODE> 
+  command. Also, players in god mode have a white aura effect around their 
+  character so you always know who's using this command.</P>
+  <DT><B><A name=c-graphheight>graphheight</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>32</CODE></P>
+  <P><I>Description:</I> The height in pixes of graphs.</P>
+  <DT><B><A name=c-graphscale>graphscale</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> The vertical scale of displayed information on 
+  graphs.</P>
+  <P><I>Note:</I> If this register is lower than <CODE>1</CODE> the data in the 
+  graphs will be shrunk, if higher than <CODE>1</CODE> the data will be 
+  enlarged.</P>
+  <DT><B><A name=c-graphshift>graphshift</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> The vertical shift of information on graphs.</P>
+  <DT><B><A name=c-gun_model>gun_model</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I><BR><CODE>gun_model</CODE><BR><CODE>gun_model</CODE> 
+  <VAR>(filename)</VAR><BR></P>
+  <P><I>Description:</I> Display a weapon model.</P>
+  <P><I>Note:</I> This command is primarily used to test the look of the weapon 
+  models and to allow the display of each frame for a gun model. When this 
+  command is used without any parameters, it will return the default gun 
+  model.</P>
+  <P><I>Example:</I><BR><CODE>gun_model</CODE><BR><CODE>gun_model 
+  weapons/v_shotg</CODE><BR></P>
+  <DT><B><A name=c-gun_next>gun_next</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Displays the next frame for the current weapon model 
+  and reports the frame number. The first frame <CODE>0</CODE> is the default 
+  frame where the gun animation takes place. If the frame number is increased to 
+  anything above that frame, the gun model will be frozen in that frame until 
+  the gun frame is returned to <CODE>0</CODE>.</P>
+  <DT><B><A name=c-gun_prev>gun_prev</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Displays the previous frame for the current weapon 
+  model and reports the frame number. The first frame <CODE>0</CODE> is the 
+  default frame where the gun animation takes place. If the frame number is 
+  increased to anything above that frame, the gun model will be frozen in that 
+  frame until the gun frame is returned to <CODE>0</CODE>.</P>
+  <DT><B><A name=c-gun_x>gun_x</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> The x-axis position of the player's gun.</P>
+  <P><I>Note:</I> The x-axis is the left to right axis with negative numbers on 
+  the left and positive on the right.</P>
+  <DT><B><A name=c-gun_y>gun_y</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> The y-axis position of the player's gun.</P>
+  <P><I>Note:</I> The y-axis is the forward and back axis with negative numbers 
+  back and positive forward.</P>
+  <DT><B><A name=c-gun_z>gun_z</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> The z-axis position of the player's gun.</P>
+  <P><I>Note:</I> The z-axis is the up and down axis with negative numbers down 
+  and positive up.</P>
+  <DT><B><A name=c-hand>hand</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the handedness of the player.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - Gun on the right and shots from the 
+  right.<BR><CODE>1</CODE> - Gun on the left and shots from the 
+  left.<BR><CODE>2</CODE> - No gun and shots from the center.<BR></P>
+  <DT><B><A name=c-heartbeat>heartbeat</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Sends a manual heartbeat to the master servers.</P>
+  <DT><B><A name=c-host_speeds>host_speeds</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of timing information.</P>
+  <P><I>Output:</I><BR><CODE>all</CODE> - Total time.<BR><CODE>sv</CODE> - 
+  Server time.<BR><CODE>gm</CODE> - Game time.<BR><CODE>cl</CODE> - Client 
+  Time.<BR><CODE>rf</CODE> - Renderer Time.<BR></P>
+  <DT><B><A name=c-hostname>hostname</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>noname</CODE></P>
+  <P><I>Description:</I> The name of the server.</P>
+  <DT><B><A name=c-hostport>hostport</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>*Unknown</CODE></P>
+  <P><I>Description:</I> *Unknown</P>
+  <DT><B><A name=c-imagelist>imagelist</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display a list of all loaded images, their types, 
+  dimensions, and color pallets. Also display the total texel count.</P>
+  <P><I>Note:</I> There are five columns of information. The first column 
+  identifies the image type, consult the list below for all possible types. The 
+  second column shows the x-axis size of the image. The third column shows the 
+  y-axis size of the image. The fourth column shows the image's dependency on 
+  the pallet, either the red-green-blue pallet, or the internal game pallet. The 
+  fifth column shows the image's path and filename.</P>
+  <P><I>List:</I><BR><CODE>M</CODE> - Model texture used for models shown in the 
+  map.<BR><CODE>P</CODE> - Player images, shown on the player's view 
+  screen.<BR><CODE>S</CODE> - Sprite picture.<BR><CODE>W</CODE> - Wall texture 
+  used for the map.<BR><CODE>RGB</CODE> - The image uses the standard RGB 
+  pallet.<BR><CODE>PAL</CODE> - The images uses the internal game 
+pallet.<BR></P>
+  <DT><B><A name=c-impulse>impulse</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>impulse</CODE> <VAR>(number)</VAR></P>
+  <P><I>Description:</I> Send an impulse command to the server.</P>
+  <P><I>Note:</I> This command will be used by various mods to allow clients to 
+  access extra game features. Currently there are no internal impulses in Quake 
+  2.</P>
+  <P><I>Example:</I> <CODE>impulse 1</CODE></P>
+  <DT><B><A name=c-in_initjoy>in_initjoy</A></B> 
+  <DD>
+  <P><I>Type:</I> Command Line Parameter</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the initialization of joystick.</P>
+  <P><I>Note:</I> If this variable is set to <CODE>0</CODE> the game will not 
+  try to detect the joystick and will disable all joystick functions in the 
+  game.</P>
+  <DT><B><A name=c-in_initmouse>in_initmouse</A></B> 
+  <DD>
+  <P><I>Type:</I> Command Line Parameter</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the initialization of the mouse.</P>
+  <P><I>Note:</I> If this variable is set to <CODE>0</CODE> the game will not 
+  try to detect the mouse and will disable all mouse functions in the game.</P>
+  <DT><B><A name=c-in_joystick>in_joystick</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of input from the joystick.</P>
+  <DT><B><A name=c-in_mouse>in_mouse</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of input from the mouse.</P>
+  <DT><B><A name=c-info>info</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display server information.</P>
+  <P><I>Note:</I> This command is pretty much broken. It cannot be executed by 
+  the server, and when it is executed by the client the output from the command 
+  is only displayed on the server's console. Basically this is a broken version 
+  of the <CODE>serverinfo</CODE> command since it displays the same 
+  information.</P>
+  <DT><B><A name=c-intensity>intensity</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>2</CODE></P>
+  <P><I>Description:</I> The brightness of the OpenGL display.</P>
+  <DT><B><A name=c-invdrop>invdrop</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Drop the currently selected item.</P>
+  <P><I>Note:</I> This is a very useful command in team games where you can 
+  supply your team with ammo, powerups, and weapons. This command will drop the 
+  item which is selected in the inventory to the ground a little in front of 
+  you. If a player is standing directly in front of you and you use this command 
+  he will automatically pick up the item that you drop.</P>
+  <DT><B><A name=c-inven>inven</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the inventory screen.</P>
+  <P><I>Note:</I> When the inventory screen is shown, you can use the 
+  <CODE>invnext</CODE> and <CODE>invprev</CODE> commands to select items from 
+  the inventory. Also, if the inventory screen holds more information than it 
+  can show, using the above mentioned commands will scroll the inventory screen 
+  to show all the information.</P>
+  <DT><B><A name=c-invnext>invnext</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Select the next item in the inventory.</P>
+  <P><I>Note:</I> You can use this command without having the inventory screen 
+  up, in which case the little icon in the lower-right part of the screen will 
+  show which item is currently selected.</P>
+  <DT><B><A name=c-invnextp>invnextp</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Select the next powerup in the inventory.</P>
+  <P><I>Note:</I> You can use this command without having the inventory screen 
+  up, in which case the little icon in the lower-right part of the screen will 
+  show which item is currently selected.</P>
+  <DT><B><A name=c-invnextw>invnextw</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Select the next weapon in the inventory.</P>
+  <P><I>Note:</I> You can use this command without having the inventory screen 
+  up, in which case the little icon in the lower-right part of the screen will 
+  show which item is currently selected.</P>
+  <DT><B><A name=c-invprev>invprev</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Select the previous item in the inventory.</P>
+  <P><I>Note:</I> You can use this command without having the inventory screen 
+  up, in which case the little icon in the lower-right part of the screen will 
+  show which item is currently selected.</P>
+  <DT><B><A name=c-invprevp>invprevp</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Select the previous powerup in the inventory.</P>
+  <P><I>Note:</I> You can use this command without having the inventory screen 
+  up, in which case the little icon in the lower-right part of the screen will 
+  show which item is currently selected.</P>
+  <DT><B><A name=c-invprevw>invprevw</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Select the previous weapon in the inventory.</P>
+  <P><I>Note:</I> You can use this command without having the inventory screen 
+  up, in which case the little icon in the lower-right part of the screen will 
+  show which item is currently selected.</P>
+  <DT><B><A name=c-invuse>invuse</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Use the currently selected item from the inventory.</P>
+  <DT><B><A name=c-ip>ip</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>localhost</CODE></P>
+  <P><I>Description:</I> The IP address used by the server.</P>
+  <DT><B><A name=c-ip_clientport>ip_clientport</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> *Unknown</P>
+  <DT><B><A name=c-ip_hostport>ip_hostport</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> *Unknown</P>
+  <DT><B><A name=c-ipx_clientport>ipx_clientport</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> *Unknown</P>
+  <DT><B><A name=c-ipx_hostport>ipx_hostport</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> *Unknown</P>
+  <DT><B><A name=c-joy_advanced>joy_advanced</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle advanced joystick functions.</P>
+  <DT><B><A name=c-joy_advancedupdate>joy_advancedupdate</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Initialize the joystick's advanced features.</P>
+  <DT><B><A name=c-joy_advaxisr>joy_advaxisr</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the mapping of the joystick r-axis.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - Axis not used.<BR><CODE>1</CODE> - Axis 
+  is for forward and backward movement.<BR><CODE>2</CODE> - Axis is for 
+  pitch.<BR><CODE>3</CODE> - Axis is for side to side 
+  movement.<BR><CODE>4</CODE> - Axis is for yaw.<BR><CODE>16</CODE> + 
+  <VAR>(value)</VAR> - Axis Toggle the mapping is relative (no stop 
+  points).<BR></P>
+  <DT><B><A name=c-joy_advaxisu>joy_advaxisu</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the mapping of the joystick u-axis.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - Axis not used.<BR><CODE>1</CODE> - Axis 
+  is for forward and backward movement.<BR><CODE>2</CODE> - Axis is for 
+  pitch.<BR><CODE>3</CODE> - Axis is for side to side 
+  movement.<BR><CODE>4</CODE> - Axis is for yaw.<BR><CODE>16</CODE> + 
+  <VAR>(value)</VAR> - Axis Toggle the mapping is relative (no stop 
+  points).<BR></P>
+  <DT><B><A name=c-joy_advaxisv>joy_advaxisv</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the mapping of the joystick v-axis.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - Axis not used.<BR><CODE>1</CODE> - Axis 
+  is for forward and backward movement.<BR><CODE>2</CODE> - Axis is for 
+  pitch.<BR><CODE>3</CODE> - Axis is for side to side 
+  movement.<BR><CODE>4</CODE> - Axis is for yaw.<BR><CODE>16</CODE> + 
+  <VAR>(value)</VAR> - Axis Toggle the mapping is relative (no stop 
+  points).<BR></P>
+  <DT><B><A name=c-joy_advaxisx>joy_advaxisx</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the mapping of the joystick x-axis.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - Axis not used.<BR><CODE>1</CODE> - Axis 
+  is for forward and backward movement.<BR><CODE>2</CODE> - Axis is for 
+  pitch.<BR><CODE>3</CODE> - Axis is for side to side 
+  movement.<BR><CODE>4</CODE> - Axis is for yaw.<BR><CODE>16</CODE> + 
+  <VAR>(value)</VAR> - Axis Toggle the mapping is relative (no stop 
+  points).<BR></P>
+  <DT><B><A name=c-joy_advaxisy>joy_advaxisy</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the mapping of the joystick y-axis.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - Axis not used.<BR><CODE>1</CODE> - Axis 
+  is for forward and backward movement.<BR><CODE>2</CODE> - Axis is for 
+  pitch.<BR><CODE>3</CODE> - Axis is for side to side 
+  movement.<BR><CODE>4</CODE> - Axis is for yaw.<BR><CODE>16</CODE> + 
+  <VAR>(value)</VAR> - Axis Toggle the mapping is relative (no stop 
+  points).<BR></P>
+  <DT><B><A name=c-joy_advaxisz>joy_advaxisz</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the mapping of the joystick z-axis.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - Axis not used.<BR><CODE>1</CODE> - Axis 
+  is for forward and backward movement.<BR><CODE>2</CODE> - Axis is for 
+  pitch.<BR><CODE>3</CODE> - Axis is for side to side 
+  movement.<BR><CODE>4</CODE> - Axis is for yaw.<BR><CODE>16</CODE> + 
+  <VAR>(value)</VAR> - Axis Toggle the mapping is relative (no stop 
+  points).<BR></P>
+  <DT><B><A name=c-joy_forwardsensitivity>joy_forwardsensitivity</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>-1</CODE></P>
+  <P><I>Description:</I> The sensitivity speed for moving forward and 
+  backward.</P>
+  <DT><B><A name=c-joy_forwardthreshold>joy_forwardthreshold</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.15</CODE></P>
+  <P><I>Description:</I> The dead-zone for moving forward and backward.</P>
+  <DT><B><A name=c-joy_name>joy_name</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>joystick</CODE></P>
+  <P><I>Description:</I> Joystick Name.</P>
+  <DT><B><A name=c-joy_pitchsensitivity>joy_pitchsensitivity</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> The speed that you look up and down.</P>
+  <P><I>Description:</I> </P>
+  <DT><B><A name=c-joy_pitchthreshold>joy_pitchthreshold</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.15</CODE></P>
+  <P><I>Description:</I> The dead-zone for looking up and down.</P>
+  <DT><B><A name=c-joy_sidesensitivity>joy_sidesensitivity</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>-1</CODE></P>
+  <P><I>Description:</I> The sensitivity speed for moving side to side.</P>
+  <DT><B><A name=c-joy_sidethreshold>joy_sidethreshold</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.15</CODE></P>
+  <P><I>Description:</I> The dead-zone for moving side to side.</P>
+  <DT><B><A name=c-joy_upsensitivity>joy_upsensitivity</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>-1</CODE></P>
+  <P><I>Description:</I> The sensitivity speed for moving up and down.</P>
+  <DT><B><A name=c-joy_upthreshold>joy_upthreshold</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.15</CODE></P>
+  <P><I>Description:</I> The dead-zone for moving up and down.</P>
+  <DT><B><A name=c-joy_yawsensitivity>joy_yawsensitivity</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>-1</CODE></P>
+  <P><I>Description:</I> The sensitivity speed for looking left and right.</P>
+  <DT><B><A name=c-joy_yawthreshold>joy_yawthreshold</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.15</CODE></P>
+  <P><I>Description:</I> The dead-zone for looking left and right.</P>
+  <DT><B><A name=c-kick>kick</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I><BR><CODE>kick</CODE> 
+  <VAR>(userid)</VAR><BR><CODE>kick</CODE> <VAR>(username)</VAR><BR></P>
+  <P><I>Description:</I> Remove a client from the server.</P>
+  <P><I>Note:</I> You can remove clients from the server by their 
+  <VAR>(userid)</VAR> or by their <VAR>(username)</VAR>.</P>
+  <DT><B><A name=c-kill>kill</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Make the player commit suicide.</P>
+  <P><I>Note:</I> This command is commonly used in single-player mode where the 
+  player gets stuck somewhere and can't get out or if he just wants to start 
+  over. This command can also be used in multiplayer by players who want to take 
+  the easy way out of life.</P>
+  <DT><B><A name=c-killserver>killserver</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Shutdown the server.</P>
+  <P><I>Note:</I> This command will terminate the server, but it will not exit 
+  from the server's console. This is useful when changing mods for the server 
+  remotely.</P>
+  <DT><B><A name=c-link>link</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>link</CODE> <VAR>(from path)</VAR> <VAR>(to 
+  path)</VAR></P>
+  <P><I>Description:</I> Alter the actual location of a directory inside the 
+  game.</P>
+  <P><I>Note:</I> This command will allow you select where the game will look 
+  for its files. A set of empty quotes will clear any modifications that you 
+  make to a directory location.</P>
+  <P><I>Example:</I><BR><CODE>link maps ""</CODE><BR><CODE>link maps 
+  "dmmaps"</CODE><BR><CODE>link maps "mission/maps"</CODE><BR><CODE>link 
+  sound/player/male "c:/quake2/newsounds/"</CODE><BR></P>
+  <DT><B><A name=c-load>load</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>load</CODE> <VAR>(savegame)</VAR></P>
+  <P><I>Description:</I> Load a saved game.</P>
+  <P><I>Note:</I>The place where saved games are stored in is the 
+  <CODE>baseq2/save</CODE> directory. Within it are separate directories for 
+  each saved game. And within those directories are separate files for each map 
+  in the game unit which hold the status of all entities for each map.</P>
+  <P><I>Example:</I> <CODE>load save3</CODE></P>
+  <DT><B><A name=c-loading>loading</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Show the "Loading..." picture.</P>
+  <P><I>Note:</I> This is an internal command used by the client to show the 
+  "Loading..." graphic.</P>
+  <DT><B><A name=c-log_stats>log_stats</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the logging of map statistics.</P>
+  <DT><B><A name=c-logfile>logfile</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the logging of console messages.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - Disable logging.<BR><CODE>1</CODE> - 
+  Enable buffered logging where the log file is only updated when the text 
+  buffer fills up. The log file will be deleted and overridden when a new server 
+  starts up.<BR><CODE>2</CODE> - Enable continuous logging where the log file is 
+  updated with every new line of text. The log file will be deleted and 
+  overridden when a new server starts up.<BR><CODE>3</CODE> - Enable continous 
+  logging where the log file is updated with ever new line of text. The log file 
+  will be appended to and logging will continute to the same log file when a new 
+  server starts up.<BR></P>
+  <DT><B><A name=c-lookspring>lookspring</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle automatic centering of the screen when using 
+  <CODE>+mlook</CODE>.</P>
+  <DT><B><A name=c-lookstrafe>lookstrafe</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle automatic strafing when using 
+  <CODE>+mlook</CODE>.</P>
+  <DT><B><A name=c-m_filter>m_filter</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the filtering of mouse input.</P>
+  <P><I>Note:</I> If this toggle is enabled the game will take the average value 
+  between two consecutive numbers produced by the mouse input and use that value 
+  as the movement value. Enabling this variable will cause the mouse movement to 
+  be smoother but there will be increased latency between the actual mouse 
+  movement and movement in the game.</P>
+  <DT><B><A name=c-m_forward>m_forward</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> The sensitivity for moving forward and back with the 
+  mouse.</P>
+  <DT><B><A name=c-m_pitch>m_pitch</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.022</CODE></P>
+  <P><I>Description:</I> The sensitivity for looking up and down with the 
+  mouse.</P>
+  <DT><B><A name=c-m_side>m_side</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.8</CODE></P>
+  <P><I>Description:</I> The sensitivity for moving left and right with the 
+  mouse.</P>
+  <DT><B><A name=c-m_yaw>m_yaw</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.022</CODE></P>
+  <P><I>Description:</I> The sensitivity for looking left and right with the 
+  mouse.</P>
+  <DT><B><A name=c-map>map</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>map</CODE> <VAR>(filename)</VAR></P>
+  <P><I>Description:</I> Load maps, demos, or images.</P>
+  <P><I>Note:</I> This is an all purpose loading command. This command can load 
+  maps to play, play demos, and also show images on the screen. This seems to be 
+  a compilation of the <CODE>gamemap</CODE> and <CODE>demomap</CODE> commands. 
+  By default, this command will try to load a map when a filename is specified 
+  without an extension.</P>
+  <P><I>Example:</I><BR><CODE>map base3</CODE><BR><CODE>map 
+  demo1.dm2</CODE><BR><CODE>map colormap.pcx</CODE><BR></P>
+  <DT><B><A name=c-map_noareas>map_noareas</A></B> 
+  <DD>
+  <P><I>Type:</I> *Unknown.</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> *Disabled.</P>
+  <DT><B><A name=c-mapname>mapname</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>base1</CODE></P>
+  <P><I>Description:</I> The name of the current map.</P>
+  <P><I>Note:</I> This is a read-only variable which displays the name of the 
+  current map.</P>
+  <DT><B><A name=c-maxclients>maxclients</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> The maximum number of clients for the server.</P>
+  <DT><B><A name=c-maxentities>maxentities</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1024</CODE></P>
+  <P><I>Description:</I> The maximum number of entities on a map.</P>
+  <DT><B><A name=c-maxspectators>maxspectators</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>4</CODE></P>
+  <P><I>Description:</I> The maximum number of spectators for the server.</P>
+  <DT><B><A name=c-menu_addressbook>menu_addressbook</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the server address book menu.</P>
+  <DT><B><A name=c-menu_credits>menu_credits</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the game credits.</P>
+  <DT><B><A name=c-menu_dmoptions>menu_dmoptions</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the deathmatch options menu.</P>
+  <DT><B><A name=c-menu_game>menu_game</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the single-player game menu.</P>
+  <DT><B><A name=c-menu_joinserver>menu_joinserver</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the join server menu.</P>
+  <DT><B><A name=c-menu_keys>menu_keys</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the key configuration menu.</P>
+  <DT><B><A name=c-menu_loadgame>menu_loadgame</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the load game menu.</P>
+  <DT><B><A name=c-menu_main>menu_main</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the main menu.</P>
+  <DT><B><A name=c-menu_multiplayer>menu_multiplayer</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the multiplayer menu.</P>
+  <DT><B><A name=c-menu_options>menu_options</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the options menu.</P>
+  <DT><B><A name=c-menu_playerconfig>menu_playerconfig</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the player configuration menu.</P>
+  <DT><B><A name=c-menu_quit>menu_quit</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the quit menu.</P>
+  <DT><B><A name=c-menu_savegame>menu_savegame</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the save game menu.</P>
+  <DT><B><A name=c-menu_startserver>menu_startserver</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the start server menu.</P>
+  <DT><B><A name=c-menu_video>menu_video</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the video configuration menu.</P>
+  <DT><B><A name=c-messagemode>messagemode</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Prompt for a message to send.</P>
+  <P><I>Note:</I> This command prompts for a message to send to everybody on the 
+  server. It is used for casual talking on the server.</P>
+  <DT><B><A name=c-messagemode2>messagemode2</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Prompt for a message to send to team members.</P>
+  <P><I>Note:</I> This command prompts for a message to send to your team 
+  players on the server. This is used for team talk when relaying strategy 
+  information, attack plans, or pleads for help.</P>
+  <DT><B><A name=c-modellist>modellist</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display information on all loaded models, maps, and 
+  sprites.</P>
+  <P><I>Note:</I> This command will display information about models, maps, and 
+  sprites which are loaded into the memory in a list format. The first column in 
+  the list shows the size of the model, map, or sprite. The second column in the 
+  list shows the path and file location. The last line of the output shows the 
+  total size of all models, maps, and sprites currently present in the 
+  memory.</P>
+  <DT><B><A name=c-msg>msg</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the display of messages.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - All messages.<BR><CODE>1</CODE> - Most 
+  messages.<BR><CODE>2</CODE> - Limited messages.<BR><CODE>3</CODE> - Minimal 
+  messages.<BR><CODE>4</CODE> - No messages.<BR></P>
+  <DT><B><A name=c-name>name</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>Player</CODE></P>
+  <P><I>Description:</I> The player's name.</P>
+  <DT><B><A name=c-needpass>needpass</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Displays information about password settings on the 
+  server.</P>
+  <P><I>Note:</I> This is a read-only variable which is displayed globally in 
+  the <CODE>serverinfo</CODE> information to inform game browser software to 
+  determine the password settings on the server. A program such as GameSpy could 
+  use the output from this variable to ask the user for the password or the 
+  spectator password before he joins the game. The server uses the 
+  <CODE>password</CODE> and the <CODE>spectator_password</CODE> variables to set 
+  the appropriate password. Once a password has been set to either one of these 
+  variables then this variable will be automatically updated to display 
+  information about which passwords are necessary to play or spectate on the 
+  server.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - No passwords required.<BR><CODE>1</CODE> 
+  - Password reguired to play on the server.<BR><CODE>2</CODE> - Password 
+  required to sepectate on the server.<BR><CODE>3</CODE> - Password required to 
+  play or spectate on the server.<BR></P>
+  <DT><B><A name=c-net_shownet>net_shownet</A></B> 
+  <DD>
+  <P><I>Type:</I> *Unknown.</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> *Disabled.</P>
+  <DT><B><A name=c-netgraph>netgraph</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of the network performance 
+graph.</P>
+  <P><I>Note:</I> The size of each bar is the latency time. A green bar 
+  indicates a successful packet transfer. A red bar indicates a lost packet.</P>
+  <DT><B><A name=c-nextserver>nextserver</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> Used for looping the introduction demos.</P>
+  <P><I>Note:</I> This variable is used to loop the introduction demos. This 
+  variable holds the name of the next alias to be executed after the demo 
+  finishes playing. A looping series of aliases is created which look something 
+  like '<CODE>alias l1 "demomap demo1.dm2; set nextserver l2"</CODE>' and 
+  '<CODE>alias l2 "demo2.dm2; set nextserver l1"</CODE>'. These two aliases 
+  would loop the demos until interrupted with a key press.</P>
+  <DT><B><A name=c-noclip>noclip</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Toggle no clipping mode.</P>
+  <P><I>Note:</I> When no clipping mode is enabled the player becomes a kind of 
+  a ghost, where he is able to walk through walls, objects, or other players. 
+  This command is mostly used for fly around the map or when the player becomes 
+  stuck and can't get out in any normal fashion. Also, if you set the variable 
+  <CODE>gl_clear</CODE> to <CODE>1</CODE> and <CODE>gl_polyblend</CODE> to 
+  <CODE>0</CODE> the areas outside of the map will turn pink and the annoying 
+  flashing images will disappear when outside of the map and using the OpenGL 
+  video driver. When using the Software video driver just set the variable 
+  <CODE>cl_blend</CODE> to <CODE>0</CODE> to achieve a similar effect.</P>
+  <DT><B><A name=c-noipx>noipx</A></B> 
+  <DD>
+  <P><I>Type:</I> Command Line Parameter</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of IPX network protocol.</P>
+  <DT><B><A name=c-notarget>notarget</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Toggle the ability of the monsters to detect the 
+  player.</P>
+  <P><I>Note:</I> When in this mode is turned on monsters cannot see the player. 
+  If the player attack a monster the monster will see the player then and 
+  retaliate in the normal fashion. This command is useful to level author for 
+  walking around their level checking if all the monsters are being good and are 
+  in their right spots.</P>
+  <DT><B><A name=c-noudp>noudp</A></B> 
+  <DD>
+  <P><I>Type:</I> Command Line Parameter</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of the UDP TCP/IP network protocol.</P>
+  <DT><B><A name=c-password>password</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> The server password.</P>
+  <P><I>Note:</I> If this variable is set to <CODE>none</CODE> then no password 
+  is required to enter the server.</P>
+  <DT><B><A name=c-path>path</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the path and link information.</P>
+  <P><I>Note:</I> All the information about what path locations the game is 
+  using is displayed here. Also, all the <CODE>.pak</CODE> files which are being 
+  used by the game are displayed. This is a very helpful command in 
+  investigating in the game has access to all the necessary information.</P>
+  <DT><B><A name=c-pause>pause</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Toggle pausing of the game.</P>
+  <P><I>Note:</I> This command is only available in single-player mode, and is 
+  useful if the player has to pause the game because of a phone call, or he 
+  needs some refreshment.</P>
+  <DT><B><A name=c-paused>paused</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the pausing of the game.</P>
+  <DT><B><A name=c-pingservers>pingservers</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display information about servers in the address 
+  book.</P>
+  <P><I>Note:</I> This command will make two attempts to retrieve information 
+  about servers. The first attempt is made by broadcasting to all the servers on 
+  the current subnet to respond with their information. The second attempt is 
+  made by retrieving the information about servers which appear in the address 
+  book. The addresses of the servers in the address book appear in the 
+  <CODE>adr?</CODE> variables. Unfortunately, this command does not actually 
+  ping the servers to find out their latency, it just retrieves information 
+  about the current map and the number of players.</P>
+  <DT><B><A name=c-play>play</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>play</CODE> <VAR>(filename)</VAR></P>
+  <P><I>Description:</I> Play a sound file.</P>
+  <P><I>Note:</I> This command adds a <CODE>sound/</CODE> prefix directory when 
+  executed, just keep this in mind when playing your own sound files.</P>
+  <P><I>Example:</I><BR><CODE>play doors/dr1_strt.wav</CODE><BR><CODE>play 
+  items/n_health.wav</CODE><BR></P>
+  <DT><B><A name=c-playerlist>playerlist</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> List in console all players in the game, their score, 
+  and the connect time.</P>
+  <DT><B><A name=c-players>players</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> List in console all players in the game.</P>
+  <DT><B><A name=c-port>port</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>27910</CODE></P>
+  <P><I>Description:</I> The TCP/IP port number used by the server.</P>
+  <P><I>Note:</I> If you are running multiple servers on the same computer then 
+  you must start each server with the '<CODE>+set port 27910</CODE>' parameter 
+  to manually set the port number for each server. It is recommended that 
+  servers use incremental port numbers, i.e. 27910, 27911, 27912. This makes it 
+  easy for the players to connect to the other servers without having to 
+  remember their port numbers.</P>
+  <DT><B><A name=c-precache>precache</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Load up all the necessary information before entering a 
+  map.</P>
+  <P><I>Note:</I> This is an internal command used to load up all the necessary 
+  models, sounds, sprites, and images before starting a level. This command is 
+  send by the server to the client right before the server is ready to accept 
+  the client into the game. This command checks what level the server is 
+  running, and using that information compiles a list of all necessary games 
+  files that should be loaded up for that specific map, and loads them.</P>
+  <DT><B><A name=c-prog>prog</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> *Disabled.</P>
+  <P><I>Note:</I> This command has been disabled and it's use is unknown.</P>
+  <DT><B><A name=c-protocol>protocol</A></B> 
+  <DD>
+  <P><I>Type:</I> Command Line Parameter</P>
+  <P><I>Default:</I> <CODE>31</CODE></P>
+  <P><I>Description:</I> The version number of the Quake 2 game protocol.</P>
+  <P><I>Note:</I> This is a read-only variable.</P>
+  <DT><B><A name=c-public>public</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle listing server in id's master server list.</P>
+  <DT><B><A name=c-qport>qport</A></B> 
+  <DD>
+  <P><I>Type:</I> Command Line Parameter</P>
+  <P><I>Default:</I> <CODE>35462</CODE></P>
+  <P><I>Description:</I> The random internal network protocol port for Network 
+  Address Translation schemes.</P>
+  <P><I>Note:</I> This is a read-only variable. The value in the variable 
+  represents a random network protocol port which is used to help out any 
+  Network Address Translation proxies. This allows more than one person to play 
+  from behind a NAT router by using only one IP address.</P>
+  <DT><B><A name=c-quit>quit</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Quit the game.</P>
+  <P><I>Note:</I> This command will disconnect from the server and shutdown the 
+  client program.</P>
+  <DT><B><A name=c-r_drawentities>r_drawentities</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the display of entities on the map.</P>
+  <DT><B><A name=c-r_drawworld>r_drawworld</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the display of walls and map BSP objects.</P>
+  <DT><B><A name=c-r_dspeeds>r_dspeeds</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of the render speeds in 
+  milliseconds.</P>
+  <DT><B><A name=c-r_fullbright>r_fullbright</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of maximum texture brightness.</P>
+  <DT><B><A name=c-r_lerpmodels>r_lerpmodels</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the prediction of model movment.</P>
+  <DT><B><A name=c-r_lightlevel>r_lightlevel</A></B> 
+  <DD>
+  <P><I>Type:</I> *Unknown.</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> *Disabled.</P>
+  <DT><B><A name=c-r_nocull>r_nocull</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the rendering of objects which are covered 
+  up.</P>
+  <DT><B><A name=c-r_norefresh>r_norefresh</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the refreshing of the renderer display.</P>
+  <DT><B><A name=c-r_novis>r_novis</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of BSP VIS tables.</P>
+  <P><I>Note:</I> The VIS tables are created when a level is processed by a VIS 
+  program. The VIS tables hold information about which areas should be displayed 
+  from other areas.</P>
+  <DT><B><A name=c-r_speeds>r_speeds</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of the renderer statistics.</P>
+  <DT><B><A name=c-rate>rate</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>2500</CODE></P>
+  <P><I>Description:</I> The maximum number of bytes that the server should send 
+  to the client.</P>
+  <P><I>Note:</I> Limit this value to a number close to the CPS speed that your 
+  connection can receive. A 28.8k/33.6 modem could be anywhere from 2400 to 3100 
+  depending on compatibility between ISP and user modems. A good 53.3k 
+  connection with a 56k modem should be set from 4400 - 4800.</P>
+  <DT><B><A name=c-rcon>rcon</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I><BR><CODE>rcon</CODE> <VAR>(password)</VAR> 
+  <VAR>(command)</VAR><BR><CODE>rcon</CODE> <VAR>(command)</VAR><BR></P>
+  <P><I>Description:</I> Remotely control a server.</P>
+  <P><I>Note:</I> This command is used to control a server from a client. This 
+  is very useful if the server is running at a remote location, and the server 
+  administrator does not have physical access to the server. There are two 
+  different syntax versions to this command. If the variable 
+  <CODE>rcon_password</CODE> is set the second syntax may be used since the 
+  password field will be filled automatically by the client. Also, be aware that 
+  it is possible to send commands to a server to which the client is not 
+  connected. This is accomplished with the setting of the 
+  <CODE>rcon_address</CODE> variable to the server's IP address. Using the 
+  command, a server administrator is able to control a server as if at the 
+  server's console.</P>
+  <P><I>Example:</I><BR><CODE>rcon foo "map base1"</CODE><BR><CODE>rcon "map 
+  base1"</CODE><BR></P>
+  <DT><B><A name=c-rcon_address>rcon_address</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> The address to which <CODE>rcon</CODE> commands should 
+  be sent.</P>
+  <DT><B><A name=c-rcon_password>rcon_password</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> The password that is used to access <CODE>rcon</CODE> 
+  functions.</P>
+  <DT><B><A name=c-reconnect>reconnect</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Reconnect to the server.</P>
+  <P><I>Note:</I> This command will disconnect the client from the server, and 
+  automatically reconnect the client to the server. This is useful if the 
+  connection gets hung-up for some reason.</P>
+  <DT><B><A name=c-record>record</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>record</CODE> <VAR>(demoname)</VAR></P>
+  <P><I>Description:</I> Record a demo.</P>
+  <P><I>Note:</I> The player has to be in a map to start recording a demo. Also, 
+  to stop the recording of a demo use the <CODE>stop</CODE> command. Demo files 
+  have the default extension of <CODE>.dm2</CODE> and are placed in the 
+  <CODE>baseq2/demos</CODE> directory.</P>
+  <P><I>Example:</I> <CODE>record foodemo</CODE></P>
+  <DT><B><A name=c-run_pitch>run_pitch</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.002</CODE></P>
+  <P><I>Description:</I> The amount that the player should tilt up and down 
+  while running.</P>
+  <DT><B><A name=c-run_roll>run_roll</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.005</CODE></P>
+  <P><I>Description:</I> The amount that the player should tilt left and right 
+  while running.</P>
+  <DT><B><A name=c-s_initsound>s_initsound</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of sound hardware.</P>
+  <DT><B><A name=c-s_khz>s_khz</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>11</CODE></P>
+  <P><I>Description:</I> The sampling rate in KHz of the sound samples.</P>
+  <P><I>Note:</I> For high-quality sound samples use a value of 
+  <CODE>22</CODE>.</P>
+  <DT><B><A name=c-s_loadas8bit>s_loadas8bit</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle if the sound samples should be loaded as 8-bit 
+  files.</P>
+  <DT><B><A name=c-s_mixahead>s_mixahead</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.2</CODE></P>
+  <P><I>Description:</I> The delay before mixing sound samples.</P>
+  <DT><B><A name=c-s_primary>s_primary</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the use of the DirectSound primary buffer.</P>
+  <P><I>Note:</I> If this toggle is enabled it might cause problems for some 
+  sound hardware, use with caution.</P>
+  <DT><B><A name=c-s_show>s_show</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of all sounds which are currently 
+  playing.</P>
+  <DT><B><A name=c-s_testsound>s_testsound</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the generation of a test tone to test the sound 
+  hardware.</P>
+  <DT><B><A name=c-s_volume>s_volume</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.7</CODE></P>
+  <P><I>Description:</I> The volume for the playback of sound samples.</P>
+  <DT><B><A name=c-s_wavonly>s_wavonly</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the playback of only <CODE>.wav</CODE> file 
+  sound samples.</P>
+  <DT><B><A name=c-save>save</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>save</CODE> <VAR>(savegame)</VAR></P>
+  <P><I>Description:</I> Save the game.</P>
+  <P><I>Note:</I> The save game operation will create a directory named after 
+  the parameter. All save game files will reside in that directory. And within 
+  that directory are separate files for each map in the game unit which hold the 
+  status of all entities for each map. </P>
+  <P><I>Example:</I> <CODE>save mygame</CODE></P>
+  <DT><B><A name=c-say>say</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>say</CODE> <VAR>(message)</VAR></P>
+  <P><I>Description:</I> Send a message to all the players on the server.</P>
+  <P><I>Note:</I> This command is not necessary when typing directly on the 
+  console since the player can just type a message and send it like it was a 
+  command. This command is mostly useful when creating aliases which broadcast 
+  frequently used messages or player taunts.</P>
+  <P><I>Example:</I><BR><CODE>say I am the master Foo!</CODE><BR><CODE>say 
+  Thanks man!</CODE><BR><CODE>say Good bye everybody...</CODE><BR><CODE>say 
+  Hello all, The Foo Master has arrived to kick butt!</CODE><BR></P>
+  <DT><B><A name=c-say_team>say_team</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>say_team</CODE> <VAR>(message)</VAR></P>
+  <P><I>Description:</I> Send a message to all the players on the server who are 
+  on your team.</P>
+  <P><I>Note:</I> This command can be used directly from the console to send 
+  messages to team mates. It can also be used to create aliases which broadcast 
+  frequently used team messages or when planning strategy with team mates.</P>
+  <P><I>Example:</I><BR><CODE>say_team Let's attack 
+  now!</CODE><BR><CODE>say_team Let's regroup and kick the foo out of 
+  them!</CODE><BR><CODE>say_team The base has been overrun!</CODE><BR></P>
+  <DT><B><A name=c-score>score</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Bring up score screen.</P>
+  <DT><B><A name=c-scr_centertime>scr_centertime</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>2.5</CODE></P>
+  <P><I>Description:</I> The amount of time in seconds that center print 
+  messages will be displayed.</P>
+  <DT><B><A name=c-scr_conspeed>scr_conspeed</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>3</CODE></P>
+  <P><I>Description:</I> The speed at which the console is raised and 
+  lowered.</P>
+  <DT><B><A name=c-scr_drawall>scr_drawall</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of extended characters on the 
+  client's display.</P>
+  <DT><B><A name=c-scr_printspeed>scr_printspeed</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>8</CODE></P>
+  <P><I>Description:</I> The speed in characters-per-second that messages should 
+  scroll on the client's screen.</P>
+  <DT><B><A name=c-scr_showpause>scr_showpause</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the display of the pause graphic.</P>
+  <DT><B><A name=c-scr_showturtle>scr_showturtle</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of the slow frame-rate graphic.</P>
+  <DT><B><A name=c-screenshot>screenshot</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Take a screenshot of the current view.</P>
+  <P><I>Note:</I> This command will take a screen shot of the current frame 
+  buffer. When a screen shot is taken while using software mode, the screen shot 
+  will be in the <CODE>PCX</CODE> format. When the screen shot is taken while 
+  using the OpenGL mode, the screen shot will be in <CODE>TGA</CODE> format to 
+  save allow the saving of high-color video mode information. This command is 
+  most useful when saving score information at the end of a match, or when 
+  taking screen shots of weird things in the game.</P>
+  <DT><B><A name=c-sensitivity>sensitivity</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>3</CODE></P>
+  <P><I>Description:</I> The mouse sensitivity.</P>
+  <DT><B><A name=c-serverinfo>serverinfo</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Report server information.</P>
+  <P><I>Note:</I> This command will look for all the variables marked with the 
+  <CODE>S</CODE> (server) flag and report those variables and their settings. It 
+  is quite possible to create your own server variables using the 
+  <CODE>set</CODE> command and make them show up with this command and display 
+  them to all those server browser programs such as QView and GameSpy. It is 
+  advisable to create server variables with the names <CODE>admin</CODE> to 
+  report the name of the administrator, <CODE>email</CODE> to report the email 
+  address of the admin, <CODE>location</CODE> to tell the physical location of 
+  the server, and <CODE>site</CODE> to report the address of the web site 
+  associated with this server.</P>
+  <DT><B><A name=c-serverrecord>serverrecord</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>serverrecord</CODE> <VAR>(demoname)</VAR></P>
+  <P><I>Description:</I> Record a demo from the server with views of all 
+  players.</P>
+  <P><I>Note:</I> The demo that is going to be recorded with contain the data so 
+  that the view from each player's perspective is saved. This allows the server 
+  to record a one demo for all the players. A server recorded demo cannot be 
+  played back by Quake 2 without undergoing editing to separate out all of the 
+  different views.</P>
+  <P><I>Example:</I> <CODE>serverrecord foodemo</CODE></P>
+  <DT><B><A name=c-serverstop>serverstop</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Stop the recording of a server demo.</P>
+  <DT><B><A name=c-set>set</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I><CODE>set</CODE> <VAR>(variable)</VAR> <VAR>(value)</VAR> 
+  <VAR>(flag)</VAR></P>
+  <P><I>Description:</I> Set or create a variable.</P>
+  <P><I>Note:</I> This command is used mostly to create new variables or change 
+  the state flags for current variables. If a variable already exists it is not 
+  necessary to use the <CODE>set</CODE> command to change the value of that 
+  variable, it is just possible to use the simple syntax "<CODE>variable</CODE> 
+  <VAR>(value)"</VAR>. It is also very helpful to server administrators which 
+  want to setup dedicated variables to hold information about the server such as 
+  the email of the administrator, the location of the server, or the 
+  message-of-the-day. Another thing, variables which have no value will not show 
+  up when the commands <CODE>serverinfo</CODE> or <CODE>userinfo</CODE> are 
+  executed.</P>
+  <P><I>Flags:</I><BR><CODE>s</CODE> - Server flag. If this flag is set the 
+  variable and it's value will show up when the command <CODE>serverinfo</CODE> 
+  is executed.<BR><CODE>u</CODE> - User flag. If this flag is set the variable 
+  and it's value will show up when the command <CODE>userinfo</CODE> is 
+  executed.<BR></P>
+  <P><I>Example:</I><BR><CODE>set foo "The Master Foo"</CODE><BR><CODE>set 
+  foospeed 800</CODE><BR><CODE>set admin MasterFoo s</CODE><BR><CODE>set email 
+  masterfoo@foo.org s</CODE><BR><CODE>set clan "Clan Foo Masters" 
+  u</CODE><BR></P>
+  <DT><B><A name=c-setenv>setenv</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Description:</I> Set external environment variables from inside the 
+  game.</P>
+  <P><I>Note:</I> This command can be used to pass settings from inside the game 
+  to the operating system with the use of environment variables. This command is 
+  the most useful for passing variables directly to the video driver libraries. 
+  Typing the command and the environment variable without being followed by a 
+  value will display the assigned value.</P>
+  <P><I>Example:</I> <CODE>setenv fx_glide_shameless_plug 1 ; vid_restart</CODE> 
+  <CODE>setenv fx_glide_shameless_plug</CODE> </P>
+  <DT><B><A name=c-setmaster>setmaster</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>setmaster</CODE> <VAR>(IP address 1)</VAR> <VAR>(IP 
+  address 2)</VAR> ... <VAR>(IP address 7)</VAR></P>
+  <P><I>Description:</I> Link the server to a master.</P>
+  <P><I>Note:</I> It is possible to link a single server to as many as 7 
+  masters. By linking the server to a master the master will add the server to a 
+  general list of all servers. Masters are then queried by server browser 
+  programs such as GameSpy to retrieve a list of game servers. The server will 
+  also send a heartbeat to the master once in a while to inform the master that 
+  the server is still alive and to prevent the master from removing the server 
+  from the list. Currently this command when executed without a master IP tries 
+  to register itself with the id Software Master at 
+  <CODE>192.246.40.37:27900</CODE>.</P>
+  <P><I>Example:</I><BR><CODE>setmaster 
+  123.123.123.123</CODE><BR><CODE>setmaster 123.123.123.123 123.123.123.124 
+  123.123.123.125 123.123.123.126</CODE><BR></P>
+  <DT><B><A name=c-showclamp>showclamp</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of clamping information which 
+  relates to network performance.</P>
+  <DT><B><A name=c-showdrop>showdrop</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of information about dropped network 
+  packets.</P>
+  <DT><B><A name=c-showpackets>showpackets</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of information about all network 
+  packets.</P>
+  <DT><B><A name=c-showtrace>showtrace</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of network packet tracing 
+  information.</P>
+  <DT><B><A name=c-sizedown>sizedown</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Decrease the size of the game screen.</P>
+  <P><I>Note:</I> It is possible to increase the frame rate on slower computers 
+  by decreasing the size of the game screen.</P>
+  <DT><B><A name=c-sizeup>sizeup</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Increase the size of the game screen.</P>
+  <P><I>Note:</I> The size of the game screen will impact the frame rate, so it 
+  is advisable not to make the screen too large or performance will suffer.</P>
+  <DT><B><A name=c-skill>skill</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the difficulty setting.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - Easy difficulty.<BR><CODE>1</CODE> - 
+  Medium difficulty.<BR><CODE>2</CODE> - Hard difficulty.<BR></P>
+  <DT><B><A name=c-skin>skin</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>male/grunt</CODE></P>
+  <P><I>Description:</I> The texture skin that the player is wearing.</P>
+  <DT><B><A name=c-skins>skins</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display skin information.</P>
+  <P><I>Note:</I> This command will display the names of all the players on the 
+  server and the skins that they are wearing. This command will also 
+  reinitialize the skins and reload them.</P>
+  <DT><B><A name=c-sky>sky</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>sky</CODE> <VAR>(skyname)</VAR> <VAR>(rotate)</VAR> 
+  <VAR>(x-axis)</VAR> <VAR>(y-axis)</VAR> <VAR>(z-axis)</VAR></P>
+  <P><I>Description:</I> Set the parameters for displaying the sky.</P>
+  <P><I>Note:</I> The <CODE>skyname</CODE> parameter specifies the first part of 
+  the filename for loading all the sky files. There are six sky files to load in 
+  total, they are the name of sky followed by the position. The following 
+  positions exist for a sky, <CODE>dn</CODE> (down), <CODE>up</CODE> (up), 
+  <CODE>ft</CODE> (front), <CODE>bk</CODE> (back), <CODE>lf</CODE> (left), and 
+  <CODE>rt</CODE> (right). The rotation parameter sets how fast the sky should 
+  turn in degree-per-second. It is possible to specify a negative value to make 
+  the sky rotate in the opposite direction. The last three parameters are 
+  basically toggles with possible settings of <CODE>0</CODE> or <CODE>1</CODE> 
+  which specify on which axis should the sky turn. By default the sky spins on 
+  the z-axis.</P>
+  <P><I>Example:</I><BR><CODE>sky unit2_</CODE><BR><CODE>sky unit1_ 
+  5</CODE><BR><CODE>sky unit3_ 3 1 0 0</CODE><BR><CODE>sky space1 -0.5 1 1 
+  0</CODE><BR></P>
+  <DT><B><A name=c-snd_restart>snd_restart</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Restart the sound system.</P>
+  <P><I>Note:</I> This command will shutdown the sound system, reinitialize all 
+  the sound settings, restart the sound system, and then reload all the sound 
+  files. This command is necessary when making changes to the sound parameters 
+  for the sound system which require reinitialization, such as changing the 
+  sound samples which used a different sampling rate.</P>
+  <DT><B><A name=c-soundinfo>soundinfo</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display information about the sound system.</P>
+  <P><I>Note:</I> This command will display information such as the directory 
+  where sound files are stored, if the sound system is in stereo mode, the 
+  sampling rate for the sound system, the speed in hertz that the sound system 
+  is initialized in, and the memory location of the <ACRONYM>DMA</ACRONYM> 
+  buffer.</P>
+  <DT><B><A name=c-soundlist>soundlist</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display a list of all loaded sound files.</P>
+  <P><I>Note:</I> This command will list all the loaded sound files along with 
+  information about each sound file. There are four columns in the display. The 
+  first column has two possible values, no value, or a value of <CODE>L</CODE> 
+  (loop) which signifies that the sound is looping. The second column describes 
+  the sound as either <CODE>(8b)</CODE> 8-bit, or <CODE>(16b)</CODE> 16-bit 
+  sampling. The third column displays the size of the sound file. The fourth 
+  column displays the path and filename of the sound file.</P>
+  <DT><B><A name=c-spectator>spectator</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Enable spectator mode and watch the game instead of 
+  play.</P>
+  <P><I>Note:</I> If this variable is set to <CODE>1</CODE> the player will turn 
+  into a spectator if already in the game, or enter the server as a spectator on 
+  the next connection. If this variable is set to a string then the player will 
+  enter the server as a spectator and provide the necessary password to enter 
+  the server. The spectator password is stored in the 
+  <CODE>spectator_password</CODE> variable for the server.</P>
+  <DT><B><A name=c-spectator_password>spectator_password</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>(none)</CODE></P>
+  <P><I>Description:</I> Set the password necessary to join the server as a 
+  spectator.</P>
+  <P><I>Note:</I> If this variable is set to the string <CODE>none</CODE> then 
+  anybody can enter the server as a spectator without a password, this is in 
+  order to allow the usage of <CODE>rcon</CODE> to reset the password.</P>
+  <DT><B><A name=c-status>status</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display server status.</P>
+  <P><I>Note:</I> The status output displays the name of the map currently 
+  running. There is also a list of all clients currently connected to the 
+  server. The first column named <CODE>num</CODE> displays the client's 
+  <I>userid</I> number. The second column named <CODE>score</CODE> displays the 
+  frag count. The third column named <CODE>address</CODE> displays the IP 
+  address of the client. The fourth column named <CODE>name</CODE> displays the 
+  game name of the player. The fifth column named <CODE>ping</CODE> displays the 
+  current ping/latency of the client to the server at the point in time when the 
+  command was executed.</P>
+  <DT><B><A name=c-stop>stop</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Stop the recording of a demo.</P>
+  <DT><B><A name=c-stopsound>stopsound</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Stop any sounds which are currently playing.</P>
+  <P><I>Note:</I> This command is useful if any sounds do not correctly finish 
+  up and end up looping themselves for no reason.</P>
+  <DT><B><A name=c-sv>sv</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>sv</CODE> <VAR>(command)</VAR></P>
+  <P><I>Description:</I> This command can be used as a replacement for the 
+  <CODE>impulse</CODE> command of Quake. With this command you can send commands 
+  directly to the server but only if you do it from rcon or from the server's 
+  console. This is a very useful command for admins who like to hack the game 
+  source and add their own little commands.</P>
+  <P><I>List:</I><BR><CODE>addip</CODE> <VAR>(ip address)</VAR> - Add an IP 
+  address to the banlist.<BR><CODE>listip</CODE> - List the banlist to the 
+  console.<BR><CODE>remove</CODE> <VAR>(ip address)</VAR> - Remove an IP address 
+  to the banlist.<BR><CODE>writeip</CODE> - Write the banlist to the 
+  <CODE>listip.cfg</CODE> file.<BR></P>
+  <DT><B><A name=c-sv_airaccelerate>sv_airaccelerate</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> The maximum additional allowable air acceleration 
+  velocity.</P>
+  <P><I>Note:</I> Normally this variable is set to <CODE>0</CODE> and players 
+  have no control of their velocity when in air. If this variable is increased 
+  then players will be able to control their velocities in mid-air allowing them 
+  more control of their movement. If you wish to make the air control the same 
+  as in Quake and QuakeWorld then you should set this variable to a value of 
+  <CODE>10</CODE>. This variable is ignored for single-player and cooperative 
+  games.</P>
+  <DT><B><A name=c-sv_enforcetime>sv_enforcetime</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the enforcing of time measurements between the 
+  client and the server.</P>
+  <DT><B><A name=c-sv_gravity>sv_gravity</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>800</CODE></P>
+  <P><I>Description:</I> The gravity in the game.</P>
+  <DT><B><A name=c-sv_maplist>sv_maplist</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>sv_maplist "[map 1] [map 2] ... [map n]"</CODE></P>
+  <P><I>Description:</I> The list of maps that the server cycles through.</P>
+  <P><I>Example:</I><BR><CODE>sv_maplist "base3 base1 
+  base2"</CODE><BR><CODE>sv_maplist "base1 biggun q2dm1 boss2 fact1 q2dm2 fact3 
+  hangar1"</CODE><BR></P>
+  <DT><B><A name=c-sv_maxvelocity>sv_maxvelocity</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>2000</CODE></P>
+  <P><I>Description:</I> The maximum velocity for any moving object.</P>
+  <DT><B><A name=c-sv_noreload>sv_noreload</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the reloading of all the game data for every 
+  map.</P>
+  <DT><B><A name=c-sv_reconnect_limit>sv_reconnect_limit</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>3</CODE></P>
+  <P><I>Description:</I> The number of times that a client can reconnect to the 
+  server.</P>
+  <DT><B><A name=c-sv_rollangle>sv_rollangle</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>2</CODE></P>
+  <P><I>Description:</I> *Disabled.</P>
+  <DT><B><A name=c-sv_rollspeed>sv_rollspeed</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>200</CODE></P>
+  <P><I>Description:</I> *Disabled.</P>
+  <DT><B><A name=c-sw_allow_modex>sw_allow_modex</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the use of ModeX video modes.</P>
+  <DT><B><A name=c-sw_clearcolor>sw_clearcolor</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>2</CODE></P>
+  <P><I>Description:</I> The color of areas outside the map.</P>
+  <DT><B><A name=c-sw_drawflat>sw_drawflat</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the removal of textures from walls.</P>
+  <DT><B><A name=c-sw_draworder>sw_draworder</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the order of rendering walls.</P>
+  <DT><B><A name=c-sw_maxedges>sw_maxedges</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>x</CODE></P>
+  <P><I>Description:</I> The maximum number of edges that the game should 
+  handle.</P>
+  <DT><B><A name=c-sw_maxsurfs>sw_maxsurfs</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> The maximum number of surfaces that the game should 
+  handle.</P>
+  <DT><B><A name=c-sw_mipcap>sw_mipcap</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> The dimensions of displayed textures.</P>
+  <P><I>Note:</I> The value of this variable will determine the dimensions of 
+  the textures which are displayed in the game. The displayed textures are 
+  shrunk by the formula <CODE>2^x</CODE> where <CODE>x</CODE> is the value of 
+  this register. Setting this to a value which is larger than zero might provide 
+  performance increases on slow systems.</P>
+  <DT><B><A name=c-sw_mipscale>sw_mipscale</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> The blending level of distant objects.</P>
+  <DT><B><A name=c-sw_mode>sw_mode</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> The software video mode.</P>
+  <P><I>Values:</I><BR><CODE>0</CODE> - 320 x 480<BR><CODE>3</CODE> - 400 x 
+  300<BR><CODE>2</CODE> - 512 x 384<BR><CODE>3</CODE> - 640 x 
+  480<BR><CODE>4</CODE> - 800 x 600<BR><CODE>5</CODE> - 960 x 
+  720<BR><CODE>6</CODE> - 1024 x 768<BR><CODE>7</CODE> - 1152 x 
+  864<BR><CODE>8</CODE> - 1280 x 960<BR><CODE>9</CODE> - 1600 x 1200<BR></P>
+  <DT><B><A name=c-sw_polymodelstats>sw_polymodelstats</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of current number of polygons.</P>
+  <DT><B><A name=c-sw_reportedgeout>sw_reportedgeout</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of the number of edges which could 
+  not be rendered.</P>
+  <DT><B><A name=c-sw_reportsurfout>sw_reportsurfout</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of the number of surfaces which 
+  could not be rendered.</P>
+  <DT><B><A name=c-sw_stipplealpha>sw_stipplealpha</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the alternative display of alpha 
+information.</P>
+  <DT><B><A name=c-sw_surfcacheoverride>sw_surfcacheoverride</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Override the usage of surface cache.</P>
+  <DT><B><A name=c-sw_waterwarp>sw_waterwarp</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> Toggle the warping effects while underwater.</P>
+  <DT><B><A name=c-timedemo>timedemo</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the extrapolation of frames to maintain constant 
+  game speed.</P>
+  <P><I>Note:</I> If this toggle is enabled the game will not extrapolate any 
+  frames to keep the game speed constant. It will play a single frame only once 
+  thus increasing the overall speed of the game. If this toggle is enabled and a 
+  demo is played back the game will report the frames-per-second rate for that 
+  demo. </P>
+  <DT><B><A name=c-timegraph>timegraph</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the display of a time compression graph.</P>
+  <P><I>Note:</I> If this toggle is enabled the time graph will show the 
+  information displaying the compression and expansion of game time to in order 
+  to keep the overall game time constant.</P>
+  <DT><B><A name=c-timelimit>timelimit</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> The number of minutes before switching to the next 
+  level.</P>
+  <DT><B><A name=c-timeout>timeout</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>125</CODE></P>
+  <P><I>Description:</I> The maximum number of seconds before terminating a game 
+  connection.</P>
+  <P><I>Note:</I> If no packets are sent from the client to the server within 
+  that time range the server will disconnect the client from the game.</P>
+  <DT><B><A name=c-timerefresh>timerefresh</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I><BR><CODE>timerefresh</CODE><BR><CODE>timerefresh</CODE> 
+  <VAR>(parameter)</VAR><BR></P>
+  <P><I>Description:</I> Test the frame-per-second rate.</P>
+  <P><I>Note:</I> When the command is used without any parameters the test is 
+  performed normally with the client actually seeing the screen turning the full 
+  360-degrees. If the command is executed with any type of a parameter, a 
+  letter, a number, a character, then the test is performed in memory only 
+  without drawing the output on the screen. This command will calculate the 
+  frame-per-second rate by turning the player 360-degrees and showing exactly 
+  128-frames as fast as possible. The time is then put into the equation "<CODE> 
+  128 / time = fps</CODE>" to achieve the final result.</P>
+  <P><I>Example:</I><BR><CODE>timerefresh</CODE><BR><CODE>timerefresh 
+  1</CODE><BR><CODE>timerefresh foo</CODE><BR></P>
+  <DT><B><A name=c-timescale>timescale</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> The scale at which game time relates to real time.</P>
+  <DT><B><A name=c-togglechat>togglechat</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Bring down the console to allow the player to send chat 
+  messages.</P>
+  <P><I>Note:</I> This command is performs the same identical action as the 
+  <CODE>toggleconsole</CODE> command.</P>
+  <DT><B><A name=c-toggleconsole>toggleconsole</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Bring down the console to allow the player to type in 
+  console commands.</P>
+  <P><I>Note:</I> This command is performs the same identical action as the 
+  <CODE>togglechat</CODE> command.</P>
+  <DT><B><A name=c-unbind>unbind</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>unbind</CODE> <VAR>(key)</VAR></P>
+  <P><I>Description:</I> Remove a binding from a key.</P>
+  <P><I>Note:</I> This command will remove any commands which are bound to key, 
+  in effect making this key functionless. Please consult the <CODE>bind</CODE> 
+  command for a list of all possible key names. Also, consult the 
+  <CODE>bindlist</CODE> command to receive a listing of all currently bound 
+  keys. This command is useful if a key has been bound by accident and it's 
+  function is no longer needed.</P>
+  <P><I>Example:</I><BR><CODE>unbind a</CODE><BR><CODE>unbind 
+  backspace</CODE><BR></P>
+  <DT><B><A name=c-unbindall>unbindall</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Remove the bindings from all keys.</P>
+  <P><I>Note:</I> This command will remove bindings from all the keys except for 
+  the <CODE>escape</CODE> and <CODE>~</CODE> (tilde) keys. Be very careful about 
+  using this command, since you will lose all bindings and functions outside of 
+  the console. Also, this command should be used by people who write scripts to 
+  remove any unwanted bindings before setting up personal bindings.</P>
+  <DT><B><A name=c-use>use</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>use</CODE> <VAR>(item)</VAR></P>
+  <P><I>Description:</I> Use an item.</P>
+  <P><I>Note:</I> This command can be used to setup individual key bindings 
+  which would use items with the press of a key. This command is also used when 
+  using keys to select weapons. Also, this command is able to use the item from 
+  the player's inventory without have the player perselect the item with the 
+  <CODE>invnext</CODE> or <CODE>invprev</CODE> commands.</P>
+  <P><I>List:</I><BR><CODE>bfg10k</CODE> - BFG10K.<BR><CODE>blaster</CODE> - 
+  Blaster.<BR><CODE>chaingun</CODE> - Chaingun.<BR><CODE>environment suit</CODE> 
+  - Environment Suit.<BR><CODE>grapple</CODE> - Grappling Hook (ThreeWave 
+  CTF).<BR><CODE>grenade launcher</CODE> - Grenade 
+  Launcher.<BR><CODE>grenades</CODE> - Hand 
+  Grenades.<BR><CODE>hyperblaster</CODE> - 
+  HyperBlaster.<BR><CODE>invulnerability</CODE> - 
+  Invulnerability.<BR><CODE>machinegun</CODE> - Machinegun.<BR><CODE>power 
+  screen</CODE> - Power Screen.<BR><CODE>power shield</CODE> - Power 
+  Shield.<BR><CODE>quad damage</CODE> - Quad Damage.<BR><CODE>railgun</CODE> - 
+  Railgun.<BR><CODE>rebreather</CODE> - Rebreather.<BR><CODE>rocket 
+  launcher</CODE> - Rocket Launcher.<BR><CODE>shotgun</CODE> - 
+  Shotgun.<BR><CODE>silencer</CODE> - Silencer.<BR><CODE>super shotgun</CODE> - 
+  Super Shotgun.<BR></P>
+  <P><I>Example:</I><BR><CODE>use blaster</CODE><BR><CODE>use quad 
+  damage</CODE><BR></P>
+  <DT><B><A name=c-userinfo>userinfo</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display information about the client.</P>
+  <P><I>Note:</I> This command will display all the personal information about 
+  the client. This command displays all the variables and their values which 
+  have the <CODE>U</CODE> (user) flag set. It is possible to create new 
+  variables which will show up when this executed by turning on the appropriate 
+  flag with the <CODE>set</CODE> command.</P>
+  <DT><B><A name=c-v_centermove>v_centermove</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>0.15</CODE></P>
+  <P><I>Description:</I> The speed at which the screen will automatically 
+  center.</P>
+  <DT><B><A name=c-v_centerspeed>v_centerspeed</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>500</CODE></P>
+  <P><I>Description:</I> The distance traveled before the screen will 
+  automatically center.</P>
+  <DT><B><A name=c-version>version</A></B> 
+  <DD>
+  <P><I>Type:</I> Command Line Parameter</P>
+  <P><I>Default:</I> Current Game Build</P>
+  <P><I>Description:</I> The version of the game.</P>
+  <DT><B><A name=c-vid_front>vid_front</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Switch the display to use the front buffer.</P>
+  <DT><B><A name=c-vid_fullscreen>vid_fullscreen</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle if the video is displayed in full-screen 
+  mode.</P>
+  <DT><B><A name=c-vid_gamma>vid_gamma</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>1</CODE></P>
+  <P><I>Description:</I> The video gamma setting.</P>
+  <DT><B><A name=c-vid_ref>vid_ref</A></B> 
+  <DD>
+  <P><I>Type:</I> String</P>
+  <P><I>Default:</I> <CODE>gl</CODE></P>
+  <P><I>Description:</I> The name of the video renderer driver.</P>
+  <DT><B><A name=c-vid_restart>vid_restart</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Restart the video system.</P>
+  <P><I>Note:</I> This command is used if there is a problem with the video 
+  system or video settings have been changed and need the video system to be 
+  restarted. This command is also used when switching between different video 
+  system <CODE>.dll</CODE> files.</P>
+  <DT><B><A name=c-vid_xpos>vid_xpos</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>3</CODE></P>
+  <P><I>Description:</I> The x-axis position of the game screen on the 
+  desktop.</P>
+  <DT><B><A name=c-vid_ypos>vid_ypos</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>22</CODE></P>
+  <P><I>Description:</I> The y-axis position of the game screen on the 
+  desktop.</P>
+  <DT><B><A name=c-viewpos>viewpos</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Display the current position of the player.</P>
+  <P><I>Note:</I> There are four values which are displayed. The first value is 
+  the x-axis location. The second value is the y-axis location. The third value 
+  is the z-axis location which is the current elevation. The fourth value is the 
+  x-axis angle which the player is facing.</P>
+  <DT><B><A name=c-viewsize>viewsize</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>100</CODE></P>
+  <P><I>Description:</I> The size of the game screen.</P>
+  <DT><B><A name=c-wait>wait</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Wait one game tic.</P>
+  <P><I>Note:</I> This command is mostly used when creating complex sets of 
+  commands and aliases. Some commands cannot be executed in the same game tic, 
+  so this command allows a space in time between executing different commands. 
+  Be warned though, the time of the command varies from system to system based 
+  on the CPU speed. It is a very bad idea to use the command to time things 
+  using human time, and using more than one command in alias is quite unwise. 
+  Remember, the time of the command is different for each system.</P>
+  <DT><B><A name=c-wave>wave</A></B> 
+  <DD>
+  <P><I>Type:</I> Function</P>
+  <P><I>Syntax:</I> <CODE>wave</CODE> <VAR>(number)</VAR></P>
+  <P><I>Description:</I> Make the player character display a hand gesture to 
+  other players on the server.</P>
+  <P><I>Note:</I> This command is best used to make fast and quiet gestures to 
+  other players. It can be used on enemy players to piss them off. It can also 
+  be used with team players to make silent and fast hand gestures to dictate 
+  strategy, kind of like milliary hand signals.</P>
+  <P><I>List:</I><BR><CODE>0</CODE> - Flipoff.<BR><CODE>1</CODE> - 
+  Salute<BR><CODE>2</CODE> - Taunt.<BR><CODE>3</CODE> - Wave.<BR><CODE>4</CODE> 
+  - Point.<BR></P>
+  <P><I>Example:</I> <CODE>wave 2</CODE></P>
+  <DT><B><A name=c-weaplast>weaplast</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Switches to the last weapon that the player had 
+  carried.</P>
+  <P><I>Note:</I> This command will bring up the weapon that was carried right 
+  before the weapon currently being carried. It will not go backwards in the 
+  history of weapons that the player has selected. If it is executed multiple 
+  times, it will toggle between the two last weapons carried.</P>
+  <DT><B><A name=c-weapnext>weapnext</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Switches to the next weapon in the player's 
+  inventory.</P>
+  <P><I>Note:</I> The weapon that the command will switch to is based a 
+  predefined order set by the game. The order of selection is: Blaster, Shotgun, 
+  Super Shotgun, Machinegun, Chaingun, Grenade Launcher, Rocket Launcher, 
+  HyperBlaster, Railgun, BFG10K.</P>
+  <DT><B><A name=c-weapprev>weapprev</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Switches to the previous weapon in the player's 
+  inventory.</P>
+  <P><I>Note:</I> The weapon that the command will switch to is based a 
+  predefined order set by the game. The order of selection is: BFG10K, Railgun, 
+  HyperBlaster, Rocket Launcher, Grenade Launcher, Chaingun, Machinegun, Super 
+  Shotgun, Shotgun, Blaster.</P>
+  <DT><B><A name=c-win_noalttab>win_noalttab</A></B> 
+  <DD>
+  <P><I>Type:</I> Toggle</P>
+  <P><I>Default:</I> <CODE>0</CODE></P>
+  <P><I>Description:</I> Toggle the ability to switch away from the game back to 
+  Windows.</P>
+  <DT><B><A name=c-z_stats>z_stats</A></B> 
+  <DD>
+  <P><I>Type:</I> Operation</P>
+  <P><I>Description:</I> Displays the memory statistics for the Z-buffer in the 
+  game.</P>
+  <DT><B><A name=c-zombietime>zombietime</A></B> 
+  <DD>
+  <P><I>Type:</I> Register</P>
+  <P><I>Default:</I> <CODE>2</CODE></P>
+  <P><I>Description:</I> The amount of time in minutes before a frozen character 
+  is removed from the map.</P></DD></DL>
+<HR>
+
+<H2><A name=h-4>4. Credits and Thanks</A></H2>
+<P>This section identifies all parties to whom due credit or thanks. All the 
+people below deserve full recognition for the work that they did contributing to 
+this document. If I by any chance missed a name please inform me so that I can 
+put it in to give you due credit.</P>
+<DL>
+  <DT><I>You, The Reader</I> 
+  <DD>I would also like to thank all the readers of this document because they 
+  are the ones who ensure that we, the authors, have the strength to go on and 
+  produce our works. How much would our work be worth if nobody would ever read 
+  it or look at it? 
+  <DT><A href="mailto:danielr@ccs.neu.edu">Daniel "Prog" Rinehart</A> 
+  <DD>I would like to thank Prog for his work on the Quake Console Commands 
+  document which was the first one of it's kind. Prog was the first pioneer who 
+  ventured into the depths of the console and dared to document it. 
+  <DT><A href="http://www.idsoftware.com/">id Software</A> 
+  <DD>I would like to thank id Software for making Quake 2 and because of that 
+  game the creation of this document was possible. Their use of the console for 
+  a game was a wonderful idea which has created a whole new way to customize the 
+  game. 
+  <DT><A href="http://www.planetquake.com/">PlanetQuake</A> 
+  <DD>I would like to thank all of the people at PlanetQuake and the PlanetQuake 
+  staff who have given us great support for displaying our work on their site. 
+  They have the #1 Quake site in the whole community and we're proud to be a 
+  part of it. 
+  <DT><A href="mailto:mondain@chtree.com">Mondain</A> 
+  <DD>Thanks to Mondain for noting the definition of the public command. 
+  <DT><A href="mailto:monkey@lor.net">Monkey</A> 
+  <DD>Thanks to Monkey for noting that grenades was missing from the list within 
+  the definition of the use command. 
+  <DT><A href="mailto:mrc@the-link.net">Mr. C</A> 
+  <DD>Thanks to Mr. C for his help with the link command. Mr. C showed me a 
+  demonstration of this command by changing the location of the game maps. 
+  <DT><A href="mailto:dan@xatrix.com">Dan Koppel</A> 
+  <DD>Thanks to Dan of Xatrix Entertainment for his explanation of gl_showtris. 
+  I was not able to get the correct result due to being unsupported in the 3Dfx 
+  version. 
+  <DT><A href="mailto:rune.hansen@idi.ntnu.no">Rune Hansen</A> 
+  <DD>Thanks to Rune for noting the continuous console logging setting of 
+  logfile. Rune searched everywhere for a way that he could monitor his 
+  dedicated server remotely, and came across this setting. 
+  <DT><A href="mailto:leo@ox.compsoc.org.uk">Leo Davidson</A> 
+  <DD>Thanks to Leo for noting the missing Power Shield entry within the use 
+  command in the old document. 
+  <DT><A href="mailto:jeff_dubrule@cognitoy.com">Jeff Dubrule</A> 
+  <DD>Thanks to Jeff for his help with the gl_clear command. 
+  <DT><A href="mailto:netdweller@antisocial.com">NetDweller</A> 
+  <DD>Thanks to NetDweller for all of his proofreading help in the old document. 
+  Not to mention his help with a good number of commands by introducing some of 
+  their definitions and helping me test the others. 
+  <DT><A href="mailto:zenin@m5.sprynet.com">Gnomon</A> 
+  <DD>Thanks to Gnomon for his help defining cl_looptrack, cl_loopcount, and 
+  setenv. Gnomon remembered that Brian Hook defined setenv in his .plan file 
+  near the beginning of the Quake 2 project. 
+  <DT><A href="mailto:boi@accessv.com">bOi</A> 
+  <DD>Thanks to bOi for sending me a capture from Redwood's site about rate and 
+  netgraph (Therefore thanks go to <A 
+  href="http://redwood.stomped.com/">Redwood</A> as well). Though I have 
+  stumbled across this a few times before, I was reminded that I needed to add 
+  more detail to the two commands. 
+  <DT><A href="mailto:moize17@yahoo.com">Moize</A> 
+  <DD>Thanks for finding the missing cells value for the give command. 
+  <DT><A href="mailto:afortelny@hotmail.com">Arno Fortelny</A> 
+  <DD>Thanks for finding out that the gamedir command was missing. 
+  <DT><A href="mailto:btuggle@itis.com">Brian Tuggle</A> 
+  <DD>Thanks for finding out the meaning of the sv command. 
+  <DT><A href="mailto:caedes@captured.com">Pierre-Yves Boulanger</A> 
+  <DD>Thanks for the description of the cmd putaway command and for spelling 
+  error fixes. 
+  <DT><A href="mailto:staylor@cancercare.net">Steve "Rastaf" Taylor</A> 
+  <DD>Thaks for find the missing cells item from the drop command. 
+  <DT><A href="mailto:recoil@xnet.com">Chuck Schmidt</A> 
+  <DD>Because of Chuck's problem with the <CODE>play</CODE> command and the 
+  <CODE>sound/</CODE> directory prefix, I was reminded to mention this little 
+  thing in the document so that others won't have the same problem. 
+  <DT><A href="mailto:mshobe@cyberzone.net">final</A> 
+  <DD>Final's reminded me that I forgot to include the 
+  <CODE>gl_triplebuffer</CODE> command. 
+  <DT><A href="mailto:jspears@usit.net">Jason Spears</A> 
+  <DD>Jason saw the omission for the description of the <CODE>port</CODE> 
+  command. </DD></DL>
+<HR>
+
+<H2><A name=h-5>5. Version Information</A></H2>
+<H3><A name=d-1998-12-03>December 3, 1998</A></H3>
+<UL>
+  <LI>Updated the document due to the Quake 2 v3.20 release. 
+  <LI>Added the <CODE>needpass</CODE> variable. 
+  <LI>Updated the <CODE>logfile</CODE> variable with new settings. </LI></UL>
+<H3><A name=d-1998-11-16>November 16, 1998</A></H3>
+<UL>
+  <LI>Added the <CODE>gl_triplebuffer</CODE> variable that was left out, thanks 
+  to final. 
+  <LI>Added the description to the <CODE>port</CODE> command. Thanks to keen 
+  eyes of Jason Spears who saw the omission. </LI></UL>
+<H3><A name=d-1998-11-06>November 6, 1998</A></H3>
+<UL>
+  <LI>New legal terms for this document. It is now released under the Free 
+  Software Foundation's GNU General Public License Version 2. 
+  <LI>Added a little note about the <CODE>sound/</CODE> directory prefix for the 
+  <CODE>play</CODE> command thanks to Chuck Schmidt. </LI></UL>
+<H3><A name=d-1998-09-29>September 29, 1998</A></H3>
+<UL>
+  <LI>Updated the HTML markup in the document. This should be the last such 
+  update because I think I solved all of the previous problems with HTML and the 
+  correct display of this document. 
+  <LI>Added my email address to the Abstract section. It was been removed long 
+  time ago because of too many emails, and I hope that this isn't the case this 
+  time. 
+  <LI>Updated the HTML 4.0 deceleration to include the URI of the DTD, as stated 
+  in the standard. 
+  <LI>Added the MIME Content-Type and Content-Language fields to explicitly set 
+  the character set encoding and language information. 
+  <LI>Added HTML meta information to each document to include all necessary 
+  header information to help search engines. 
+  <LI>Changed the <I>Modified:</I> field to <I>Last Modified:</I>, and 
+  <I>Location:</I> to <I>Source:</I> to avoid ambiguity. 
+  <LI>Changed the formatting for the lists of commands and parameters from 
+  heading section based formatting into definition list formatting with each 
+  command or parameter being the definition term and the fields being the 
+  definition data. This is the proper way to display this information in HTML 
+  avoiding excessive H3 and BLOCKQUOTE tags which were not being used correctly 
+  in the previous versions of this document. 
+  <LI>Changed the usage of bold and italic stylistic markup in order to 
+  facilitate better display of this document in browsers which do not support 
+  Cascading Style Sheets. 
+  <LI>Updated the document because of Quake 2 v3.19 release. 
+  <LI>Added commands: <CODE>maxspectators</CODE>, <CODE>playerlist</CODE>, 
+  <CODE>spectator</CODE>, <CODE>spectator_password</CODE>, 
+  <CODE>sv_airaccelerate</CODE>, <CODE>sv_maplist</CODE>. 
+  <LI>Updated commands: <CODE>password</CODE>. </LI></UL>
+<H3><A name=d-1998-07-20>July 20, 1998</A></H3>
+<UL>
+  <LI>I have removed my email address from this document because I was getting 
+  unwanted emails. If you want to contact me, go to my web site. </LI></UL>
+<H3><A name=d-1998-07-16>July 16, 1998</A></H3>
+<UL>
+  <LI>Used a spellchecker on this document, after all that time. 
+  <LI>Changed the internal HTML style for indentations and also to space out the 
+  fields for easier reading. 
+  <LI>Added subsection 6.4. Trademarks in the 6. Legal section to take care of 
+  any trademark legalities. 
+  <LI>Added a copyright notice to the Abstract section along with a short 
+  description about this document. 
+  <LI>Added descriptions to commands: <CODE>cmd putaway</CODE>. 
+  <LI>Added Pierre-Yves Boulanger to the Thanks list. 
+  <LI>Added the <CODE>cells</CODE> item to the <CODE>drop</CODE> command, thanks 
+  to Steve "Rastaf" Taylor. 
+  <LI>Added the description to the <CODE>gl_ext_swapinterval</CODE> command. 
+  <LI>Fixed errors in commands: 
+  <CODE>gl_particle_att_*</CODE>,<CODE>noudp</CODE>. 
+  <LI>Fixed the default value for the <CODE>rate</CODE> command. 
+  <LI>Fixed the <CODE>sv</CODE> command listing. 
+  <LI>Removed the Capture the Flag settings from the <CODE>dmflags</CODE> 
+  command. </LI></UL>
+<H3><A name=d-1998-07-03>July 3, 1998</A></H3>
+<UL>
+  <LI>Updated the document because of Quake 2 v3.17 release. 
+  <LI>Added the commands: <CODE>gl_texturealphamode</CODE>, 
+  <CODE>gl_texturesolidmode</CODE>. 
+  <LI>Modified the commands: <CODE>allow_download_*</CODE>, <CODE>bind</CODE>, 
+  <CODE>gl_modulate</CODE>, <CODE>serverrecord</CODE>. </LI></UL>
+<H3><A name=d-1998-06-17>June 17, 1998</A></H3>
+<UL>
+  <LI>Updated the <CODE>nextserver</CODE> variable to show how it's used in 
+  looping demos. </LI></UL>
+<H3><A name=d-1998-06-09>June 9, 1998 </A></H3>
+<UL>
+  <LI>Modified the document because of the site redesign. 
+  <LI>Updated the document because of Quake 2 v3.15. 
+  <LI>Revised parts of the Legal section to enforce stricter standards for the 
+  display and distribution of this document. 
+  <LI>Added descriptions for all of the commands which were previously 
+  unidentified. 
+  <LI>Removed the Unidentified Commands section because all of the commands have 
+  been identified. 
+  <LI>Added the missing <CODE>mailto:</CODE> designations to all of the email 
+  links that were missing them. 
+  <LI>Added the missing <CODE>cells</CODE> item to the <CODE>give</CODE> command 
+  value list thanks to Moize. 
+  <LI>Added the missing <CODE>gamedir</CODE> variable, thanks to <A 
+  href="mailto:afortelny@hotmail.com">Arno Fortelny</A>. 
+  <LI>Added an explanation to the <CODE>sv</CODE> command thanks to <A 
+  href="mailto:btuggle@itis.com">Brian Tuggle</A>. 
+  <LI>Added the value of <CODE>2</CODE> to the <CODE>cl_noskins</CODE> command. 
+  <LI>Added the explanation for the <CODE>serverrecord</CODE> command. 
+  <LI>Added the new commands: <CODE>allow_download_maps</CODE>, 
+  <CODE>allow_download_models</CODE>, <CODE>allow_download_players</CODE>, 
+  <CODE>allow_download_sounds</CODE>, <CODE>cl_vwep</CODE>, 
+  <CODE>download</CODE>, <CODE>filterban</CODE>, <CODE>flood_msgs</CODE>, 
+  <CODE>flood_persecond</CODE>, <CODE>flood_waitdelay</CODE>, 
+  <CODE>gender</CODE>, <CODE>gender_auto</CODE>, 
+  <CODE>gl_ext_compiled_vertex_array</CODE>, <CODE>gl_vertex_arrays</CODE>, 
+  <CODE>sv addip</CODE>, <CODE>sv listip</CODE>, <CODE>sv removeip</CODE>, 
+  <CODE>sv writeip</CODE>. 
+  <LI>Added explanations to the following commands: <CODE>clientport</CODE>, 
+  <LI>Removed the following commands: <CODE>cl_minfps</CODE>, 
+  <CODE>gl_3dfx_no_gamma</CODE>, <CODE>gl_ext_gamma</CODE>, 
+  <CODE>gl_ext_gamma_control</CODE>, <CODE>gl_strings</CODE>. </LI></UL>
+<H3><A name=d-1998-05-23>May 23, 1998</A></H3>
+<UL>
+  <LI>Changed the HTML formatting that was used to display the fields for each 
+  of the console commands. This new style will conserve a lot more space. 
+</LI></UL>
+<H3><A name=d-1998-03-25>March 25, 1998</A></H3>
+<UL>
+  <LI>Made a few stylistic changes and added a couple of fields to the Abstract 
+  section. </LI></UL>
+<H3><A name=d-1998-03-04>March 4, 1998</A></H3>
+<UL>
+  <LI>New commands: <CODE>gl_ext_gamma_control</CODE> and 
+  <CODE>sv_reconnect_limit</CODE>. 
+  <LI>Removed <CODE>clientport</CODE>, <CODE>gl_3dfx_no_gamma</CODE>, 
+  <CODE>gl_ext_gamma</CODE>, <CODE>hostport</CODE>, <CODE>ip</CODE>, 
+  <CODE>ip_clientport</CODE>, <CODE>ip_hostport</CODE>, 
+  <CODE>ipx_clientport</CODE>, <CODE>ipx_hostport</CODE>, and <CODE>port</CODE>. 
+
+  <LI>Revised indexes. 
+  <LI>Revised <CODE>dmflags</CODE> to list new options. </LI></UL>
+<H3><A name=d-1998-02-25>February 25, 1998</A></H3>
+<UL>
+  <LI>New commands: <CODE>invnextp</CODE>, <CODE>invprevp</CODE>, 
+  <CODE>invnextw</CODE>, <CODE>invprevw</CODE>, <CODE>players</CODE>, 
+  <CODE>score</CODE>, <CODE>clientport</CODE>, <CODE>hostport</CODE>, 
+  <CODE>ip</CODE>, <CODE>ip_clientport</CODE>, <CODE>ip_hostport</CODE>, 
+  <CODE>ipx_clientport</CODE>, <CODE>ipx_hostport</CODE>, <CODE>port</CODE>. 
+  <LI>Added definition to <CODE>public</CODE>. 
+  <LI>Revised definition of <CODE>setenv</CODE>. 
+  <LI>Revised index to hold all v3.13 commands and variables. 
+  <LI>Added new commands and variables into list. Some still have undefined 
+  definitions. Will revise later tonight. </LI></UL>
+<H3><A name=d-1998-02-23>February 23, 1998</A></H3>
+<UL>
+  <LI>Removed <CODE>r_dspeeds</CODE> since it was apparently removed from 
+  version 3.12. 
+  <LI>Added the definition of <CODE>gl_shadows</CODE> and removed the entry from 
+  undefined. 
+  <LI>Added the following commands: <CODE>coop</CODE>, 
+  <CODE>gl_3dfx_no_gamma</CODE>, <CODE>gl_particle_att_a</CODE>, 
+  <CODE>gl_particle_att_b</CODE>, <CODE>gl_particle_att_c</CODE>, 
+  <CODE>gl_particle_max_size</CODE>, <CODE>gl_particle_min_size</CODE>, 
+  <CODE>gl_particle_size</CODE>, <CODE>sv</CODE>, and <CODE>weaplast</CODE>. 
+  <LI>Modified default value of <CODE>version</CODE>. </LI></UL>
+<H3><A name=d-1998-03-10>February 10, 1998</A></H3>
+<UL>
+  <LI>Made a few changes to the source here and there to keep things unified. 
+  <LI>Updated Credits and Thanks section. 
+  <LI>Updated <CODE>rate</CODE> and <CODE>netgraph</CODE>. </LI></UL>
+<H3><A name=d-1998-02-09>February 9, 1998</A></H3>
+<UL>
+  <LI>Thanks to Rune Hansen for pointing out that <CODE>logfile</CODE> can 
+  continuously log the console when it is set to "2". 
+  <LI>Mr. C pointed out the very cool usage for the command <CODE>link</CODE>. 
+  You can use it to easily remap the location of the files that the game will 
+  use. </LI></UL>
+<H3><A name=d-1998-02-05>February 5, 1998</A></H3>
+<UL>
+  <LI>Added definition to <CODE>gl_showtris</CODE>. Thanks to Dan Koppel of 
+  Xatrix Entertainment for his explanation of this command. </LI></UL>
+<H3><A name=d-1998-02-02>February 2, 1998</A></H3>
+<UL>
+  <LI>Removed the link to the Location 1 of the document since it doesn't exist 
+  anymore. </LI></UL>
+<H3><A name=d-1998-01-28>January 28, 1998</A></H3>
+<UL>
+  <LI>Merged the Console Commands section with the Console Variables section. 
+  </LI></UL>
+<H3><A name=d-1998-01-27>January 27, 1998</A></H3>
+<UL>
+  <LI>Added the Questions and Corrections sections. 
+  <LI>Added the Credits section and removed the <B>Credits:</B> field. </LI></UL>
+<H3><A name=d-1998-01-26>January 26, 1998</A></H3>
+<UL>
+  <LI>Finished the merger between my old document and Nuitari's document. 
+  <LI>Added the whole Console Variables section. 
+  <LI>Made too many changes to mention, whole new release of the document. 
+</LI></UL>
+<H3><A name=d-1998->January 24, 1998</A></H3>
+<UL>
+  <LI>Added the <CODE>dir</CODE> command which appeared in v3.10. </LI></UL>
+<H3><A name=d-1998-01-19>January 19, 1998</A></H3>
+<UL>
+  <LI>Updated the HTML code in the document. 
+  <LI>Added numbers to the different sections of this document. 
+  <LI>Reversed the definitions of Functions and Operations to comply with the 
+  definitions for programming languages. 
+  <LI>Created a reference link to every command to facilitate the creation of 
+  external index just for the commands. </LI></UL>
+<H3><A name=d-1997-12-29>December 29, 1997</A></H3>
+<UL>
+  <LI>Updated the document because of the Quake 2 v3.08 patch release. 
+  <LI>Updated the <CODE>bind</CODE> command because there are new key names 
+  available to bind the numeric keypad keys independently. </LI></UL>
+<H3><A name=d-1997-12-28>December 28, 1997</A></H3>
+<UL>
+  <LI>Updated the document because of the Quake 2 v3.08 patch release. 
+  <LI>Removed the <CODE>fov</CODE> command. 
+  <LI>Removed the <CODE>packet</CODE> command. 
+  <LI>Added the <CODE>menu_dmoptions</CODE> command. 
+  <LI>Updated the <CODE>set</CODE> command by removing all references to the use 
+  of the <CODE>$variable</CODE> syntax. 
+  <LI>Updated the <CODE>set</CODE> command examples because of a new way of 
+  setting flags for variables which does not require using the <CODE>set</CODE> 
+  command twice. 
+  <LI>Updated the <CODE>cmd baselines</CODE>, <CODE>cmd begin</CODE>, and 
+  <CODE>cmd configstrings</CODE> syntax lines to to remove the second reference 
+  of <VAR>(IP port)</VAR> which was incorrect. 
+  <LI>Updated the status of the <CODE>gameversion</CODE> command because it has 
+  become disabled. 
+  <LI>Updated the <CODE>give</CODE> command to state that the 
+  <VAR>(amount)</VAR> parameter does not work for grenades but does for other 
+  types of ammo. 
+  <LI>Updated the <CODE>gun_model</CODE> command since it has been fixed with 
+  this latest release. 
+  <LI>Updated the <CODE>noclip</CODE> command to add in an extra tips regarding 
+  flying outside and getting the best image. 
+  <LI>Updated the <CODE>setmaster</CODE> command with info about the id Software 
+  Master. </LI></UL>
+<H3><A name=d-1997-12-26>December 26, 1997</A></H3>
+<UL>
+  <LI>The Console Commands section was finished. 
+  <LI>Beta release. </LI></UL>
+<HR>
+
+<H2><A name=h-6>6. Legal</A></H2>
+<H3><A name=h-6.1>6.1. Copyright</A></H3>
+<P>This work is copyrighted pseudonymously by the author under all applicable 
+laws. The author reserves all rights to this work. The copyright statement for 
+this work is "<TT>Copyright 1997, 1998 JakFrost; All Rights Reserved</TT>".</P>
+<H3><A name=h-6.2>6.2. License</A></H3>
+<P>I hereby grant the right to distribute and modify this work according to the 
+<A href="http://www.gnu.org/">Free Software Foundation's</A> <A 
+href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License Version 
+2</A>, which can be accessed from <TT><A 
+href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</A></TT>; 
+or write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, 
+Boston, MA 02111-1307, USA. If you received this work in archive format you 
+should have this license in a file called '<TT>copying.txt</TT>'. Please 
+preserve all authorship and contact information when distributing or modifying 
+this work. All derivative works or works containing parts of this work must be 
+released under the same license or a later version of it.</P>
+<H3><A name=h-6.3>6.3. Trademarks and Servicemarks</A></H3>
+<P>All trademarks and servicemarks used in this work are acknowledged and are 
+the property of their rightful owners.</P>
+<H3><A name=h-6.4>6.4. Warranty Disclaimer</A></H3>
+<P>THIS WORK IS PROVIDED "AS IS" WITHOUT ANY WARRANTY; WITHOUT EVEN THE IMPLIED 
+WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. THE AUTHOR IS 
+NOT LIABLE FOR ANY RESULTS ARRISING FROM THE USE OF THIS WORK. ALL RISKS AND 
+RESULTS THEREOF FALL ON THE USER.</P>
+<P>See the Free Software Foundation's GNU General Public License Version 2 for 
+details.</P>
+
+
+</font>
+
+</body>
+</html>
+
