@@ -1,0 +1,1 @@
+debug\fool join localhost:1111 bot
