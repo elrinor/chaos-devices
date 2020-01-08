@@ -1,0 +1,120 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDDIALOG DIALOGEX 0, 0, 199, 258
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Denoiser Properties"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Output",IDC_STATIC,7,3,185,78
+    CONTROL         "Show source",IDC_SHOWSOURCE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,22,13,57,10
+    CONTROL         "Show frame compensated from next",IDC_SHOWMCNEXT,"Button",BS_AUTORADIOBUTTON,22,25,132,10
+    CONTROL         "Show frame compensated from previous",IDC_SHOWMC,"Button",BS_AUTORADIOBUTTON,22,37,145,10
+    CONTROL         "Show denoised frame",IDC_SHOWDEN,"Button",BS_AUTORADIOBUTTON,22,50,85,10
+    CONTROL         "Draw nothing (for speed test)",IDC_DRAWNOTHING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,64,111,10
+    GROUPBOX        "Motion Estimation Algorithm",IDC_STATIC,7,83,185,43
+    LTEXT           "Performance                                        Quality",IDQUALITYCAP,10,92,173,8
+    CONTROL         "",IDC_QUALITYSLIDER,"msctls_trackbar32",TBS_AUTOTICKS | TBS_TOP,11,101,139,19
+    EDITTEXT        IDC_QUALITY,152,105,36,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDC_QUALITYSPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_HOTTRACK,175,107,11,10
+    GROUPBOX        "Logging",IDC_STATIC,7,173,185,63
+    CONTROL         "Write log file:",IDC_LOGNEED,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,12,184,55,10
+    EDITTEXT        IDC_LOGFILENAME,76,182,112,14,ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "OK",IDOK,37,237,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,105,237,50,14
+    CONTROL         "M. vectors file",IDC_LOG_VECTORS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,202,60,10
+    EDITTEXT        IDC_LOG_VECTORS_FILE,76,199,112,14,ES_AUTOHSCROLL
+    CONTROL         "Read vectors from file (write to it, if unchecked)",IDC_LOG_READ,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,218,168,10
+    GROUPBOX        "Denoising Algorithm",IDC_STATIC,7,129,185,43
+    LTEXT           "Softer                                                 Harder",IDQUALITYCAP2,12,138,173,8
+    CONTROL         "",IDC_STRENGTHSLIDER,"msctls_trackbar32",TBS_AUTOTICKS | TBS_TOP,11,148,139,19
+    EDITTEXT        IDC_STRENGTH,152,152,36,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDC_STRENGTHSPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_HOTTRACK,176,154,11,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 192
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 251
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

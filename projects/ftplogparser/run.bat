@@ -1,0 +1,1 @@
+FTPLogParser -f=ANIME -f=MANGA %*

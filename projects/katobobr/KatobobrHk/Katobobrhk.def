@@ -1,0 +1,5 @@
+LIBRARY "KATOBOBRHK"
+
+EXPORTS
+  InstallHook @1
+  RemoveHook  @2

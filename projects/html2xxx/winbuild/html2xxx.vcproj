@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="9,00"
+	Name="html2xxx"
+	ProjectGUID="{8CEFDD92-9E13-44DB-A9DB-FBC90E5D74BD}"
+	RootNamespace="html2xxx"
+	Keyword="MakeFileProj"
+	TargetFrameworkVersion="196613"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="../bin/$(ConfigurationName)"
+			IntermediateDirectory="../bin/$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="cd ..&#x0D;&#x0A;qmake&#x0D;&#x0A;nmake $(ConfigurationName)"
+				ReBuildCommandLine="cd ..&#x0D;&#x0A;qmake&#x0D;&#x0A;nmake $(ConfigurationName)-clean&#x0D;&#x0A;nmake $(ConfigurationName)"
+				CleanCommandLine="cd ..&#x0D;&#x0A;qmake&#x0D;&#x0A;nmake $(ConfigurationName)-clean"
+				Output="../bin/$(ConfigurationName)/$(ProjectName).exe"
+				PreprocessorDefinitions="WIN32;_DEBUG"
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="../bin/$(ConfigurationName)"
+			IntermediateDirectory="../bin/$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="cd ..&#x0D;&#x0A;qmake&#x0D;&#x0A;nmake $(ConfigurationName)"
+				ReBuildCommandLine="cd ..&#x0D;&#x0A;qmake&#x0D;&#x0A;nmake $(ConfigurationName)-clean&#x0D;&#x0A;nmake $(ConfigurationName)"
+				CleanCommandLine="cd ..&#x0D;&#x0A;qmake&#x0D;&#x0A;nmake $(ConfigurationName)-clean"
+				Output="../bin/$(ConfigurationName)/$(ProjectName).exe"
+				PreprocessorDefinitions="WIN32;NDEBUG"
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="h2x"
+			>
+			<File
+				RelativePath="..\src\h2x\config.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\h2x\Html2Xxx.h"
+				>
+			</File>
+		</Filter>
+		<File
+			RelativePath="..\src\config.h"
+			>
+		</File>
+		<File
+			RelativePath="..\src\html2xxx.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\html2xxx.pro"
+			>
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
